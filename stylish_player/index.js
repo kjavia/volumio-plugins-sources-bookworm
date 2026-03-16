@@ -184,6 +184,18 @@ ControllerStylishPlayer.prototype.stopServer = function () {
   }
 };
 
+// Broadcast config to connected clients ----------------------------------------------------
+
+ControllerStylishPlayer.prototype.broadcastConfig = function () {
+  var self = this;
+  var configData = {
+    playerType: self.config.get("playerType", "albumArt"),
+    port: self.config.get("port", 3339),
+  };
+  self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
+  self.logger.info("Stylish Player: Broadcasted config update: " + JSON.stringify(configData));
+};
+
 // Configuration Methods ----------------------------------------------------------------
 
 ControllerStylishPlayer.prototype.getUIConfig = function () {
@@ -254,6 +266,8 @@ ControllerStylishPlayer.prototype.configSaveDaemon = function (data) {
     self.stopServer();
     self.startServer();
   }
+
+  self.broadcastConfig();
 };
 
 ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
@@ -262,4 +276,6 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
 
   self.config.set("playerType", playerType);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
+
+  self.broadcastConfig();
 };
