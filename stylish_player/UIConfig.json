@@ -1,0 +1,77 @@
+{
+  "page": {
+    "label": "TRANSLATE.PLUGIN_CONFIGURATION"
+  },
+  "sections": [
+    {
+      "id": "section_daemon",
+      "element": "section",
+      "label": "TRANSLATE.DAEMON_SETTINGS",
+      "icon": "fa-cogs",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveDaemon"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["port"]
+      },
+      "content": [
+        {
+          "id": "port",
+          "type": "number",
+          "element": "input",
+          "label": "TRANSLATE.PORT",
+          "doc": "TRANSLATE.PORT_DESC",
+          "value": 3339
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.NOW_PLAYING_URL",
+          "doc": "TRANSLATE.NOW_PLAYING_URL_DESC"
+        }
+      ]
+    },
+    {
+      "id": "section_player_config",
+      "element": "section",
+      "label": "TRANSLATE.PLAYER_CONFIG",
+      "icon": "fa-sliders",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSavePlayerConfig"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["playerType"]
+      },
+      "content": [
+        {
+          "id": "playerType",
+          "element": "select",
+          "label": "TRANSLATE.PLAYER_TYPE",
+          "doc": "TRANSLATE.PLAYER_TYPE_DESC",
+          "value": {
+            "value": "albumArt",
+            "label": "TRANSLATE.PLAYER_TYPE_ALBUM_ART"
+          },
+          "options": [
+            { "value": "albumArt", "label": "TRANSLATE.PLAYER_TYPE_ALBUM_ART" },
+            { "value": "vinyl", "label": "TRANSLATE.PLAYER_TYPE_VINYL" },
+            { "value": "vinylCover", "label": "TRANSLATE.PLAYER_TYPE_VINYL_COVER" },
+            { "value": "cd", "label": "TRANSLATE.PLAYER_TYPE_CD" },
+            { "value": "cdCover", "label": "TRANSLATE.PLAYER_TYPE_CD_COVER" },
+            { "value": "cassette", "label": "TRANSLATE.PLAYER_TYPE_CASSETTE" },
+            { "value": "reelToReel", "label": "TRANSLATE.PLAYER_TYPE_REEL_TO_REEL" },
+            { "value": "radio", "label": "TRANSLATE.PLAYER_TYPE_RADIO" },
+            { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" }
+          ]
+        }
+      ]
+    }
+  ]
+}

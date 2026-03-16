@@ -1,0 +1,21 @@
+{
+  "PLUGIN_CONFIGURATION": "Stylish Player Configuration",
+  "DAEMON_SETTINGS": "Server Settings",
+  "SAVE": "Save",
+  "PORT": "Port",
+  "PORT_DESC": "The port on which the Stylish Player web interface is served.",
+  "NOW_PLAYING_URL": "URL (Read Only)",
+  "NOW_PLAYING_URL_DESC": "The URL to access the Stylish Player interface.",
+  "PLAYER_CONFIG": "Player Configuration",
+  "PLAYER_TYPE": "Player Type",
+  "PLAYER_TYPE_DESC": "Select which player visual is displayed on the left side of the home screen. Long pressing (or double clicking) the player visual will toggle between the different player types. ",
+  "PLAYER_TYPE_ALBUM_ART": "Album Art",
+  "PLAYER_TYPE_VINYL": "Vinyl",
+  "PLAYER_TYPE_VINYL_COVER": "Vinyl Cover",
+  "PLAYER_TYPE_CD": "CD",
+  "PLAYER_TYPE_CD_COVER": "CD Cover",
+  "PLAYER_TYPE_CASSETTE": "Cassette",
+  "PLAYER_TYPE_REEL_TO_REEL": "Reel to Reel",
+  "PLAYER_TYPE_RADIO": "Radio",
+  "PLAYER_TYPE_RANDOM": "Random"
+}

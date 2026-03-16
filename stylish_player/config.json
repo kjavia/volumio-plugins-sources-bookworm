@@ -1,0 +1,10 @@
+{
+  "port": {
+    "type": "number",
+    "value": 3339
+  },
+  "playerType": {
+    "type": "string",
+    "value": "albumArt"
+  }
+}
