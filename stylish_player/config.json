@@ -6,5 +6,21 @@
   "playerType": {
     "type": "string",
     "value": "albumArt"
+  },
+  "latitude": {
+    "type": "string",
+    "value": ""
+  },
+  "longitude": {
+    "type": "string",
+    "value": ""
+  },
+  "weatherApiKey": {
+    "type": "string",
+    "value": ""
+  },
+  "unitSystem": {
+    "type": "string",
+    "value": "metric"
   }
 }

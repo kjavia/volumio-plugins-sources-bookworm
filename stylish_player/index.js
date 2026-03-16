@@ -106,6 +106,10 @@ ControllerStylishPlayer.prototype.startServer = function () {
       var configData = {
         playerType: self.config.get("playerType", "albumArt"),
         port: self.config.get("port", 3339),
+        latitude: self.config.get("latitude", ""),
+        longitude: self.config.get("longitude", ""),
+        weatherApiKey: self.config.get("weatherApiKey", ""),
+        unitSystem: self.config.get("unitSystem", "metric"),
       };
       res.writeHead(200, {
         "Content-Type": "application/json",
@@ -191,6 +195,10 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
   var configData = {
     playerType: self.config.get("playerType", "albumArt"),
     port: self.config.get("port", 3339),
+    latitude: self.config.get("latitude", ""),
+    longitude: self.config.get("longitude", ""),
+    weatherApiKey: self.config.get("weatherApiKey", ""),
+    unitSystem: self.config.get("unitSystem", "metric"),
   };
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
   self.logger.info("Stylish Player: Broadcasted config update: " + JSON.stringify(configData));
@@ -227,6 +235,21 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       });
       if (matchPlayerType) {
         uiconf.sections[1].content[0].value = matchPlayerType;
+      }
+
+      // Populate location section (index 2)
+      uiconf.sections[2].content[0].value = self.config.get("latitude", "");
+      uiconf.sections[2].content[1].value = self.config.get("longitude", "");
+
+      // Populate weather section (index 3)
+      uiconf.sections[3].content[0].value = self.config.get("weatherApiKey", "");
+      var unitSystem = self.config.get("unitSystem", "metric");
+      var unitSystemOptions = uiconf.sections[3].content[1].options;
+      var matchUnitSystem = unitSystemOptions.find(function (opt) {
+        return opt.value === unitSystem;
+      });
+      if (matchUnitSystem) {
+        uiconf.sections[3].content[1].value = matchUnitSystem;
       }
 
       defer.resolve(uiconf);
@@ -276,6 +299,41 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
 
   self.config.set("playerType", playerType);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
+
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveLocation = function (data) {
+  var self = this;
+
+  var latitude = (data["latitude"] || "").toString().trim();
+  var longitude = (data["longitude"] || "").toString().trim();
+
+  if (latitude && (isNaN(parseFloat(latitude)) || parseFloat(latitude) < -90 || parseFloat(latitude) > 90)) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Latitude must be between -90 and 90.");
+    return;
+  }
+  if (longitude && (isNaN(parseFloat(longitude)) || parseFloat(longitude) < -180 || parseFloat(longitude) > 180)) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Longitude must be between -180 and 180.");
+    return;
+  }
+
+  self.config.set("latitude", latitude);
+  self.config.set("longitude", longitude);
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Location saved.");
+
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveWeather = function (data) {
+  var self = this;
+
+  var apiKey = (data["weatherApiKey"] || "").toString().trim();
+  var unitSystem = data["unitSystem"] ? data["unitSystem"].value : "metric";
+
+  self.config.set("weatherApiKey", apiKey);
+  self.config.set("unitSystem", unitSystem);
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Weather settings saved.");
 
   self.broadcastConfig();
 };

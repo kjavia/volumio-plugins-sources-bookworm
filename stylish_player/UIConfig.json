@@ -72,6 +72,78 @@
           ]
         }
       ]
+    },
+    {
+      "id": "section_location",
+      "element": "section",
+      "label": "TRANSLATE.LOCATION",
+      "icon": "fa-map-marker",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveLocation"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["latitude", "longitude"]
+      },
+      "content": [
+        {
+          "id": "latitude",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.LATITUDE",
+          "doc": "TRANSLATE.LATITUDE_DESC",
+          "value": ""
+        },
+        {
+          "id": "longitude",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.LONGITUDE",
+          "doc": "TRANSLATE.LONGITUDE_DESC",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "section_weather",
+      "element": "section",
+      "label": "TRANSLATE.WEATHER",
+      "icon": "fa-cloud",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveWeather"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["weatherApiKey", "unitSystem"]
+      },
+      "content": [
+        {
+          "id": "weatherApiKey",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.WEATHER_API_KEY",
+          "doc": "TRANSLATE.WEATHER_API_KEY_DESC",
+          "value": ""
+        },
+        {
+          "id": "unitSystem",
+          "element": "select",
+          "label": "TRANSLATE.UNIT_SYSTEM",
+          "doc": "TRANSLATE.UNIT_SYSTEM_DESC",
+          "value": {
+            "value": "metric",
+            "label": "TRANSLATE.UNIT_METRIC"
+          },
+          "options": [
+            { "value": "metric", "label": "TRANSLATE.UNIT_METRIC" },
+            { "value": "imperial", "label": "TRANSLATE.UNIT_IMPERIAL" }
+          ]
+        }
+      ]
     }
   ]
 }

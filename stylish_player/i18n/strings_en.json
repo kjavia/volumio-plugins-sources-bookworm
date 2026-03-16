@@ -17,5 +17,17 @@
   "PLAYER_TYPE_CASSETTE": "Cassette",
   "PLAYER_TYPE_REEL_TO_REEL": "Reel to Reel",
   "PLAYER_TYPE_RADIO": "Radio",
-  "PLAYER_TYPE_RANDOM": "Random"
+  "PLAYER_TYPE_RANDOM": "Random",
+  "LOCATION": "Location",
+  "LATITUDE": "Latitude",
+  "LATITUDE_DESC": "Latitude of your location (e.g. 51.5074 for London). Used for weather data.",
+  "LONGITUDE": "Longitude",
+  "LONGITUDE_DESC": "Longitude of your location (e.g. -0.1278 for London). Used for weather data.",
+  "WEATHER": "Weather",
+  "WEATHER_API_KEY": "API Key (Optional)",
+  "WEATHER_API_KEY_DESC": "Open-Meteo API key. The free tier does not require a key. Only needed for commercial plans.",
+  "UNIT_SYSTEM": "Unit System",
+  "UNIT_SYSTEM_DESC": "Metric uses °C and km/h. Imperial uses °F and mph.",
+  "UNIT_METRIC": "Metric (°C, km/h)",
+  "UNIT_IMPERIAL": "Imperial (°F, mph)"
 }
