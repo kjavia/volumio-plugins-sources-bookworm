@@ -29,5 +29,19 @@
   "UNIT_SYSTEM": "Unit System",
   "UNIT_SYSTEM_DESC": "Metric uses °C and km/h. Imperial uses °F and mph.",
   "UNIT_METRIC": "Metric (°C, km/h)",
-  "UNIT_IMPERIAL": "Imperial (°F, mph)"
+  "UNIT_IMPERIAL": "Imperial (°F, mph)",
+  "IDLE_SCREEN": "Idle Screen",
+  "IDLE_SCREEN_TYPE": "Idle Screen Type",
+  "IDLE_SCREEN_TYPE_DESC": "Which screen to display when playback has been idle for the configured timeout.",
+  "IDLE_SCREEN_ANALOG_CLOCK": "Analog Clock",
+  "IDLE_SCREEN_DIGITAL_CLOCK": "Digital Clock",
+  "IDLE_SCREEN_FLIP_CLOCK": "Flip Clock",
+  "IDLE_SCREEN_WEATHER_CURRENT": "Weather (Current)",
+  "IDLE_SCREEN_WEATHER_HOURLY": "Weather (Hourly)",
+  "IDLE_SCREEN_WEATHER_DAILY": "Weather (Daily)",
+  "IDLE_SCREEN_WEATHER_FULL": "Weather (Full)",
+  "IDLE_TIMEOUT": "Idle Timeout (minutes)",
+  "IDLE_TIMEOUT_DESC": "Minutes of inactivity (no music playing) before switching to the idle screen. Set to 0 to disable.",
+  "SHOW_WEATHER_IN_CLOCK": "Show Weather in Clock",
+  "SHOW_WEATHER_IN_CLOCK_DESC": "When a clock is selected as the idle screen, display the current weather on the clock face."
 }

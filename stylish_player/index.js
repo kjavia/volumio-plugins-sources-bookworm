@@ -110,6 +110,9 @@ ControllerStylishPlayer.prototype.startServer = function () {
         longitude: self.config.get("longitude", ""),
         weatherApiKey: self.config.get("weatherApiKey", ""),
         unitSystem: self.config.get("unitSystem", "metric"),
+        idleScreen: self.config.get("idleScreen", "analogClock"),
+        idleTimeout: self.config.get("idleTimeout", 5),
+        showWeatherInClock: self.config.get("showWeatherInClock", true),
       };
       res.writeHead(200, {
         "Content-Type": "application/json",
@@ -199,6 +202,9 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     longitude: self.config.get("longitude", ""),
     weatherApiKey: self.config.get("weatherApiKey", ""),
     unitSystem: self.config.get("unitSystem", "metric"),
+    idleScreen: self.config.get("idleScreen", "analogClock"),
+    idleTimeout: self.config.get("idleTimeout", 5),
+    showWeatherInClock: self.config.get("showWeatherInClock", true),
   };
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
   self.logger.info("Stylish Player: Broadcasted config update: " + JSON.stringify(configData));
@@ -251,6 +257,18 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       if (matchUnitSystem) {
         uiconf.sections[3].content[1].value = matchUnitSystem;
       }
+
+      // Populate idle screen section (index 4)
+      var idleScreen = self.config.get("idleScreen", "analogClock");
+      var idleScreenOptions = uiconf.sections[4].content[0].options;
+      var matchIdleScreen = idleScreenOptions.find(function (opt) {
+        return opt.value === idleScreen;
+      });
+      if (matchIdleScreen) {
+        uiconf.sections[4].content[0].value = matchIdleScreen;
+      }
+      uiconf.sections[4].content[1].value = self.config.get("idleTimeout", 5);
+      uiconf.sections[4].content[2].value = self.config.get("showWeatherInClock", true);
 
       defer.resolve(uiconf);
     })
@@ -334,6 +352,25 @@ ControllerStylishPlayer.prototype.configSaveWeather = function (data) {
   self.config.set("weatherApiKey", apiKey);
   self.config.set("unitSystem", unitSystem);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Weather settings saved.");
+
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveIdleScreen = function (data) {
+  var self = this;
+
+  var idleScreen = data["idleScreen"] ? data["idleScreen"].value : "analogClock";
+  var idleTimeout = parseInt(data["idleTimeout"], 10);
+
+  if (isNaN(idleTimeout) || idleTimeout < 0) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Idle timeout must be 0 or greater.");
+    return;
+  }
+
+  self.config.set("idleScreen", idleScreen);
+  self.config.set("idleTimeout", idleTimeout);
+  self.config.set("showWeatherInClock", data["showWeatherInClock"] !== false);
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Idle screen settings saved.");
 
   self.broadcastConfig();
 };

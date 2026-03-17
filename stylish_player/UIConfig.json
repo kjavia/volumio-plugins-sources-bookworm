@@ -144,6 +144,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "section_idle_screen",
+      "element": "section",
+      "label": "TRANSLATE.IDLE_SCREEN",
+      "icon": "fa-clock-o",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveIdleScreen"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["idleScreen", "idleTimeout", "showWeatherInClock"]
+      },
+      "content": [
+        {
+          "id": "idleScreen",
+          "element": "select",
+          "label": "TRANSLATE.IDLE_SCREEN_TYPE",
+          "doc": "TRANSLATE.IDLE_SCREEN_TYPE_DESC",
+          "value": {
+            "value": "analogClock",
+            "label": "TRANSLATE.IDLE_SCREEN_ANALOG_CLOCK"
+          },
+          "options": [
+            { "value": "analogClock", "label": "TRANSLATE.IDLE_SCREEN_ANALOG_CLOCK" },
+            { "value": "digitalClock", "label": "TRANSLATE.IDLE_SCREEN_DIGITAL_CLOCK" },
+            { "value": "flipClock", "label": "TRANSLATE.IDLE_SCREEN_FLIP_CLOCK" },
+            { "value": "weatherCurrent", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_CURRENT" },
+            { "value": "weatherHourly", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_HOURLY" },
+            { "value": "weatherDaily", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_DAILY" },
+            { "value": "weatherFull", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_FULL" }
+          ]
+        },
+        {
+          "id": "idleTimeout",
+          "type": "number",
+          "element": "input",
+          "label": "TRANSLATE.IDLE_TIMEOUT",
+          "doc": "TRANSLATE.IDLE_TIMEOUT_DESC",
+          "value": 5
+        },
+        {
+          "id": "showWeatherInClock",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.SHOW_WEATHER_IN_CLOCK",
+          "doc": "TRANSLATE.SHOW_WEATHER_IN_CLOCK_DESC",
+          "value": true
+        }
+      ]
     }
   ]
 }

@@ -22,5 +22,17 @@
   "unitSystem": {
     "type": "string",
     "value": "metric"
+  },
+  "idleScreen": {
+    "type": "string",
+    "value": "analogClock"
+  },
+  "idleTimeout": {
+    "type": "number",
+    "value": 5
+  },
+  "showWeatherInClock": {
+    "type": "boolean",
+    "value": true
   }
 }
