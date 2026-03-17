@@ -161,10 +161,12 @@
           "idleScreen",
           "idleTimeout",
           "showWeatherInClock",
+          "unsplashApiKey",
           "wallpaperUrl",
           "wallpaperShowTime",
           "wallpaperShowSeconds",
-          "wallpaperShowWeather"
+          "wallpaperShowWeather",
+          "slideshowInterval"
         ]
       },
       "content": [
