@@ -34,5 +34,29 @@
   "showWeatherInClock": {
     "type": "boolean",
     "value": true
+  },
+  "unsplashApiKey": {
+    "type": "string",
+    "value": ""
+  },
+  "wallpaperUrl": {
+    "type": "string",
+    "value": ""
+  },
+  "wallpaperShowTime": {
+    "type": "boolean",
+    "value": true
+  },
+  "wallpaperShowSeconds": {
+    "type": "boolean",
+    "value": false
+  },
+  "wallpaperShowWeather": {
+    "type": "boolean",
+    "value": true
+  },
+  "slideshowInterval": {
+    "type": "number",
+    "value": 30
   }
 }

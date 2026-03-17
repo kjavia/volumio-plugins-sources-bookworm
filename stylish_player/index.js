@@ -113,6 +113,12 @@ ControllerStylishPlayer.prototype.startServer = function () {
         idleScreen: self.config.get("idleScreen", "analogClock"),
         idleTimeout: self.config.get("idleTimeout", 5),
         showWeatherInClock: self.config.get("showWeatherInClock", true),
+        unsplashApiKey: self.config.get("unsplashApiKey", ""),
+        wallpaperUrl: self.config.get("wallpaperUrl", ""),
+        wallpaperShowTime: self.config.get("wallpaperShowTime", true),
+        wallpaperShowSeconds: self.config.get("wallpaperShowSeconds", false),
+        wallpaperShowWeather: self.config.get("wallpaperShowWeather", true),
+        slideshowInterval: self.config.get("slideshowInterval", 30),
       };
       res.writeHead(200, {
         "Content-Type": "application/json",
@@ -205,6 +211,12 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     idleScreen: self.config.get("idleScreen", "analogClock"),
     idleTimeout: self.config.get("idleTimeout", 5),
     showWeatherInClock: self.config.get("showWeatherInClock", true),
+    unsplashApiKey: self.config.get("unsplashApiKey", ""),
+    wallpaperUrl: self.config.get("wallpaperUrl", ""),
+    wallpaperShowTime: self.config.get("wallpaperShowTime", true),
+    wallpaperShowSeconds: self.config.get("wallpaperShowSeconds", false),
+    wallpaperShowWeather: self.config.get("wallpaperShowWeather", true),
+    slideshowInterval: self.config.get("slideshowInterval", 30),
   };
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
   self.logger.info("Stylish Player: Broadcasted config update: " + JSON.stringify(configData));
@@ -269,6 +281,12 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       }
       uiconf.sections[4].content[1].value = self.config.get("idleTimeout", 5);
       uiconf.sections[4].content[2].value = self.config.get("showWeatherInClock", true);
+      uiconf.sections[4].content[3].value = self.config.get("unsplashApiKey", "");
+      uiconf.sections[4].content[4].value = self.config.get("wallpaperUrl", "");
+      uiconf.sections[4].content[5].value = self.config.get("wallpaperShowTime", true);
+      uiconf.sections[4].content[6].value = self.config.get("wallpaperShowSeconds", false);
+      uiconf.sections[4].content[7].value = self.config.get("wallpaperShowWeather", true);
+      uiconf.sections[4].content[8].value = self.config.get("slideshowInterval", 30);
 
       defer.resolve(uiconf);
     })
@@ -370,6 +388,13 @@ ControllerStylishPlayer.prototype.configSaveIdleScreen = function (data) {
   self.config.set("idleScreen", idleScreen);
   self.config.set("idleTimeout", idleTimeout);
   self.config.set("showWeatherInClock", data["showWeatherInClock"] !== false);
+  self.config.set("unsplashApiKey", (data["unsplashApiKey"] || "").toString().trim());
+  self.config.set("wallpaperUrl", (data["wallpaperUrl"] || "").toString().trim());
+  self.config.set("wallpaperShowTime", data["wallpaperShowTime"] !== false);
+  self.config.set("wallpaperShowSeconds", data["wallpaperShowSeconds"] === true);
+  self.config.set("wallpaperShowWeather", data["wallpaperShowWeather"] !== false);
+  var slideshowInterval = parseInt(data["slideshowInterval"], 10);
+  self.config.set("slideshowInterval", isNaN(slideshowInterval) || slideshowInterval < 5 ? 30 : slideshowInterval);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Idle screen settings saved.");
 
   self.broadcastConfig();

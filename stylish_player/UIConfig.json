@@ -157,7 +157,15 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["idleScreen", "idleTimeout", "showWeatherInClock"]
+        "data": [
+          "idleScreen",
+          "idleTimeout",
+          "showWeatherInClock",
+          "wallpaperUrl",
+          "wallpaperShowTime",
+          "wallpaperShowSeconds",
+          "wallpaperShowWeather"
+        ]
       },
       "content": [
         {
@@ -176,7 +184,8 @@
             { "value": "weatherCurrent", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_CURRENT" },
             { "value": "weatherHourly", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_HOURLY" },
             { "value": "weatherDaily", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_DAILY" },
-            { "value": "weatherFull", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_FULL" }
+            { "value": "weatherFull", "label": "TRANSLATE.IDLE_SCREEN_WEATHER_FULL" },
+            { "value": "wallpaper", "label": "TRANSLATE.IDLE_SCREEN_WALLPAPER" }
           ]
         },
         {
@@ -194,6 +203,54 @@
           "label": "TRANSLATE.SHOW_WEATHER_IN_CLOCK",
           "doc": "TRANSLATE.SHOW_WEATHER_IN_CLOCK_DESC",
           "value": true
+        },
+        {
+          "id": "unsplashApiKey",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.UNSPLASH_API_KEY",
+          "doc": "TRANSLATE.UNSPLASH_API_KEY_DESC",
+          "value": ""
+        },
+        {
+          "id": "wallpaperUrl",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.WALLPAPER_URL",
+          "doc": "TRANSLATE.WALLPAPER_URL_DESC",
+          "value": ""
+        },
+        {
+          "id": "wallpaperShowTime",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.WALLPAPER_SHOW_TIME",
+          "doc": "TRANSLATE.WALLPAPER_SHOW_TIME_DESC",
+          "value": true
+        },
+        {
+          "id": "wallpaperShowSeconds",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.WALLPAPER_SHOW_SECONDS",
+          "doc": "TRANSLATE.WALLPAPER_SHOW_SECONDS_DESC",
+          "value": false
+        },
+        {
+          "id": "wallpaperShowWeather",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.WALLPAPER_SHOW_WEATHER",
+          "doc": "TRANSLATE.WALLPAPER_SHOW_WEATHER_DESC",
+          "value": true
+        },
+        {
+          "id": "slideshowInterval",
+          "type": "number",
+          "element": "input",
+          "label": "TRANSLATE.SLIDESHOW_INTERVAL",
+          "doc": "TRANSLATE.SLIDESHOW_INTERVAL_DESC",
+          "value": 30
         }
       ]
     }
