@@ -68,6 +68,7 @@
             { "value": "cassette", "label": "TRANSLATE.PLAYER_TYPE_CASSETTE" },
             { "value": "reelToReel", "label": "TRANSLATE.PLAYER_TYPE_REEL_TO_REEL" },
             { "value": "radio", "label": "TRANSLATE.PLAYER_TYPE_RADIO" },
+            { "value": "globe", "label": "TRANSLATE.PLAYER_TYPE_GLOBE" },
             { "value": "matchSource", "label": "TRANSLATE.PLAYER_TYPE_MATCH_SOURCE" },
             { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" }
           ]
