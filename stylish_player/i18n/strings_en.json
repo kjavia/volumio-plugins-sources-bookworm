@@ -46,6 +46,8 @@
   "SHOW_WEATHER_IN_CLOCK_DESC": "When a clock is selected as the idle screen, display the current weather on the clock face.",
   "IDLE_SCREEN_WALLPAPER": "Wallpaper",
   "UNSPLASH_API_KEY": "Unsplash API Key",
+  "ANALOG_CLOCK_SHOW_DATE": "Show Date on Analog Clock",
+  "ANALOG_CLOCK_SHOW_DATE_DESC": "Display the current date on the analog clock face. Disable for small screens.",
   "UNSPLASH_API_KEY_DESC": "Your Unsplash API access key. Required when using Unsplash API URLs for wallpapers. Get one at unsplash.com/developers.",
   "WALLPAPER_URL": "Wallpaper URL",
   "WALLPAPER_URL_DESC": "URL of a wallpaper image, or an Unsplash API URL that returns photos. Multiple images will cycle as a slideshow.",
