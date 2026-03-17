@@ -17,6 +17,7 @@
   "PLAYER_TYPE_CASSETTE": "Cassette",
   "PLAYER_TYPE_REEL_TO_REEL": "Reel to Reel",
   "PLAYER_TYPE_RADIO": "Radio",
+  "PLAYER_TYPE_MATCH_SOURCE": "Match Source",
   "PLAYER_TYPE_RANDOM": "Random",
   "LOCATION": "Location",
   "LATITUDE": "Latitude",
