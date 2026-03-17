@@ -161,6 +161,7 @@
           "idleScreen",
           "idleTimeout",
           "showWeatherInClock",
+          "analogClockShowDate",
           "unsplashApiKey",
           "wallpaperUrl",
           "wallpaperShowTime",
@@ -204,6 +205,14 @@
           "element": "switch",
           "label": "TRANSLATE.SHOW_WEATHER_IN_CLOCK",
           "doc": "TRANSLATE.SHOW_WEATHER_IN_CLOCK_DESC",
+          "value": true
+        },
+        {
+          "id": "analogClockShowDate",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.ANALOG_CLOCK_SHOW_DATE",
+          "doc": "TRANSLATE.ANALOG_CLOCK_SHOW_DATE_DESC",
           "value": true
         },
         {
