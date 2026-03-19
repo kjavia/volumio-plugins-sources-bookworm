@@ -105,6 +105,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
     if (urlPath === "/api/config") {
       var configData = {
         playerType: self.config.get("playerType", "albumArt"),
+        startInFullscreen: self.config.get("startInFullscreen", false),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
@@ -204,6 +205,7 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
   var self = this;
   var configData = {
     playerType: self.config.get("playerType", "albumArt"),
+    startInFullscreen: self.config.get("startInFullscreen", false),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -256,6 +258,8 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       if (matchPlayerType) {
         uiconf.sections[1].content[0].value = matchPlayerType;
       }
+      // Populate startInFullscreen toggle
+      uiconf.sections[1].content[1].value = self.config.get("startInFullscreen", false);
 
       // Populate location section (index 2)
       uiconf.sections[2].content[0].value = self.config.get("latitude", "");
@@ -335,8 +339,10 @@ ControllerStylishPlayer.prototype.configSaveDaemon = function (data) {
 ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var self = this;
   var playerType = data["playerType"] ? data["playerType"].value : "albumArt";
+  var startInFullscreen = data["startInFullscreen"] === true;
 
   self.config.set("playerType", playerType);
+  self.config.set("startInFullscreen", startInFullscreen);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
   self.broadcastConfig();
