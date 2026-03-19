@@ -47,7 +47,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType"]
+        "data": ["playerType", "startInFullscreen"]
       },
       "content": [
         {
@@ -72,6 +72,14 @@
             { "value": "matchSource", "label": "TRANSLATE.PLAYER_TYPE_MATCH_SOURCE" },
             { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" }
           ]
+        },
+        {
+          "id": "startInFullscreen",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.START_IN_FULLSCREEN",
+          "doc": "TRANSLATE.START_IN_FULLSCREEN_DESC",
+          "value": false
         }
       ]
     },

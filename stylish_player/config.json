@@ -7,6 +7,10 @@
     "type": "string",
     "value": "albumArt"
   },
+  "startInFullscreen": {
+    "type": "boolean",
+    "value": false
+  },
   "latitude": {
     "type": "string",
     "value": ""

@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Match Source",
   "PLAYER_TYPE_GLOBE": "Globe",
   "PLAYER_TYPE_RANDOM": "Random",
+  "START_IN_FULLSCREEN": "Start in Fullscreen",
+  "START_IN_FULLSCREEN_DESC": "Automatically enter fullscreen mode when the player starts.",
   "LOCATION": "Location",
   "LATITUDE": "Latitude",
   "LATITUDE_DESC": "Latitude of your location (e.g. 51.5074 for London). Used for weather data.",
