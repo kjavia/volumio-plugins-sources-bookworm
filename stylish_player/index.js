@@ -4,6 +4,7 @@ var libQ = require("kew");
 var fs = require("fs-extra");
 var http = require("http");
 var path = require("path");
+var os = require("os");
 
 module.exports = ControllerStylishPlayer;
 
@@ -249,7 +250,22 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       uiconf.sections[0].content[0].value = port;
 
       // Build and populate the app URL
-      var thisDevice = self.commandRouter.sharedVars.get("device_name") || "localhost";
+      var thisDevice;
+      var ifaces = os.networkInterfaces();
+      Object.keys(ifaces).some(function (ifname) {
+        return ifaces[ifname].some(function (iface) {
+          if (("IPv4" === iface.family || "4" === iface.family) && iface.internal === false) {
+            thisDevice = iface.address;
+            return true;
+          }
+          return false;
+        });
+      });
+
+      if (!thisDevice) {
+        thisDevice = self.commandRouter.sharedVars.get("device_name") || "localhost";
+      }
+
       var appUrl = "http://" + thisDevice + ":" + port;
       uiconf.sections[0].content[1].value = appUrl;
 
