@@ -47,7 +47,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType"]
+        "data": ["playerType", "theme"]
       },
       "content": [
         {
@@ -71,6 +71,21 @@
             { "value": "globe", "label": "TRANSLATE.PLAYER_TYPE_GLOBE" },
             { "value": "matchSource", "label": "TRANSLATE.PLAYER_TYPE_MATCH_SOURCE" },
             { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" }
+          ]
+        },
+        {
+          "id": "theme",
+          "element": "select",
+          "label": "TRANSLATE.THEME",
+          "doc": "TRANSLATE.THEME_DESC",
+          "value": {
+            "value": "skeuomorphic",
+            "label": "Skeuomorphic"
+          },
+          "options": [
+            { "value": "skeuomorphic", "label": "Skeuomorphic" },
+            { "value": "metallic", "label": "Metallic" },
+            { "value": "aqua", "label": "Aqua" }
           ]
         }
       ]

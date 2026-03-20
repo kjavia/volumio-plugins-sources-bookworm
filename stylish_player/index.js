@@ -105,6 +105,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
     if (urlPath === "/api/config") {
       var configData = {
         playerType: self.config.get("playerType", "albumArt"),
+        theme: self.config.get("theme", "skeuomorphic"),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
@@ -204,6 +205,7 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
   var self = this;
   var configData = {
     playerType: self.config.get("playerType", "albumArt"),
+    theme: self.config.get("theme", "skeuomorphic"),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -255,6 +257,16 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       });
       if (matchPlayerType) {
         uiconf.sections[1].content[0].value = matchPlayerType;
+      }
+
+      // Populate theme select
+      var theme = self.config.get("theme", "skeuomorphic");
+      var themeOptions = uiconf.sections[1].content[1].options;
+      var matchTheme = themeOptions.find(function (opt) {
+        return opt.value === theme;
+      });
+      if (matchTheme) {
+        uiconf.sections[1].content[1].value = matchTheme;
       }
 
       // Populate location section (index 2)
@@ -335,8 +347,10 @@ ControllerStylishPlayer.prototype.configSaveDaemon = function (data) {
 ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var self = this;
   var playerType = data["playerType"] ? data["playerType"].value : "albumArt";
+  var theme = data["theme"] ? data["theme"].value : "skeuomorphic";
 
   self.config.set("playerType", playerType);
+  self.config.set("theme", theme);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
   self.broadcastConfig();
