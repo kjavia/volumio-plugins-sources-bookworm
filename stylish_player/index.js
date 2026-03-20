@@ -106,9 +106,11 @@ ControllerStylishPlayer.prototype.startServer = function () {
       var configData = {
         playerType: self.config.get("playerType", "albumArt"),
         theme: self.config.get("theme", "skeuomorphic"),
+        showPlayerControls: self.config.get("showPlayerControls", true),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
+
         weatherApiKey: self.config.get("weatherApiKey", ""),
         unitSystem: self.config.get("unitSystem", "metric"),
         idleScreen: self.config.get("idleScreen", "analogClock"),
@@ -206,6 +208,7 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
   var configData = {
     playerType: self.config.get("playerType", "albumArt"),
     theme: self.config.get("theme", "skeuomorphic"),
+    showPlayerControls: self.config.get("showPlayerControls", true),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -268,6 +271,9 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       if (matchTheme) {
         uiconf.sections[1].content[1].value = matchTheme;
       }
+
+      // Populate show player controls
+      uiconf.sections[1].content[2].value = self.config.get("showPlayerControls", true);
 
       // Populate location section (index 2)
       uiconf.sections[2].content[0].value = self.config.get("latitude", "");
@@ -348,9 +354,11 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var self = this;
   var playerType = data["playerType"] ? data["playerType"].value : "albumArt";
   var theme = data["theme"] ? data["theme"].value : "skeuomorphic";
+  var showPlayerControls = data["showPlayerControls"] !== false;
 
   self.config.set("playerType", playerType);
   self.config.set("theme", theme);
+  self.config.set("showPlayerControls", showPlayerControls);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
   self.broadcastConfig();

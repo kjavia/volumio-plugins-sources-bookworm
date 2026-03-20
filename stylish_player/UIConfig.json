@@ -47,7 +47,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme"]
+        "data": ["playerType", "theme", "showPlayerControls"]
       },
       "content": [
         {
@@ -87,6 +87,13 @@
             { "value": "metallic", "label": "Metallic" },
             { "value": "aqua", "label": "Aqua" }
           ]
+        },
+        {
+          "id": "showPlayerControls",
+          "element": "switch",
+          "label": "TRANSLATE.SHOW_PLAYER_CONTROLS",
+          "doc": "TRANSLATE.SHOW_PLAYER_CONTROLS_DESC",
+          "value": true
         }
       ]
     },
