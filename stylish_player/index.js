@@ -267,67 +267,67 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       }
 
       var appUrl = "http://" + thisDevice + ":" + port;
-      uiconf.sections[0].content[1].value = appUrl;
+      uiconf.sections[1].content[0].value = appUrl;
 
       // Populate the "Open App" button with the same URL
-      uiconf.sections[0].content[2].onClick = { type: "openUrl", url: appUrl };
+      uiconf.sections[1].content[1].onClick = { type: "openUrl", url: appUrl };
 
       // Populate player type select
       var playerType = self.config.get("playerType", "albumArt");
-      var playerTypeOptions = uiconf.sections[1].content[0].options;
+      var playerTypeOptions = uiconf.sections[2].content[0].options;
       var matchPlayerType = playerTypeOptions.find(function (opt) {
         return opt.value === playerType;
       });
       if (matchPlayerType) {
-        uiconf.sections[1].content[0].value = matchPlayerType;
+        uiconf.sections[2].content[0].value = matchPlayerType;
       }
 
       // Populate theme select
       var theme = self.config.get("theme", "skeuomorphic");
-      var themeOptions = uiconf.sections[1].content[1].options;
+      var themeOptions = uiconf.sections[2].content[1].options;
       var matchTheme = themeOptions.find(function (opt) {
         return opt.value === theme;
       });
       if (matchTheme) {
-        uiconf.sections[1].content[1].value = matchTheme;
+        uiconf.sections[2].content[1].value = matchTheme;
       }
 
       // Populate show player controls
-      uiconf.sections[1].content[2].value = self.config.get("showPlayerControls", true);
+      uiconf.sections[2].content[2].value = self.config.get("showPlayerControls", true);
 
-      // Populate location section (index 2)
-      uiconf.sections[2].content[0].value = self.config.get("latitude", "");
-      uiconf.sections[2].content[1].value = self.config.get("longitude", "");
+      // Populate location section (index 3)
+      uiconf.sections[3].content[0].value = self.config.get("latitude", "");
+      uiconf.sections[3].content[1].value = self.config.get("longitude", "");
 
-      // Populate weather section (index 3)
-      uiconf.sections[3].content[0].value = self.config.get("weatherApiKey", "");
+      // Populate weather section (index 4)
+      uiconf.sections[4].content[0].value = self.config.get("weatherApiKey", "");
       var unitSystem = self.config.get("unitSystem", "metric");
-      var unitSystemOptions = uiconf.sections[3].content[1].options;
+      var unitSystemOptions = uiconf.sections[4].content[1].options;
       var matchUnitSystem = unitSystemOptions.find(function (opt) {
         return opt.value === unitSystem;
       });
       if (matchUnitSystem) {
-        uiconf.sections[3].content[1].value = matchUnitSystem;
+        uiconf.sections[4].content[1].value = matchUnitSystem;
       }
 
-      // Populate idle screen section (index 4)
+      // Populate idle screen section (index 5)
       var idleScreen = self.config.get("idleScreen", "analogClock");
-      var idleScreenOptions = uiconf.sections[4].content[0].options;
+      var idleScreenOptions = uiconf.sections[5].content[0].options;
       var matchIdleScreen = idleScreenOptions.find(function (opt) {
         return opt.value === idleScreen;
       });
       if (matchIdleScreen) {
-        uiconf.sections[4].content[0].value = matchIdleScreen;
+        uiconf.sections[5].content[0].value = matchIdleScreen;
       }
-      uiconf.sections[4].content[1].value = self.config.get("idleTimeout", 5);
-      uiconf.sections[4].content[2].value = self.config.get("showWeatherInClock", true);
-      uiconf.sections[4].content[3].value = self.config.get("analogClockShowDate", true);
-      uiconf.sections[4].content[4].value = self.config.get("unsplashApiKey", "");
-      uiconf.sections[4].content[5].value = self.config.get("wallpaperUrl", "");
-      uiconf.sections[4].content[6].value = self.config.get("wallpaperShowTime", true);
-      uiconf.sections[4].content[7].value = self.config.get("wallpaperShowSeconds", false);
-      uiconf.sections[4].content[8].value = self.config.get("wallpaperShowWeather", true);
-      uiconf.sections[4].content[9].value = self.config.get("slideshowInterval", 30);
+      uiconf.sections[5].content[1].value = self.config.get("idleTimeout", 5);
+      uiconf.sections[5].content[2].value = self.config.get("showWeatherInClock", true);
+      uiconf.sections[5].content[3].value = self.config.get("analogClockShowDate", true);
+      uiconf.sections[5].content[4].value = self.config.get("unsplashApiKey", "");
+      uiconf.sections[5].content[5].value = self.config.get("wallpaperUrl", "");
+      uiconf.sections[5].content[6].value = self.config.get("wallpaperShowTime", true);
+      uiconf.sections[5].content[7].value = self.config.get("wallpaperShowSeconds", false);
+      uiconf.sections[5].content[8].value = self.config.get("wallpaperShowWeather", true);
+      uiconf.sections[5].content[9].value = self.config.get("slideshowInterval", 30);
 
       defer.resolve(uiconf);
     })

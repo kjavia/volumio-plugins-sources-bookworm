@@ -25,7 +25,15 @@
           "label": "TRANSLATE.PORT",
           "doc": "TRANSLATE.PORT_DESC",
           "value": 3339
-        },
+        }
+      ]
+    },
+    {
+      "id": "section_app_info",
+      "element": "section",
+      "label": "TRANSLATE.OPEN_APP",
+      "icon": "fa-external-link",
+      "content": [
         {
           "id": "url",
           "type": "text",
