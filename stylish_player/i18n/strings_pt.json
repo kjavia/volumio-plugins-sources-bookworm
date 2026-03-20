@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Intervalo da Apresentação (segundos)",
   "SLIDESHOW_INTERVAL_DESC": "Tempo em segundos entre transições de papel de parede quando várias imagens estão disponíveis. Mínimo de 5 segundos.",
   "SHOW_PLAYER_CONTROLS": "Mostrar controles do reprodutor",
-  "SHOW_PLAYER_CONTROLS_DESC": "Quando desativado, os botões do reprodutor são ocultados e a barra de busca torna-se um indicador de progresso somente leitura."
+  "SHOW_PLAYER_CONTROLS_DESC": "Quando desativado, os botões do reprodutor são ocultados e a barra de busca torna-se um indicador de progresso somente leitura.",
+  "OPEN_APP": "Abrir aplicação",
+  "OPEN_APP_DESC": "Abrir a interface do Stylish Player num novo separador."
 }

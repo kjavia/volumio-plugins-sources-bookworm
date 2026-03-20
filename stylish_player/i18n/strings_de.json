@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Diashow-Intervall (Sekunden)",
   "SLIDESHOW_INTERVAL_DESC": "Zeit in Sekunden zwischen Hintergrundbild-Übergängen, wenn mehrere Bilder verfügbar sind. Mindestens 5 Sekunden.",
   "SHOW_PLAYER_CONTROLS": "Steuerelemente anzeigen",
-  "SHOW_PLAYER_CONTROLS_DESC": "Wenn deaktiviert, werden die Tasten des Players ausgeblendet und die Suchleiste wird zu einem schreibgeschützten Fortschrittsbalken."
+  "SHOW_PLAYER_CONTROLS_DESC": "Wenn deaktiviert, werden die Tasten des Players ausgeblendet und die Suchleiste wird zu einem schreibgeschützten Fortschrittsbalken.",
+  "OPEN_APP": "App öffnen",
+  "OPEN_APP_DESC": "Die Stylish Player-Oberfläche in einem neuen Tab öffnen."
 }

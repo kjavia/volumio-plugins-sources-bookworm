@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Diavoorstellingsinterval (seconden)",
   "SLIDESHOW_INTERVAL_DESC": "Tijd in seconden tussen achtergrondovergangen wanneer meerdere afbeeldingen beschikbaar zijn. Minimaal 5 seconden.",
   "SHOW_PLAYER_CONTROLS": "Spelerbesturingen weergeven",
-  "SHOW_PLAYER_CONTROLS_DESC": "Wanneer uitgeschakeld, worden de knoppen van de speler verborgen en wordt de zoekbalk een alleen-lezen voortgangsindicator."
+  "SHOW_PLAYER_CONTROLS_DESC": "Wanneer uitgeschakeld, worden de knoppen van de speler verborgen en wordt de zoekbalk een alleen-lezen voortgangsindicator.",
+  "OPEN_APP": "App openen",
+  "OPEN_APP_DESC": "Open de Stylish Player-interface in een nieuw tabblad."
 }

@@ -32,6 +32,13 @@
           "element": "input",
           "label": "TRANSLATE.NOW_PLAYING_URL",
           "doc": "TRANSLATE.NOW_PLAYING_URL_DESC"
+        },
+        {
+          "id": "openApp",
+          "element": "button",
+          "label": "TRANSLATE.OPEN_APP",
+          "doc": "TRANSLATE.OPEN_APP_DESC",
+          "onClick": { "type": "openUrl", "url": "" }
         }
       ]
     },

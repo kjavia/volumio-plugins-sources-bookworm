@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Khoảng thời gian Trình chiếu (giây)",
   "SLIDESHOW_INTERVAL_DESC": "Thời gian tính bằng giây giữa các chuyển đổi hình nền khi có nhiều hình ảnh. Tối thiểu 5 giây.",
   "SHOW_PLAYER_CONTROLS": "Hiển thị điều khiển trình phát",
-  "SHOW_PLAYER_CONTROLS_DESC": "Khi tắt, các nút trình phát bị ẩn và thanh tìm kiếm trở thành chỉ báo tiến trình chỉ đọc."
+  "SHOW_PLAYER_CONTROLS_DESC": "Khi tắt, các nút trình phát bị ẩn và thanh tìm kiếm trở thành chỉ báo tiến trình chỉ đọc.",
+  "OPEN_APP": "Mở ứng dụng",
+  "OPEN_APP_DESC": "Mở giao diện Stylish Player trong tab mới."
 }

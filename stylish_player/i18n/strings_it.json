@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Intervallo Slideshow (secondi)",
   "SLIDESHOW_INTERVAL_DESC": "Tempo in secondi tra le transizioni dello sfondo quando sono disponibili più immagini. Minimo 5 secondi.",
   "SHOW_PLAYER_CONTROLS": "Mostra controlli del lettore",
-  "SHOW_PLAYER_CONTROLS_DESC": "Quando disabilitato, i pulsanti del lettore sono nascosti e la barra di ricerca diventa un indicatore di avanzamento di sola lettura."
+  "SHOW_PLAYER_CONTROLS_DESC": "Quando disabilitato, i pulsanti del lettore sono nascosti e la barra di ricerca diventa un indicatore di avanzamento di sola lettura.",
+  "OPEN_APP": "Apri app",
+  "OPEN_APP_DESC": "Apri l'interfaccia Stylish Player in una nuova scheda."
 }

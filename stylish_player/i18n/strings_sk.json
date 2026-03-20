@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Interval prezentácie (sekundy)",
   "SLIDESHOW_INTERVAL_DESC": "Čas v sekundách medzi prechodmi tapiet, keď je k dispozícii viacero obrázkov. Minimálne 5 sekúnd.",
   "SHOW_PLAYER_CONTROLS": "Zobraziť ovládacie prvky prehrávača",
-  "SHOW_PLAYER_CONTROLS_DESC": "Keď je zakázané, tlačidlá prehrávača sú skryté a vyhľadávacia lišta sa stane iba indikátorom priebehu."
+  "SHOW_PLAYER_CONTROLS_DESC": "Keď je zakázané, tlačidlá prehrávača sú skryté a vyhľadávacia lišta sa stane iba indikátorom priebehu.",
+  "OPEN_APP": "Otvoriť aplikáciu",
+  "OPEN_APP_DESC": "Otvoriť rozhranie Stylish Player v novej karte."
 }

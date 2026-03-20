@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Slideshow Interval (seconds)",
   "SLIDESHOW_INTERVAL_DESC": "Time in seconds between wallpaper transitions when multiple images are available. Minimum 5 seconds.",
   "SHOW_PLAYER_CONTROLS": "Show Player Controls",
-  "SHOW_PLAYER_CONTROLS_DESC": "When disabled, player buttons are hidden and the seek bar becomes a read-only progress indicator."
+  "SHOW_PLAYER_CONTROLS_DESC": "When disabled, player buttons are hidden and the seek bar becomes a read-only progress indicator.",
+  "OPEN_APP": "Open App",
+  "OPEN_APP_DESC": "Open the Stylish Player interface in a new tab."
 }

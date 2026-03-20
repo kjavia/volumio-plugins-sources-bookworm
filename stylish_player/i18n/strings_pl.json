@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Interwał Pokazu Slajdów (sekundy)",
   "SLIDESHOW_INTERVAL_DESC": "Czas w sekundach między przejściami tapet, gdy dostępnych jest wiele obrazów. Minimum 5 sekund.",
   "SHOW_PLAYER_CONTROLS": "Pokaż elementy sterowania odtwarzaczem",
-  "SHOW_PLAYER_CONTROLS_DESC": "Gdy wyłączone, przyciski odtwarzacza są ukryte, a pasek wyszukiwania staje się wskaźnikiem postępu tylko do odczytu."
+  "SHOW_PLAYER_CONTROLS_DESC": "Gdy wyłączone, przyciski odtwarzacza są ukryte, a pasek wyszukiwania staje się wskaźnikiem postępu tylko do odczytu.",
+  "OPEN_APP": "Otwórz aplikację",
+  "OPEN_APP_DESC": "Otwórz interfejs Stylish Player w nowej karcie."
 }

@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Slideshow-interval (sekunder)",
   "SLIDESHOW_INTERVAL_DESC": "Tid i sekunder mellem baggrundsbilledovergange, når flere billeder er tilgængelige. Minimum 5 sekunder.",
   "SHOW_PLAYER_CONTROLS": "Vis afspillerkontroller",
-  "SHOW_PLAYER_CONTROLS_DESC": "Når deaktiveret, skjules afspillerknapperne, og søgelinjen bliver en skrivebeskyttet fremdriftsindikator."
+  "SHOW_PLAYER_CONTROLS_DESC": "Når deaktiveret, skjules afspillerknapperne, og søgelinjen bliver en skrivebeskyttet fremdriftsindikator.",
+  "OPEN_APP": "Åbn app",
+  "OPEN_APP_DESC": "Åbn Stylish Player-grænsefladen i en ny fane."
 }

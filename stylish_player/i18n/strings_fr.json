@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Intervalle du Diaporama (secondes)",
   "SLIDESHOW_INTERVAL_DESC": "Durée en secondes entre les transitions de fond d'écran lorsque plusieurs images sont disponibles. Minimum 5 secondes.",
   "SHOW_PLAYER_CONTROLS": "Afficher les contrôles du lecteur",
-  "SHOW_PLAYER_CONTROLS_DESC": "Lorsqu'il est désactivé, les boutons du lecteur sont masqués et la barre de progression devient un indicateur de progression en lecture seule."
+  "SHOW_PLAYER_CONTROLS_DESC": "Lorsqu'il est désactivé, les boutons du lecteur sont masqués et la barre de progression devient un indicateur de progression en lecture seule.",
+  "OPEN_APP": "Ouvrir l'application",
+  "OPEN_APP_DESC": "Ouvrir l'interface Stylish Player dans un nouvel onglet."
 }

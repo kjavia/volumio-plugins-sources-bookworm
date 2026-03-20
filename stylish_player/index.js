@@ -250,7 +250,11 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
 
       // Build and populate the app URL
       var thisDevice = self.commandRouter.sharedVars.get("device_name") || "localhost";
-      uiconf.sections[0].content[1].value = "http://" + thisDevice + ":" + port;
+      var appUrl = "http://" + thisDevice + ":" + port;
+      uiconf.sections[0].content[1].value = appUrl;
+
+      // Populate the "Open App" button with the same URL
+      uiconf.sections[0].content[2].onClick = { type: "openUrl", url: appUrl };
 
       // Populate player type select
       var playerType = self.config.get("playerType", "albumArt");

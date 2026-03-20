@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "Slayt Gösterisi Aralığı (saniye)",
   "SLIDESHOW_INTERVAL_DESC": "Birden fazla görüntü mevcut olduğunda duvar kağıdı geçişleri arasındaki saniye cinsinden süre. En az 5 saniye.",
   "SHOW_PLAYER_CONTROLS": "Oynatıcı Kontrollerini Göster",
-  "SHOW_PLAYER_CONTROLS_DESC": "Devre dışı bırakıldığında, oynatıcı düğmeleri gizlenir ve arama çubuğu salt okunur bir ilerleme göstergesine dönüşür."
+  "SHOW_PLAYER_CONTROLS_DESC": "Devre dışı bırakıldığında, oynatıcı düğmeleri gizlenir ve arama çubuğu salt okunur bir ilerleme göstergesine dönüşür.",
+  "OPEN_APP": "Uygulamayı Aç",
+  "OPEN_APP_DESC": "Stylish Player arayüzünü yeni bir sekmede açın."
 }

@@ -62,5 +62,7 @@
   "SLIDESHOW_INTERVAL": "幻灯片间隔（秒）",
   "SLIDESHOW_INTERVAL_DESC": "当有多张图片可用时，壁纸之间的切换时间（秒）。最少 5 秒。",
   "SHOW_PLAYER_CONTROLS": "显示播放控制",
-  "SHOW_PLAYER_CONTROLS_DESC": "禁用后，播放器按钮将被隐藏，进度条将变为只读进度指示器。"
+  "SHOW_PLAYER_CONTROLS_DESC": "禁用后，播放器按钮将被隐藏，进度条将变为只读进度指示器。",
+  "OPEN_APP": "打开应用",
+  "OPEN_APP_DESC": "在新标签页中打开 Stylish Player 界面。"
 }
