@@ -338,6 +338,13 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
   return defer.promise;
 };
 
+ControllerStylishPlayer.prototype.refreshUI = function () {
+  var self = this;
+  self.getUIConfig().then(function (uiconf) {
+    self.commandRouter.broadcastMessage("pushUiConfig", uiconf);
+  });
+};
+
 ControllerStylishPlayer.prototype.getConfigurationFiles = function () {
   return ["config.json"];
 };
@@ -368,6 +375,7 @@ ControllerStylishPlayer.prototype.configSaveDaemon = function (data) {
   }
 
   self.broadcastConfig();
+  self.refreshUI();
 };
 
 ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
