@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Pokaż Pogodę na Tapecie",
   "WALLPAPER_SHOW_WEATHER_DESC": "Wyświetl aktualne warunki pogodowe nałożone na tapetę.",
   "SLIDESHOW_INTERVAL": "Interwał Pokazu Slajdów (sekundy)",
-  "SLIDESHOW_INTERVAL_DESC": "Czas w sekundach między przejściami tapet, gdy dostępnych jest wiele obrazów. Minimum 5 sekund."
+  "SLIDESHOW_INTERVAL_DESC": "Czas w sekundach między przejściami tapet, gdy dostępnych jest wiele obrazów. Minimum 5 sekund.",
+  "SHOW_PLAYER_CONTROLS": "Pokaż elementy sterowania odtwarzaczem",
+  "SHOW_PLAYER_CONTROLS_DESC": "Gdy wyłączone, przyciski odtwarzacza są ukryte, a pasek wyszukiwania staje się wskaźnikiem postępu tylko do odczytu."
 }

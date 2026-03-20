@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Mostrar Clima en Fondo de Pantalla",
   "WALLPAPER_SHOW_WEATHER_DESC": "Mostrar las condiciones climáticas actuales superpuestas en el fondo de pantalla.",
   "SLIDESHOW_INTERVAL": "Intervalo de Presentación (segundos)",
-  "SLIDESHOW_INTERVAL_DESC": "Tiempo en segundos entre transiciones de fondo de pantalla cuando hay múltiples imágenes disponibles. Mínimo 5 segundos."
+  "SLIDESHOW_INTERVAL_DESC": "Tiempo en segundos entre transiciones de fondo de pantalla cuando hay múltiples imágenes disponibles. Mínimo 5 segundos.",
+  "SHOW_PLAYER_CONTROLS": "Mostrar controles del reproductor",
+  "SHOW_PLAYER_CONTROLS_DESC": "Cuando está desactivado, los botones del reproductor se ocultan y la barra de búsqueda se convierte en un indicador de progreso de solo lectura."
 }

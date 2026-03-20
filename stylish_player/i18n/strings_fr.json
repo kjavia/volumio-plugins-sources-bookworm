@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Afficher la Météo sur le Fond d'Écran",
   "WALLPAPER_SHOW_WEATHER_DESC": "Afficher les conditions météorologiques actuelles superposées sur le fond d'écran.",
   "SLIDESHOW_INTERVAL": "Intervalle du Diaporama (secondes)",
-  "SLIDESHOW_INTERVAL_DESC": "Durée en secondes entre les transitions de fond d'écran lorsque plusieurs images sont disponibles. Minimum 5 secondes."
+  "SLIDESHOW_INTERVAL_DESC": "Durée en secondes entre les transitions de fond d'écran lorsque plusieurs images sont disponibles. Minimum 5 secondes.",
+  "SHOW_PLAYER_CONTROLS": "Afficher les contrôles du lecteur",
+  "SHOW_PLAYER_CONTROLS_DESC": "Lorsqu'il est désactivé, les boutons du lecteur sont masqués et la barre de progression devient un indicateur de progression en lecture seule."
 }

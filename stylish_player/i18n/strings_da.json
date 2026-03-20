@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Vis Vejr på Baggrundsbillede",
   "WALLPAPER_SHOW_WEATHER_DESC": "Vis aktuelle vejrforhold oven på baggrundsbilledet.",
   "SLIDESHOW_INTERVAL": "Slideshow-interval (sekunder)",
-  "SLIDESHOW_INTERVAL_DESC": "Tid i sekunder mellem baggrundsbilledovergange, når flere billeder er tilgængelige. Minimum 5 sekunder."
+  "SLIDESHOW_INTERVAL_DESC": "Tid i sekunder mellem baggrundsbilledovergange, når flere billeder er tilgængelige. Minimum 5 sekunder.",
+  "SHOW_PLAYER_CONTROLS": "Vis afspillerkontroller",
+  "SHOW_PLAYER_CONTROLS_DESC": "Når deaktiveret, skjules afspillerknapperne, og søgelinjen bliver en skrivebeskyttet fremdriftsindikator."
 }

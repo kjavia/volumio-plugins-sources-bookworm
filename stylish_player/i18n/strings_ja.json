@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "壁紙に天気を表示",
   "WALLPAPER_SHOW_WEATHER_DESC": "壁紙の上に現在の天気状況をオーバーレイ表示します。",
   "SLIDESHOW_INTERVAL": "スライドショー間隔（秒）",
-  "SLIDESHOW_INTERVAL_DESC": "複数の画像が利用可能な場合の壁紙遷移間の時間（秒）。最小5秒。"
+  "SLIDESHOW_INTERVAL_DESC": "複数の画像が利用可能な場合の壁紙遷移間の時間（秒）。最小5秒。",
+  "SHOW_PLAYER_CONTROLS": "プレイヤーコントロールを表示",
+  "SHOW_PLAYER_CONTROLS_DESC": "無効にすると、プレイヤーボタンが非表示になり、シークバーは読み取り専用の進行状況インジケーターになります。"
 }

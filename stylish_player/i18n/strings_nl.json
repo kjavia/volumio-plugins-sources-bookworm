@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Toon Weer op Achtergrond",
   "WALLPAPER_SHOW_WEATHER_DESC": "Geef de huidige weersomstandigheden weer over de achtergrond.",
   "SLIDESHOW_INTERVAL": "Diavoorstellingsinterval (seconden)",
-  "SLIDESHOW_INTERVAL_DESC": "Tijd in seconden tussen achtergrondovergangen wanneer meerdere afbeeldingen beschikbaar zijn. Minimaal 5 seconden."
+  "SLIDESHOW_INTERVAL_DESC": "Tijd in seconden tussen achtergrondovergangen wanneer meerdere afbeeldingen beschikbaar zijn. Minimaal 5 seconden.",
+  "SHOW_PLAYER_CONTROLS": "Spelerbesturingen weergeven",
+  "SHOW_PLAYER_CONTROLS_DESC": "Wanneer uitgeschakeld, worden de knoppen van de speler verborgen en wordt de zoekbalk een alleen-lezen voortgangsindicator."
 }

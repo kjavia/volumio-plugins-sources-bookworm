@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Duvar Kağıdında Hava Durumunu Göster",
   "WALLPAPER_SHOW_WEATHER_DESC": "Duvar kağıdının üzerinde mevcut hava durumu koşullarını gösterir.",
   "SLIDESHOW_INTERVAL": "Slayt Gösterisi Aralığı (saniye)",
-  "SLIDESHOW_INTERVAL_DESC": "Birden fazla görüntü mevcut olduğunda duvar kağıdı geçişleri arasındaki saniye cinsinden süre. En az 5 saniye."
+  "SLIDESHOW_INTERVAL_DESC": "Birden fazla görüntü mevcut olduğunda duvar kağıdı geçişleri arasındaki saniye cinsinden süre. En az 5 saniye.",
+  "SHOW_PLAYER_CONTROLS": "Oynatıcı Kontrollerini Göster",
+  "SHOW_PLAYER_CONTROLS_DESC": "Devre dışı bırakıldığında, oynatıcı düğmeleri gizlenir ve arama çubuğu salt okunur bir ilerleme göstergesine dönüşür."
 }

@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "在壁纸上显示天气",
   "WALLPAPER_SHOW_WEATHER_DESC": "在壁纸上叠加显示当前天气状况。",
   "SLIDESHOW_INTERVAL": "幻灯片间隔（秒）",
-  "SLIDESHOW_INTERVAL_DESC": "当有多张图片可用时，壁纸之间的切换时间（秒）。最少 5 秒。"
+  "SLIDESHOW_INTERVAL_DESC": "当有多张图片可用时，壁纸之间的切换时间（秒）。最少 5 秒。",
+  "SHOW_PLAYER_CONTROLS": "显示播放控制",
+  "SHOW_PLAYER_CONTROLS_DESC": "禁用后，播放器按钮将被隐藏，进度条将变为只读进度指示器。"
 }

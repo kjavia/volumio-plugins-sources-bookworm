@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "在桌布上顯示天氣",
   "WALLPAPER_SHOW_WEATHER_DESC": "在桌布上疊加顯示目前天氣狀況。",
   "SLIDESHOW_INTERVAL": "投影片間隔（秒）",
-  "SLIDESHOW_INTERVAL_DESC": "當有多張圖片可用時，桌布之間的切換時間（秒）。最少 5 秒。"
+  "SLIDESHOW_INTERVAL_DESC": "當有多張圖片可用時，桌布之間的切換時間（秒）。最少 5 秒。",
+  "SHOW_PLAYER_CONTROLS": "顯示播放控制",
+  "SHOW_PLAYER_CONTROLS_DESC": "停用後，播放器按鈕將被隱藏，進度條將變為唯讀進度指示器。"
 }

@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "배경화면에 날씨 표시",
   "WALLPAPER_SHOW_WEATHER_DESC": "배경화면 위에 현재 날씨 조건을 오버레이로 표시합니다.",
   "SLIDESHOW_INTERVAL": "슬라이드쇼 간격 (초)",
-  "SLIDESHOW_INTERVAL_DESC": "여러 이미지가 사용 가능할 때 배경화면 전환 사이의 시간(초)입니다. 최소 5초."
+  "SLIDESHOW_INTERVAL_DESC": "여러 이미지가 사용 가능할 때 배경화면 전환 사이의 시간(초)입니다. 최소 5초.",
+  "SHOW_PLAYER_CONTROLS": "플레이어 컨트롤 표시",
+  "SHOW_PLAYER_CONTROLS_DESC": "비활성화하면 플레이어 버튼이 숨겨지고 탐색 바가 읽기 전용 진행 표시기가 됩니다."
 }

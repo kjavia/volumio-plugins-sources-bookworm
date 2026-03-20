@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Visa Väder på Bakgrundsbild",
   "WALLPAPER_SHOW_WEATHER_DESC": "Visa aktuella väderförhållanden överlagrade på bakgrundsbilden.",
   "SLIDESHOW_INTERVAL": "Bildspelsintervall (sekunder)",
-  "SLIDESHOW_INTERVAL_DESC": "Tid i sekunder mellan bakgrundsbildsövergångar när flera bilder är tillgängliga. Minst 5 sekunder."
+  "SLIDESHOW_INTERVAL_DESC": "Tid i sekunder mellan bakgrundsbildsövergångar när flera bilder är tillgängliga. Minst 5 sekunder.",
+  "SHOW_PLAYER_CONTROLS": "Visa spelarstyrning",
+  "SHOW_PLAYER_CONTROLS_DESC": "När inaktiverat döljs spelarknapparna och sökfältet blir en skrivskyddad förloppsindikator."
 }

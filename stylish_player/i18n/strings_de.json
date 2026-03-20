@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Wetter auf Hintergrundbild anzeigen",
   "WALLPAPER_SHOW_WEATHER_DESC": "Aktuelle Wetterbedingungen über dem Hintergrundbild anzeigen.",
   "SLIDESHOW_INTERVAL": "Diashow-Intervall (Sekunden)",
-  "SLIDESHOW_INTERVAL_DESC": "Zeit in Sekunden zwischen Hintergrundbild-Übergängen, wenn mehrere Bilder verfügbar sind. Mindestens 5 Sekunden."
+  "SLIDESHOW_INTERVAL_DESC": "Zeit in Sekunden zwischen Hintergrundbild-Übergängen, wenn mehrere Bilder verfügbar sind. Mindestens 5 Sekunden.",
+  "SHOW_PLAYER_CONTROLS": "Steuerelemente anzeigen",
+  "SHOW_PLAYER_CONTROLS_DESC": "Wenn deaktiviert, werden die Tasten des Players ausgeblendet und die Suchleiste wird zu einem schreibgeschützten Fortschrittsbalken."
 }

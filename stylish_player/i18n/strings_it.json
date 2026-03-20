@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Mostra Meteo sullo Sfondo",
   "WALLPAPER_SHOW_WEATHER_DESC": "Visualizza le condizioni meteo correnti sovrapposte allo sfondo.",
   "SLIDESHOW_INTERVAL": "Intervallo Slideshow (secondi)",
-  "SLIDESHOW_INTERVAL_DESC": "Tempo in secondi tra le transizioni dello sfondo quando sono disponibili più immagini. Minimo 5 secondi."
+  "SLIDESHOW_INTERVAL_DESC": "Tempo in secondi tra le transizioni dello sfondo quando sono disponibili più immagini. Minimo 5 secondi.",
+  "SHOW_PLAYER_CONTROLS": "Mostra controlli del lettore",
+  "SHOW_PLAYER_CONTROLS_DESC": "Quando disabilitato, i pulsanti del lettore sono nascosti e la barra di ricerca diventa un indicatore di avanzamento di sola lettura."
 }

@@ -60,5 +60,7 @@
   "WALLPAPER_SHOW_WEATHER": "Zobrazit počasí na tapetě",
   "WALLPAPER_SHOW_WEATHER_DESC": "Zobrazit aktuální povětrnostní podmínky překrývající tapetu.",
   "SLIDESHOW_INTERVAL": "Interval prezentace (sekundy)",
-  "SLIDESHOW_INTERVAL_DESC": "Čas v sekundách mezi přechody tapet, když je k dispozici více obrázků. Minimálně 5 sekund."
+  "SLIDESHOW_INTERVAL_DESC": "Čas v sekundách mezi přechody tapet, když je k dispozici více obrázků. Minimálně 5 sekund.",
+  "SHOW_PLAYER_CONTROLS": "Zobrazit ovládací prvky přehrávače",
+  "SHOW_PLAYER_CONTROLS_DESC": "Pokud je zakázáno, tlačítka přehrávače jsou skryta a panel posunutí se stane pouze indikátorem průběhu."
 }
