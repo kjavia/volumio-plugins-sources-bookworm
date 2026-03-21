@@ -1,6 +1,6 @@
 {
   "name": "stylish_player",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A modern and customizable music player interface for Volumio.",
   "main": "index.js",
   "scripts": {},
@@ -17,12 +17,11 @@
     "details": "A modern and customizable music player interface for Volumio.",
     "changelog": [
       {
-        "version": "1.0.1",
+        "version": "1.0.3",
         "date": "2024-06-01",
         "changes": [
-          "Added option to show/hide player controls in the UI configuration.",
-          "Updated player controls to be hidden when the option is disabled, and made the seek bar read-only in that case.",
-          "Improved responsiveness of the player controls and stream info sections."
+          "Added more VU meter visualization options.",
+          "Improved handling of audio context on iOS for better reliability.",
         ]
       }
     ],
