@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls"]
+        "data": ["playerType", "theme", "showPlayerControls", "vizType"]
       },
       "content": [
         {
@@ -109,6 +109,22 @@
           "label": "TRANSLATE.SHOW_PLAYER_CONTROLS",
           "doc": "TRANSLATE.SHOW_PLAYER_CONTROLS_DESC",
           "value": true
+        },
+        {
+          "id": "vizType",
+          "element": "select",
+          "label": "TRANSLATE.VIZ_TYPE",
+          "doc": "TRANSLATE.VIZ_TYPE_DESC",
+          "value": {
+            "value": "spectrum",
+            "label": "TRANSLATE.VIZ_TYPE_SPECTRUM"
+          },
+          "options": [
+            { "value": "spectrum",  "label": "TRANSLATE.VIZ_TYPE_SPECTRUM" },
+            { "value": "vuMeter1",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_1" },
+            { "value": "vuMeter2",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_2" },
+            { "value": "vuMeter3",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_3" }
+          ]
         }
       ]
     },
