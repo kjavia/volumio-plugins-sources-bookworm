@@ -21,7 +21,7 @@
         "date": "2024-06-01",
         "changes": [
           "Added more VU meter visualization options.",
-          "Improved handling of audio context on iOS for better reliability.",
+          "Improved handling of audio context on iOS for better reliability."
         ]
       }
     ],
