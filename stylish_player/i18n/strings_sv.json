@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Spektrumanalysator",
   "VIZ_TYPE_VU_METER_1": "VU-mätare 1 (Orange)",
   "VIZ_TYPE_VU_METER_2": "VU-mätare 2 (Blå)",
-  "VIZ_TYPE_VU_METER_3": "VU-mätare 3 (Svart)",
+  "VIZ_TYPE_VU_METER_3": "VU-mätare 3 (Gul)",
   "SHOW_PLAYER_CONTROLS": "Visa spelarstyrning",
   "SHOW_PLAYER_CONTROLS_DESC": "När inaktiverat döljs spelarknapparna och sökfältet blir en skrivskyddad förloppsindikator.",
   "OPEN_APP": "Öppna app",
-  "OPEN_APP_DESC": "Öppna Stylish Player-gränssnittet i en ny flik."
+  "OPEN_APP_DESC": "Öppna Stylish Player-gränssnittet i en ny flik.",
+  "VIZ_TYPE_VU_METER_4": "VU-mätare 4 (Svart)"
 }

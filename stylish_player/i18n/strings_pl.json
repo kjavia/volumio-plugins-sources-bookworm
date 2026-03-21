@@ -64,11 +64,12 @@
   "VIZ_TYPE": "Wizualizacja",
   "VIZ_TYPE_DESC": "Wybierz wizualizację wyświetlaną w prawym dolnym panelu ekranu odtwarzacza.",
   "VIZ_TYPE_SPECTRUM": "Analizator widma",
-  "VIZ_TYPE_VU_METER_1": "VU Meter 1 (Pomarańczowy)",
-  "VIZ_TYPE_VU_METER_2": "VU Meter 2 (Niebieski)",
-  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Czarny)",
+  "VIZ_TYPE_VU_METER_1": "Miernik VU 1 (Pomarańczowy)",
+  "VIZ_TYPE_VU_METER_2": "Miernik VU 2 (Niebieski)",
+  "VIZ_TYPE_VU_METER_3": "Miernik VU 3 (Żółty)",
   "SHOW_PLAYER_CONTROLS": "Pokaż elementy sterowania odtwarzaczem",
   "SHOW_PLAYER_CONTROLS_DESC": "Gdy wyłączone, przyciski odtwarzacza są ukryte, a pasek wyszukiwania staje się wskaźnikiem postępu tylko do odczytu.",
   "OPEN_APP": "Otwórz aplikację",
-  "OPEN_APP_DESC": "Otwórz interfejs Stylish Player w nowej karcie."
+  "OPEN_APP_DESC": "Otwórz interfejs Stylish Player w nowej karcie.",
+  "VIZ_TYPE_VU_METER_4": "Miernik VU 4 (Czarny)"
 }

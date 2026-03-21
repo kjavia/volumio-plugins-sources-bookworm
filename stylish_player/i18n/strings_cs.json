@@ -64,11 +64,12 @@
   "VIZ_TYPE": "Vizualizace",
   "VIZ_TYPE_DESC": "Vyberte vizualizaci zobrazenou v pravém dolním panelu obrazovky přehrávače.",
   "VIZ_TYPE_SPECTRUM": "Analyzátor spektra",
-  "VIZ_TYPE_VU_METER_1": "VU Metr 1 (Oranžový)",
-  "VIZ_TYPE_VU_METER_2": "VU Metr 2 (Modrý)",
-  "VIZ_TYPE_VU_METER_3": "VU Metr 3 (Černý)",
+  "VIZ_TYPE_VU_METER_1": "VU Metr 1 (Oranžová)",
+  "VIZ_TYPE_VU_METER_2": "VU Metr 2 (Modrá)",
+  "VIZ_TYPE_VU_METER_3": "VU Metr 3 (Žlutá)",
   "SHOW_PLAYER_CONTROLS": "Zobrazit ovládací prvky přehrávače",
   "SHOW_PLAYER_CONTROLS_DESC": "Pokud je zakázáno, tlačítka přehrávače jsou skryta a panel posunutí se stane pouze indikátorem průběhu.",
   "OPEN_APP": "Otevřít aplikaci",
-  "OPEN_APP_DESC": "Otevřít rozhraní Stylish Player v nové záložce."
+  "OPEN_APP_DESC": "Otevřít rozhraní Stylish Player v nové záložce.",
+  "VIZ_TYPE_VU_METER_4": "VU Metr 4 (Černá)"
 }

@@ -123,7 +123,8 @@
             { "value": "spectrum",  "label": "TRANSLATE.VIZ_TYPE_SPECTRUM" },
             { "value": "vuMeter1",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_1" },
             { "value": "vuMeter2",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_2" },
-            { "value": "vuMeter3",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_3" }
+            { "value": "vuMeter3",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_3" },
+            { "value": "vuMeter4",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_4" }
           ]
         }
       ]

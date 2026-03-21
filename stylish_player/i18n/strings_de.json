@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Spektrumanalysator",
   "VIZ_TYPE_VU_METER_1": "VU-Meter 1 (Orange)",
   "VIZ_TYPE_VU_METER_2": "VU-Meter 2 (Blau)",
-  "VIZ_TYPE_VU_METER_3": "VU-Meter 3 (Schwarz)",
+  "VIZ_TYPE_VU_METER_3": "VU-Meter 3 (Gelb)",
   "SHOW_PLAYER_CONTROLS": "Steuerelemente anzeigen",
   "SHOW_PLAYER_CONTROLS_DESC": "Wenn deaktiviert, werden die Tasten des Players ausgeblendet und die Suchleiste wird zu einem schreibgeschützten Fortschrittsbalken.",
   "OPEN_APP": "App öffnen",
-  "OPEN_APP_DESC": "Die Stylish Player-Oberfläche in einem neuen Tab öffnen."
+  "OPEN_APP_DESC": "Die Stylish Player-Oberfläche in einem neuen Tab öffnen.",
+  "VIZ_TYPE_VU_METER_4": "VU-Meter 4 (Schwarz)"
 }

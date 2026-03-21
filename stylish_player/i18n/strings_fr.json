@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Analyseur de spectre",
   "VIZ_TYPE_VU_METER_1": "VU-mètre 1 (Orange)",
   "VIZ_TYPE_VU_METER_2": "VU-mètre 2 (Bleu)",
-  "VIZ_TYPE_VU_METER_3": "VU-mètre 3 (Noir)",
+  "VIZ_TYPE_VU_METER_3": "VU-mètre 3 (Jaune)",
   "SHOW_PLAYER_CONTROLS": "Afficher les contrôles du lecteur",
   "SHOW_PLAYER_CONTROLS_DESC": "Lorsqu'il est désactivé, les boutons du lecteur sont masqués et la barre de progression devient un indicateur de progression en lecture seule.",
   "OPEN_APP": "Ouvrir l'application",
-  "OPEN_APP_DESC": "Ouvrir l'interface Stylish Player dans un nouvel onglet."
+  "OPEN_APP_DESC": "Ouvrir l'interface Stylish Player dans un nouvel onglet.",
+  "VIZ_TYPE_VU_METER_4": "VU-mètre 4 (Noir)"
 }

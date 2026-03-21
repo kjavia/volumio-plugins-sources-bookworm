@@ -64,11 +64,12 @@
   "VIZ_TYPE": "Οπτικοποίηση",
   "VIZ_TYPE_DESC": "Επιλέξτε την οπτικοποίηση που εμφανίζεται στο κάτω δεξί πάνελ της οθόνης αναπαραγωγής.",
   "VIZ_TYPE_SPECTRUM": "Αναλυτής φάσματος",
-  "VIZ_TYPE_VU_METER_1": "VU Meter 1 (Πορτοκαλί)",
-  "VIZ_TYPE_VU_METER_2": "VU Meter 2 (Μπλε)",
-  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Μαύρο)",
+  "VIZ_TYPE_VU_METER_1": "VU Μετρητής 1 (Πορτοκαλί)",
+  "VIZ_TYPE_VU_METER_2": "VU Μετρητής 2 (Μπλε)",
+  "VIZ_TYPE_VU_METER_3": "VU Μετρητής 3 (Κίτρινο)",
   "SHOW_PLAYER_CONTROLS": "Εμφάνιση ελέγχων αναπαραγωγής",
   "SHOW_PLAYER_CONTROLS_DESC": "Όταν απενεργοποιηθεί, τα κουμπιά αναπαραγωγής αποκρύπτονται και η γραμμή αναζήτησης γίνεται μόνο για ανάγνωση δείκτης προόδου.",
   "OPEN_APP": "Άνοιγμα εφαρμογής",
-  "OPEN_APP_DESC": "Άνοιγμα της διεπαφής Stylish Player σε νέα καρτέλα."
+  "OPEN_APP_DESC": "Άνοιγμα της διεπαφής Stylish Player σε νέα καρτέλα.",
+  "VIZ_TYPE_VU_METER_4": "VU Μετρητής 4 (Μαύρο)"
 }

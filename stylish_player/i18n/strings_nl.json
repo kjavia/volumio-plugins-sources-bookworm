@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Spectrumanalysator",
   "VIZ_TYPE_VU_METER_1": "VU-meter 1 (Oranje)",
   "VIZ_TYPE_VU_METER_2": "VU-meter 2 (Blauw)",
-  "VIZ_TYPE_VU_METER_3": "VU-meter 3 (Zwart)",
+  "VIZ_TYPE_VU_METER_3": "VU-meter 3 (Geel)",
   "SHOW_PLAYER_CONTROLS": "Spelerbesturingen weergeven",
   "SHOW_PLAYER_CONTROLS_DESC": "Wanneer uitgeschakeld, worden de knoppen van de speler verborgen en wordt de zoekbalk een alleen-lezen voortgangsindicator.",
   "OPEN_APP": "App openen",
-  "OPEN_APP_DESC": "Open de Stylish Player-interface in een nieuw tabblad."
+  "OPEN_APP_DESC": "Open de Stylish Player-interface in een nieuw tabblad.",
+  "VIZ_TYPE_VU_METER_4": "VU-meter 4 (Zwart)"
 }

@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Spektrianalysaattori",
   "VIZ_TYPE_VU_METER_1": "VU-mittari 1 (Oranssi)",
   "VIZ_TYPE_VU_METER_2": "VU-mittari 2 (Sininen)",
-  "VIZ_TYPE_VU_METER_3": "VU-mittari 3 (Musta)",
+  "VIZ_TYPE_VU_METER_3": "VU-mittari 3 (Keltainen)",
   "SHOW_PLAYER_CONTROLS": "Näytä soittinohjaimet",
   "SHOW_PLAYER_CONTROLS_DESC": "Kun käytöstä poistettu, soittimen painikkeet piilotetaan ja hakupalkki muuttuu vain luku -tilaiseksi edistymisen ilmaisimeksi.",
   "OPEN_APP": "Avaa sovellus",
-  "OPEN_APP_DESC": "Avaa Stylish Player -käyttöliittymä uudessa välilehdessä."
+  "OPEN_APP_DESC": "Avaa Stylish Player -käyttöliittymä uudessa välilehdessä.",
+  "VIZ_TYPE_VU_METER_4": "VU-mittari 4 (Musta)"
 }

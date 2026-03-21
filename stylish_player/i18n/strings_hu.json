@@ -64,11 +64,12 @@
   "VIZ_TYPE": "Vizualizáció",
   "VIZ_TYPE_DESC": "Válassza ki a lejátszó képernyő jobb alsó paneljén megjelenő vizualizációt.",
   "VIZ_TYPE_SPECTRUM": "Spektrumanalizátor",
-  "VIZ_TYPE_VU_METER_1": "VU-mérő 1 (Narancssárga)",
-  "VIZ_TYPE_VU_METER_2": "VU-mérő 2 (Kék)",
-  "VIZ_TYPE_VU_METER_3": "VU-mérő 3 (Fekete)",
+  "VIZ_TYPE_VU_METER_1": "VU Mérő 1 (Narancssárga)",
+  "VIZ_TYPE_VU_METER_2": "VU Mérő 2 (Kék)",
+  "VIZ_TYPE_VU_METER_3": "VU Mérő 3 (Sárga)",
   "SHOW_PLAYER_CONTROLS": "Lejátszóvezérlők megjelenítése",
   "SHOW_PLAYER_CONTROLS_DESC": "Ha letiltva, a lejátszó gombjai rejtve vannak, és a keresősáv csak olvasható haladásjelzővé válik.",
   "OPEN_APP": "Alkalmazás megnyitása",
-  "OPEN_APP_DESC": "A Stylish Player felület megnyitása új lapon."
+  "OPEN_APP_DESC": "A Stylish Player felület megnyitása új lapon.",
+  "VIZ_TYPE_VU_METER_4": "VU Mérő 4 (Fekete)"
 }

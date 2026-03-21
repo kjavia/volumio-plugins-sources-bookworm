@@ -64,11 +64,12 @@
   "VIZ_TYPE": "Visualisering",
   "VIZ_TYPE_DESC": "Vælg den visualisering, der vises i det nederste højre panel på afspillerskærmen.",
   "VIZ_TYPE_SPECTRUM": "Spektrumanalysator",
-  "VIZ_TYPE_VU_METER_1": "VU-meter 1 (Orange)",
-  "VIZ_TYPE_VU_METER_2": "VU-meter 2 (Blå)",
-  "VIZ_TYPE_VU_METER_3": "VU-meter 3 (Sort)",
+  "VIZ_TYPE_VU_METER_1": "VU Meter 1 (Orange)",
+  "VIZ_TYPE_VU_METER_2": "VU Meter 2 (Blå)",
+  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Gul)",
   "SHOW_PLAYER_CONTROLS": "Vis afspillerkontroller",
   "SHOW_PLAYER_CONTROLS_DESC": "Når deaktiveret, skjules afspillerknapperne, og søgelinjen bliver en skrivebeskyttet fremdriftsindikator.",
   "OPEN_APP": "Åbn app",
-  "OPEN_APP_DESC": "Åbn Stylish Player-grænsefladen i en ny fane."
+  "OPEN_APP_DESC": "Åbn Stylish Player-grænsefladen i en ny fane.",
+  "VIZ_TYPE_VU_METER_4": "VU Meter 4 (Sort)"
 }

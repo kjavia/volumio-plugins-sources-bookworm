@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "頻譜分析儀",
   "VIZ_TYPE_VU_METER_1": "VU表 1 (橙色)",
   "VIZ_TYPE_VU_METER_2": "VU表 2 (藍色)",
-  "VIZ_TYPE_VU_METER_3": "VU表 3 (黑色)",
+  "VIZ_TYPE_VU_METER_3": "VU表 3 (黃色)",
   "SHOW_PLAYER_CONTROLS": "顯示播放控制",
   "SHOW_PLAYER_CONTROLS_DESC": "停用後，播放器按鈕將被隱藏，進度條將變為唯讀進度指示器。",
   "OPEN_APP": "開啟應用程式",
-  "OPEN_APP_DESC": "在新分頁中開啟 Stylish Player 介面。"
+  "OPEN_APP_DESC": "在新分頁中開啟 Stylish Player 介面。",
+  "VIZ_TYPE_VU_METER_4": "VU表 4 (黑色)"
 }

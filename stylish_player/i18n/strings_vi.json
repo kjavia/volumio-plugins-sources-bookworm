@@ -64,11 +64,12 @@
   "VIZ_TYPE": "Trực quan hóa",
   "VIZ_TYPE_DESC": "Chọn trực quan hóa được hiển thị trong bảng dưới cùng bên phải của màn hình phát nhạc.",
   "VIZ_TYPE_SPECTRUM": "Bộ phân tích phổ",
-  "VIZ_TYPE_VU_METER_1": "VU Meter 1 (Cam)",
-  "VIZ_TYPE_VU_METER_2": "VU Meter 2 (Xanh lam)",
-  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Đen)",
+  "VIZ_TYPE_VU_METER_1": "Đồng hồ VU 1 (Cam)",
+  "VIZ_TYPE_VU_METER_2": "Đồng hồ VU 2 (Xanh lam)",
+  "VIZ_TYPE_VU_METER_3": "Đồng hồ VU 3 (Vàng)",
   "SHOW_PLAYER_CONTROLS": "Hiển thị điều khiển trình phát",
   "SHOW_PLAYER_CONTROLS_DESC": "Khi tắt, các nút trình phát bị ẩn và thanh tìm kiếm trở thành chỉ báo tiến trình chỉ đọc.",
   "OPEN_APP": "Mở ứng dụng",
-  "OPEN_APP_DESC": "Mở giao diện Stylish Player trong tab mới."
+  "OPEN_APP_DESC": "Mở giao diện Stylish Player trong tab mới.",
+  "VIZ_TYPE_VU_METER_4": "Đồng hồ VU 4 (Đen)"
 }

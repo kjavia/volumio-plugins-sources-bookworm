@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "スペクトラムアナライザー",
   "VIZ_TYPE_VU_METER_1": "VUメーター 1 (オレンジ)",
   "VIZ_TYPE_VU_METER_2": "VUメーター 2 (ブルー)",
-  "VIZ_TYPE_VU_METER_3": "VUメーター 3 (ブラック)",
+  "VIZ_TYPE_VU_METER_3": "VUメーター 3 (イエロー)",
   "SHOW_PLAYER_CONTROLS": "プレイヤーコントロールを表示",
   "SHOW_PLAYER_CONTROLS_DESC": "無効にすると、プレイヤーボタンが非表示になり、シークバーは読み取り専用の進行状況インジケーターになります。",
   "OPEN_APP": "アプリを開く",
-  "OPEN_APP_DESC": "新しいタブでStylish Playerインターフェースを開きます。"
+  "OPEN_APP_DESC": "新しいタブでStylish Playerインターフェースを開きます。",
+  "VIZ_TYPE_VU_METER_4": "VUメーター 4 (ブラック)"
 }

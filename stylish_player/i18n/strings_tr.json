@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Spektrum Analizörü",
   "VIZ_TYPE_VU_METER_1": "VU Metre 1 (Turuncu)",
   "VIZ_TYPE_VU_METER_2": "VU Metre 2 (Mavi)",
-  "VIZ_TYPE_VU_METER_3": "VU Metre 3 (Siyah)",
+  "VIZ_TYPE_VU_METER_3": "VU Metre 3 (Sarı)",
   "SHOW_PLAYER_CONTROLS": "Oynatıcı Kontrollerini Göster",
   "SHOW_PLAYER_CONTROLS_DESC": "Devre dışı bırakıldığında, oynatıcı düğmeleri gizlenir ve arama çubuğu salt okunur bir ilerleme göstergesine dönüşür.",
   "OPEN_APP": "Uygulamayı Aç",
-  "OPEN_APP_DESC": "Stylish Player arayüzünü yeni bir sekmede açın."
+  "OPEN_APP_DESC": "Stylish Player arayüzünü yeni bir sekmede açın.",
+  "VIZ_TYPE_VU_METER_4": "VU Metre 4 (Siyah)"
 }

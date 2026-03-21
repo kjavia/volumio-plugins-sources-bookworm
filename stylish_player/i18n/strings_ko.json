@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "스펙트럼 분석기",
   "VIZ_TYPE_VU_METER_1": "VU 미터 1 (주황색)",
   "VIZ_TYPE_VU_METER_2": "VU 미터 2 (파란색)",
-  "VIZ_TYPE_VU_METER_3": "VU 미터 3 (검정색)",
+  "VIZ_TYPE_VU_METER_3": "VU 미터 3 (노란색)",
   "SHOW_PLAYER_CONTROLS": "플레이어 컨트롤 표시",
   "SHOW_PLAYER_CONTROLS_DESC": "비활성화하면 플레이어 버튼이 숨겨지고 탐색 바가 읽기 전용 진행 표시기가 됩니다.",
   "OPEN_APP": "앱 열기",
-  "OPEN_APP_DESC": "새 탭에서 Stylish Player 인터페이스를 엽니다."
+  "OPEN_APP_DESC": "새 탭에서 Stylish Player 인터페이스를 엽니다.",
+  "VIZ_TYPE_VU_METER_4": "VU 미터 4 (검은색)"
 }

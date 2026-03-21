@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Analizzatore di spettro",
   "VIZ_TYPE_VU_METER_1": "VU Meter 1 (Arancione)",
   "VIZ_TYPE_VU_METER_2": "VU Meter 2 (Blu)",
-  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Nero)",
+  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Giallo)",
   "SHOW_PLAYER_CONTROLS": "Mostra controlli del lettore",
   "SHOW_PLAYER_CONTROLS_DESC": "Quando disabilitato, i pulsanti del lettore sono nascosti e la barra di ricerca diventa un indicatore di avanzamento di sola lettura.",
   "OPEN_APP": "Apri app",
-  "OPEN_APP_DESC": "Apri l'interfaccia Stylish Player in una nuova scheda."
+  "OPEN_APP_DESC": "Apri l'interfaccia Stylish Player in una nuova scheda.",
+  "VIZ_TYPE_VU_METER_4": "VU Meter 4 (Nero)"
 }

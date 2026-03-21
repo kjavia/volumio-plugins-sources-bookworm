@@ -66,9 +66,10 @@
   "VIZ_TYPE_SPECTRUM": "Analisador de espectro",
   "VIZ_TYPE_VU_METER_1": "VU Meter 1 (Laranja)",
   "VIZ_TYPE_VU_METER_2": "VU Meter 2 (Azul)",
-  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Preto)",
+  "VIZ_TYPE_VU_METER_3": "VU Meter 3 (Amarelo)",
   "SHOW_PLAYER_CONTROLS": "Mostrar controles do reprodutor",
   "SHOW_PLAYER_CONTROLS_DESC": "Quando desativado, os botões do reprodutor são ocultados e a barra de busca torna-se um indicador de progresso somente leitura.",
   "OPEN_APP": "Abrir aplicação",
-  "OPEN_APP_DESC": "Abrir a interface do Stylish Player num novo separador."
+  "OPEN_APP_DESC": "Abrir a interface do Stylish Player num novo separador.",
+  "VIZ_TYPE_VU_METER_4": "VU Meter 4 (Preto)"
 }
