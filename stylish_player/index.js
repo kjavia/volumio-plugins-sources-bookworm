@@ -108,6 +108,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
         playerType: self.config.get("playerType", "albumArt"),
         theme: self.config.get("theme", "skeuomorphic"),
         showPlayerControls: self.config.get("showPlayerControls", true),
+        vizType: self.config.get("vizType", "spectrum"),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
