@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "匹配來源",
   "PLAYER_TYPE_GLOBE": "地球儀",
   "PLAYER_TYPE_RANDOM": "隨機",
+  "THEME": "主題",
+  "THEME_DESC": "選擇不同視覺風格的介面主題。",
   "LOCATION": "位置",
   "LATITUDE": "緯度",
   "LATITUDE_DESC": "您所在位置的緯度（例如台北為 25.0330）。用於天氣資料。. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

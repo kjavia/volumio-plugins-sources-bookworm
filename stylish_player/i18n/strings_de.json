@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Quelle anpassen",
   "PLAYER_TYPE_GLOBE": "Globus",
   "PLAYER_TYPE_RANDOM": "Zufällig",
+  "THEME": "Design",
+  "THEME_DESC": "Wählen Sie das UI-Design für unterschiedliche visuelle Stile.",
   "LOCATION": "Standort",
   "LATITUDE": "Breitengrad",
   "LATITUDE_DESC": "Breitengrad Ihres Standorts (z.B. 52.5200 für Berlin). Wird für Wetterdaten verwendet. Leer lassen, wenn Sie Geolokalisierung verwenden moechten (kann aufgrund von Browser-Berechtigungen zu Problemen fuehren).",

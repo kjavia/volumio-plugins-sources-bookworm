@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "匹配来源",
   "PLAYER_TYPE_GLOBE": "地球仪",
   "PLAYER_TYPE_RANDOM": "随机",
+  "THEME": "主题",
+  "THEME_DESC": "选择不同视觉风格的界面主题。",
   "LOCATION": "位置",
   "LATITUDE": "纬度",
   "LATITUDE_DESC": "您所在位置的纬度（例如北京为 39.9042）。用于天气数据。. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

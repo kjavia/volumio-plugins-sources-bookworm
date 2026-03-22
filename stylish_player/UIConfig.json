@@ -66,6 +66,22 @@
       },
       "content": [
         {
+          "id": "theme",
+          "element": "select",
+          "label": "TRANSLATE.THEME",
+          "doc": "TRANSLATE.THEME_DESC",
+          "value": {
+            "value": "skeuomorphic",
+            "label": "Skeuomorphic"
+          },
+          "options": [
+            { "value": "skeuomorphic", "label": "Skeuomorphic" },
+            { "value": "metallic", "label": "Metallic" },
+            { "value": "aqua", "label": "Aqua" },
+            { "value": "flat", "label": "Flat" }
+          ]
+        },
+        {
           "id": "playerType",
           "element": "select",
           "label": "TRANSLATE.PLAYER_TYPE",
@@ -86,22 +102,6 @@
             { "value": "globe", "label": "TRANSLATE.PLAYER_TYPE_GLOBE" },
             { "value": "matchSource", "label": "TRANSLATE.PLAYER_TYPE_MATCH_SOURCE" },
             { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" }
-          ]
-        },
-        {
-          "id": "theme",
-          "element": "select",
-          "label": "TRANSLATE.THEME",
-          "doc": "TRANSLATE.THEME_DESC",
-          "value": {
-            "value": "skeuomorphic",
-            "label": "Skeuomorphic"
-          },
-          "options": [
-            { "value": "skeuomorphic", "label": "Skeuomorphic" },
-            { "value": "metallic", "label": "Metallic" },
-            { "value": "aqua", "label": "Aqua" },
-            { "value": "flat", "label": "Flat" }
           ]
         },
         {

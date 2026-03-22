@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Correspondre à la Source",
   "PLAYER_TYPE_GLOBE": "Globe",
   "PLAYER_TYPE_RANDOM": "Aléatoire",
+  "THEME": "Thème",
+  "THEME_DESC": "Sélectionnez le thème de l'interface pour différents styles visuels.",
   "LOCATION": "Emplacement",
   "LATITUDE": "Latitude",
   "LATITUDE_DESC": "Latitude de votre emplacement (ex. 48.8566 pour Paris). Utilisé pour les données météorologiques. Laissez vide si vous souhaitez utiliser la geolocalisation (peut causer des problemes en raison des autorisations du navigateur).",

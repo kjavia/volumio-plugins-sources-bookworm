@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "ตรงกับแหล่งที่มา",
   "PLAYER_TYPE_GLOBE": "ลูกโลก",
   "PLAYER_TYPE_RANDOM": "สุ่ม",
+  "THEME": "ธีม",
+  "THEME_DESC": "เลือกธีม UI สำหรับรูปแบบภาพที่แตกต่างกัน",
   "LOCATION": "ตำแหน่งที่อยู่",
   "LATITUDE": "ละติจูด",
   "LATITUDE_DESC": "ละติจูดของตำแหน่งของคุณ (เช่น 13.7563 สำหรับกรุงเทพฯ) ใช้สำหรับข้อมูลสภาพอากาศ. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

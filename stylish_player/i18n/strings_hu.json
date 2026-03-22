@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Forrás szerint",
   "PLAYER_TYPE_GLOBE": "Földgömb",
   "PLAYER_TYPE_RANDOM": "Véletlenszerű",
+  "THEME": "Téma",
+  "THEME_DESC": "Válasszon felhasználói felület témát a különböző vizuális stílusokhoz.",
   "LOCATION": "Helyszín",
   "LATITUDE": "Szélesség",
   "LATITUDE_DESC": "A tartózkodási helyének szélességi foka (pl. 47.4979 Budapest esetén). Időjárási adatokhoz használatos. Hagyja uresen, ha geolokaciot szeretne hasznalni (bongeszo-engedelyek miatt problemakat okozhat).",

@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Khớp với Nguồn",
   "PLAYER_TYPE_GLOBE": "Quả địa cầu",
   "PLAYER_TYPE_RANDOM": "Ngẫu nhiên",
+  "THEME": "Chủ đề",
+  "THEME_DESC": "Chọn chủ đề giao diện cho các phong cách trực quan khác nhau.",
   "LOCATION": "Vị trí",
   "LATITUDE": "Vĩ độ",
   "LATITUDE_DESC": "Vĩ độ của vị trí của bạn (ví dụ: 21.0285 cho Hà Nội). Được sử dụng cho dữ liệu thời tiết. De trong neu ban muon su dung dinh vi dia ly (co the gay ra van de do quyen truy cap trinh duyet).",

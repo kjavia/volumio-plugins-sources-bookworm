@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Pas Bron Aan",
   "PLAYER_TYPE_GLOBE": "Globe",
   "PLAYER_TYPE_RANDOM": "Willekeurig",
+  "THEME": "Thema",
+  "THEME_DESC": "Selecteer het UI-thema voor verschillende visuele stijlen.",
   "LOCATION": "Locatie",
   "LATITUDE": "Breedtegraad",
   "LATITUDE_DESC": "Breedtegraad van uw locatie (bijv. 52.3676 voor Amsterdam). Gebruikt voor weergegevens. Laat leeg als u geolokalisatie wilt gebruiken (kan problemen veroorzaken vanwege browsermachtigingen).",

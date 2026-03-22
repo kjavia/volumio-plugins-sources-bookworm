@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Соответствовать Источнику",
   "PLAYER_TYPE_GLOBE": "Глобус",
   "PLAYER_TYPE_RANDOM": "Случайный",
+  "THEME": "Тема",
+  "THEME_DESC": "Выберите тему интерфейса для различных визуальных стилей.",
   "LOCATION": "Местоположение",
   "LATITUDE": "Широта",
   "LATITUDE_DESC": "Широта вашего местоположения (например, 55.7558 для Москвы). Используется для данных о погоде. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Vastaa lähdettä",
   "PLAYER_TYPE_GLOBE": "Maapallo",
   "PLAYER_TYPE_RANDOM": "Satunnainen",
+  "THEME": "Teema",
+  "THEME_DESC": "Valitse käyttöliittymän teema eri visuaalisille tyyleille.",
   "LOCATION": "Sijainti",
   "LATITUDE": "Leveysaste",
   "LATITUDE_DESC": "Sijaintisi leveysaste (esim. 60.1699 Helsingille). Käytetään säätietoihin. Jata tyhjaksii, jos haluat kayttaa geopaikannusta (voi aiheuttaa ongelmia selaimen kayttooikeuksien vuoksi).",

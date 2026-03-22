@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Kaynağa Uygun",
   "PLAYER_TYPE_GLOBE": "Küre",
   "PLAYER_TYPE_RANDOM": "Rastgele",
+  "THEME": "Tema",
+  "THEME_DESC": "Farklı görsel stiller için kullanıcı arayüzü temasını seçin.",
   "LOCATION": "Konum",
   "LATITUDE": "Enlem",
   "LATITUDE_DESC": "Konumunuzun enlemi (örn. İstanbul için 41.0082). Hava durumu verileri için kullanılır. Cografi konum kullanmak istiyorsaniz bos birakin (tarayici izin sorunlari nedeniyle sorunlara yol acabilir).",

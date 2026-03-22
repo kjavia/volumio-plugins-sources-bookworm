@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Dopasuj Źródło",
   "PLAYER_TYPE_GLOBE": "Globus",
   "PLAYER_TYPE_RANDOM": "Losowy",
+  "THEME": "Motyw",
+  "THEME_DESC": "Wybierz motyw interfejsu dla różnych stylów wizualnych.",
   "LOCATION": "Lokalizacja",
   "LATITUDE": "Szerokość Geograficzna",
   "LATITUDE_DESC": "Szerokość geograficzna Twojej lokalizacji (np. 52.2297 dla Warszawy). Używana do danych pogodowych. Zostaw puste, jesli chcesz uzyc geolokalizacji (moze powodowac problemy z powodu uprawnien przegladarki).",

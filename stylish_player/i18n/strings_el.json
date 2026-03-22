@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Αντιστοίχιση Πηγής",
   "PLAYER_TYPE_GLOBE": "Υδρόγειος",
   "PLAYER_TYPE_RANDOM": "Τυχαίο",
+  "THEME": "Θέμα",
+  "THEME_DESC": "Επιλέξτε θέμα UI για διαφορετικά οπτικά στυλ.",
   "LOCATION": "Τοποθεσία",
   "LATITUDE": "Γεωγραφικό Πλάτος",
   "LATITUDE_DESC": "Το γεωγραφικό πλάτος της τοποθεσίας σας (π.χ. 37.9838 για την Αθήνα). Χρησιμοποιείται για δεδομένα καιρού. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

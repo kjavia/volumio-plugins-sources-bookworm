@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "ソースに合わせる",
   "PLAYER_TYPE_GLOBE": "地球儀",
   "PLAYER_TYPE_RANDOM": "ランダム",
+  "THEME": "テーマ",
+  "THEME_DESC": "異なるビジュアルスタイルのUIテーマを選択します。",
   "LOCATION": "位置情報",
   "LATITUDE": "緯度",
   "LATITUDE_DESC": "あなたの場所の緯度（例：東京の場合35.6762）。天気データに使用されます。. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

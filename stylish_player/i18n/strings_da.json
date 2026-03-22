@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Match Kilde",
   "PLAYER_TYPE_GLOBE": "Globus",
   "PLAYER_TYPE_RANDOM": "Tilfældig",
+  "THEME": "Tema",
+  "THEME_DESC": "Vælg UI-tema for forskellige visuelle stilarter.",
   "LOCATION": "Placering",
   "LATITUDE": "Breddegrad",
   "LATITUDE_DESC": "Breddegraden for din placering (f.eks. 55.6761 for København). Bruges til vejrdata. Lad det vaere tomt, hvis du vil bruge geolokalisering (kan forarsage problemer pga. browsertilladelser).",

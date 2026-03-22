@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Відповідати Джерелу",
   "PLAYER_TYPE_GLOBE": "Глобус",
   "PLAYER_TYPE_RANDOM": "Випадковий",
+  "THEME": "Тема",
+  "THEME_DESC": "Оберіть тему інтерфейсу для різних візуальних стилів.",
   "LOCATION": "Місцезнаходження",
   "LATITUDE": "Широта",
   "LATITUDE_DESC": "Широта вашого місцезнаходження (наприклад, 50.4501 для Києва). Використовується для даних про погоду. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

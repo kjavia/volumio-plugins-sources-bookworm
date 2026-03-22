@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Přizpůsobit zdroji",
   "PLAYER_TYPE_GLOBE": "Glóbus",
   "PLAYER_TYPE_RANDOM": "Náhodný",
+  "THEME": "Téma",
+  "THEME_DESC": "Vyberte téma uživatelského rozhraní pro různé vizuální styly.",
   "LOCATION": "Poloha",
   "LATITUDE": "Zeměpisná šířka",
   "LATITUDE_DESC": "Zeměpisná šířka vaší polohy (např. 50.0755 pro Prahu). Používá se pro údaje o počasí. Nechte prazdne, pokud chcete pouzit geolokaci (muze zpusobit problemy kvuli opravnenim prohlizece).",

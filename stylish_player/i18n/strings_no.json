@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Match kilde",
   "PLAYER_TYPE_GLOBE": "Globus",
   "PLAYER_TYPE_RANDOM": "Tilfeldig",
+  "THEME": "Tema",
+  "THEME_DESC": "Velg UI-tema for ulike visuelle stiler.",
   "LOCATION": "Plassering",
   "LATITUDE": "Breddegrad",
   "LATITUDE_DESC": "Breddegraden for plasseringen din (f.eks. 59.9139 for Oslo). Brukes til værdata. La sta tomt hvis du vil bruke geolokalisering (kan forarsake problemer pga. nettlesertillatelser).",

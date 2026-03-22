@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Abbina Sorgente",
   "PLAYER_TYPE_GLOBE": "Globo",
   "PLAYER_TYPE_RANDOM": "Casuale",
+  "THEME": "Tema",
+  "THEME_DESC": "Seleziona il tema dell'interfaccia per diversi stili visivi.",
   "LOCATION": "Posizione",
   "LATITUDE": "Latitudine",
   "LATITUDE_DESC": "Latitudine della tua posizione (es. 41.9028 per Roma). Utilizzato per i dati meteo. Lasciare vuoto per usare la geolocalizzazione (potrebbe causare problemi per i permessi del browser).",

@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Match Source",
   "PLAYER_TYPE_GLOBE": "Globe",
   "PLAYER_TYPE_RANDOM": "Random",
+  "THEME": "Theme",
+  "THEME_DESC": "Select the UI theme for different visual styles.",
   "LOCATION": "Location",
   "LATITUDE": "Latitude",
   "LATITUDE_DESC": "Latitude of your location (e.g. 51.5074 for London). Used for weather data. Leave empty if you want to use geolocation (may cause issues due to browser permission issues).",

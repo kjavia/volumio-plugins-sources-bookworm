@@ -20,6 +20,8 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Matcha Källa",
   "PLAYER_TYPE_GLOBE": "Glob",
   "PLAYER_TYPE_RANDOM": "Slumpmässig",
+  "THEME": "Tema",
+  "THEME_DESC": "Välj UI-tema för olika visuella stilar.",
   "LOCATION": "Plats",
   "LATITUDE": "Latitud",
   "LATITUDE_DESC": "Latituden för din plats (t.ex. 59.3293 för Stockholm). Används för väderdata. Lamna tomt om du vill anvanda geolokalisering (kan orsaka problem pga. webblasarbehorigheterna).",
