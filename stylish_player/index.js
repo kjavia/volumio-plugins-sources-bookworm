@@ -4,6 +4,7 @@ var libQ = require("kew");
 var fs = require("fs-extra");
 var http = require("http");
 var path = require("path");
+var os = require("os");
 
 module.exports = ControllerStylishPlayer;
 
@@ -105,9 +106,13 @@ ControllerStylishPlayer.prototype.startServer = function () {
     if (urlPath === "/api/config") {
       var configData = {
         playerType: self.config.get("playerType", "albumArt"),
+        theme: self.config.get("theme", "skeuomorphic"),
+        showPlayerControls: self.config.get("showPlayerControls", true),
+        vizType: self.config.get("vizType", "spectrum"),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
+
         weatherApiKey: self.config.get("weatherApiKey", ""),
         unitSystem: self.config.get("unitSystem", "metric"),
         idleScreen: self.config.get("idleScreen", "analogClock"),
@@ -204,6 +209,9 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
   var self = this;
   var configData = {
     playerType: self.config.get("playerType", "albumArt"),
+    theme: self.config.get("theme", "skeuomorphic"),
+    showPlayerControls: self.config.get("showPlayerControls", true),
+    vizType: self.config.get("vizType", "spectrum"),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -244,52 +252,94 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       uiconf.sections[0].content[0].value = port;
 
       // Build and populate the app URL
-      var thisDevice = self.commandRouter.sharedVars.get("device_name") || "localhost";
-      uiconf.sections[0].content[1].value = "http://" + thisDevice + ":" + port;
+      var thisDevice;
+      var ifaces = os.networkInterfaces();
+      Object.keys(ifaces).some(function (ifname) {
+        return ifaces[ifname].some(function (iface) {
+          if (("IPv4" === iface.family || "4" === iface.family) && iface.internal === false) {
+            thisDevice = iface.address;
+            return true;
+          }
+          return false;
+        });
+      });
+
+      if (!thisDevice) {
+        thisDevice = self.commandRouter.sharedVars.get("device_name") || "localhost";
+      }
+
+      var appUrl = "http://" + thisDevice + ":" + port;
+      uiconf.sections[1].content[0].value = appUrl;
+
+      // Populate the "Open App" button with the same URL
+      uiconf.sections[1].content[1].onClick = { type: "openUrl", url: appUrl };
 
       // Populate player type select
       var playerType = self.config.get("playerType", "albumArt");
-      var playerTypeOptions = uiconf.sections[1].content[0].options;
+      var playerTypeOptions = uiconf.sections[2].content[0].options;
       var matchPlayerType = playerTypeOptions.find(function (opt) {
         return opt.value === playerType;
       });
       if (matchPlayerType) {
-        uiconf.sections[1].content[0].value = matchPlayerType;
+        uiconf.sections[2].content[0].value = matchPlayerType;
       }
 
-      // Populate location section (index 2)
-      uiconf.sections[2].content[0].value = self.config.get("latitude", "");
-      uiconf.sections[2].content[1].value = self.config.get("longitude", "");
+      // Populate theme select
+      var theme = self.config.get("theme", "skeuomorphic");
+      var themeOptions = uiconf.sections[2].content[1].options;
+      var matchTheme = themeOptions.find(function (opt) {
+        return opt.value === theme;
+      });
+      if (matchTheme) {
+        uiconf.sections[2].content[1].value = matchTheme;
+      }
 
-      // Populate weather section (index 3)
-      uiconf.sections[3].content[0].value = self.config.get("weatherApiKey", "");
+      // Populate show player controls
+      uiconf.sections[2].content[2].value = self.config.get("showPlayerControls", true);
+
+      // Populate viz type select
+      var vizType = self.config.get("vizType", "spectrum");
+      var vizTypeOptions = uiconf.sections[2].content[3].options;
+      var matchVizType = vizTypeOptions.find(function (opt) {
+        return opt.value === vizType;
+      });
+      if (matchVizType) {
+        uiconf.sections[2].content[3].value = matchVizType;
+      }
+
+      // Populate location section (index 3)
+      uiconf.sections[3].content[0].value = self.config.get("latitude", "");
+      uiconf.sections[3].content[1].value = self.config.get("longitude", "");
+
+      // Populate weather section (index 4)
+      uiconf.sections[4].content[0].value = self.config.get("weatherApiKey", "");
       var unitSystem = self.config.get("unitSystem", "metric");
-      var unitSystemOptions = uiconf.sections[3].content[1].options;
+      var unitSystemOptions = uiconf.sections[4].content[1].options;
       var matchUnitSystem = unitSystemOptions.find(function (opt) {
         return opt.value === unitSystem;
       });
       if (matchUnitSystem) {
-        uiconf.sections[3].content[1].value = matchUnitSystem;
+        uiconf.sections[4].content[1].value = matchUnitSystem;
       }
 
-      // Populate idle screen section (index 4)
+      // Populate idle screen section (index 5)
       var idleScreen = self.config.get("idleScreen", "analogClock");
-      var idleScreenOptions = uiconf.sections[4].content[0].options;
+      var idleScreenOptions = uiconf.sections[5].content[0].options;
       var matchIdleScreen = idleScreenOptions.find(function (opt) {
         return opt.value === idleScreen;
       });
       if (matchIdleScreen) {
-        uiconf.sections[4].content[0].value = matchIdleScreen;
+        uiconf.sections[5].content[0].value = matchIdleScreen;
       }
-      uiconf.sections[4].content[1].value = self.config.get("idleTimeout", 5);
-      uiconf.sections[4].content[2].value = self.config.get("showWeatherInClock", true);
-      uiconf.sections[4].content[3].value = self.config.get("analogClockShowDate", true);
-      uiconf.sections[4].content[4].value = self.config.get("unsplashApiKey", "");
-      uiconf.sections[4].content[5].value = self.config.get("wallpaperUrl", "");
-      uiconf.sections[4].content[6].value = self.config.get("wallpaperShowTime", true);
-      uiconf.sections[4].content[7].value = self.config.get("wallpaperShowSeconds", false);
-      uiconf.sections[4].content[8].value = self.config.get("wallpaperShowWeather", true);
-      uiconf.sections[4].content[9].value = self.config.get("slideshowInterval", 30);
+      uiconf.sections[5].content[1].value = self.config.get("idleTimeout", 5);
+      uiconf.sections[5].content[2].value = self.config.get("showWeatherInClock", true);
+      uiconf.sections[5].content[3].value = self.config.get("analogClockShowDate", true);
+      uiconf.sections[5].content[4].value = self.config.get("unsplashApiKey", "");
+      uiconf.sections[5].content[5].value = self.config.get("wallpaperUrl", "");
+      uiconf.sections[5].content[6].value = self.config.get("wallpaperShowTime", true);
+      uiconf.sections[5].content[7].value = self.config.get("wallpaperShowSeconds", false);
+      uiconf.sections[5].content[8].value = self.config.get("wallpaperShowWeather", true);
+      uiconf.sections[5].content[9].value = self.config.get("slideshowInterval", 30);
 
       defer.resolve(uiconf);
     })
@@ -298,6 +348,13 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
     });
 
   return defer.promise;
+};
+
+ControllerStylishPlayer.prototype.refreshUI = function () {
+  var self = this;
+  self.getUIConfig().then(function (uiconf) {
+    self.commandRouter.broadcastMessage("pushUiConfig", uiconf);
+  });
 };
 
 ControllerStylishPlayer.prototype.getConfigurationFiles = function () {
@@ -330,13 +387,20 @@ ControllerStylishPlayer.prototype.configSaveDaemon = function (data) {
   }
 
   self.broadcastConfig();
+  self.refreshUI();
 };
 
 ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var self = this;
   var playerType = data["playerType"] ? data["playerType"].value : "albumArt";
+  var theme = data["theme"] ? data["theme"].value : "skeuomorphic";
+  var showPlayerControls = data["showPlayerControls"] !== false;
+  var vizType = data["vizType"] ? data["vizType"].value : "spectrum";
 
   self.config.set("playerType", playerType);
+  self.config.set("theme", theme);
+  self.config.set("showPlayerControls", showPlayerControls);
+  self.config.set("vizType", vizType);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
   self.broadcastConfig();
