@@ -100,7 +100,8 @@
           "options": [
             { "value": "skeuomorphic", "label": "Skeuomorphic" },
             { "value": "metallic", "label": "Metallic" },
-            { "value": "aqua", "label": "Aqua" }
+            { "value": "aqua", "label": "Aqua" },
+            { "value": "flat", "label": "Flat" }
           ]
         },
         {
