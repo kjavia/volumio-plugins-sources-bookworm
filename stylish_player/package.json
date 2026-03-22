@@ -1,6 +1,6 @@
 {
   "name": "stylish_player",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A modern and customizable music player interface for Volumio.",
   "main": "index.js",
   "scripts": {},
@@ -17,11 +17,8 @@
     "details": "A modern and customizable music player interface for Volumio.",
     "changelog": [
       {
-        "version": "1.0.3",
-        "date": "2024-06-01",
         "changes": [
-          "Added more VU meter visualization options.",
-          "Improved handling of audio context on iOS for better reliability."
+          "Bug fixes and UI improvements."
         ]
       }
     ],
