@@ -5188,7 +5188,7 @@ h2 {
 .lcd-digits {
   display: flex;
   align-items: center;
-  gap: 0.2cqw;
+  gap: 2cqw;
 }
 
 .lcd-ampm {
@@ -5207,24 +5207,36 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 28%;
-  width: 1.5cqw;
+  gap: 3cqw;
+  width: 2.5cqw;
   height: 100%;
-  padding: 15% 0;
+  padding: 2cqh 0;
 }
 
 .lcd-colon-dot {
-  width: 0.8cqw;
-  height: 0.8cqw;
+  width: 1.4cqw;
+  height: 1.4cqw;
   background: #2c3e50;
   border-radius: 1px;
 }
 
-/* ── 7-Segment Digit ────────────────────────────────────────────────────── */
+.lcd-colon--blink .lcd-colon-dot {
+  animation: lcd-blink 1s step-start infinite;
+}
+
+@keyframes lcd-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
 .lcd-digit {
   position: relative;
   width: 11cqw;
   height: 18.7cqw;
+  filter: drop-shadow(2px 2px 0 rgba(255, 140, 30, 0.4));
 }
 
 .seg {
@@ -5236,7 +5248,7 @@ h2 {
   opacity: 1;
 }
 .seg.off {
-  opacity: 0.06;
+  opacity: 0.03;
 }
 
 .seg-a,
@@ -5531,6 +5543,14 @@ h2 {
 .flip-colon,
 .flip-ampm {
   color: #d8b880;
+}
+
+.tick-flip-panel-front-text .tick-flip-panel-text-wrapper {
+  transform: translateY(-10%);
+}
+
+.tick-flip-panel-back-text .tick-flip-panel-text-wrapper {
+  transform: translateY(-5%);
 }
 
 body {
