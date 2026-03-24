@@ -78,7 +78,8 @@
             { "value": "skeuomorphic", "label": "Skeuomorphic" },
             { "value": "metallic", "label": "Metallic" },
             { "value": "aqua", "label": "Aqua" },
-            { "value": "flat", "label": "Flat" }
+            { "value": "flat", "label": "Flat" },
+            { "value": "win95", "label": "Windows 95" }
           ]
         },
         {
