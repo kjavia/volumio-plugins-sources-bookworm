@@ -411,6 +411,10 @@ ControllerStylishPlayer.prototype.startServer = function () {
         vizType: self.config.get("vizType", "spectrum"),
         spectrumOptions: self.config.get("spectrumOptions", ""),
         backgroundColor: self.config.get("backgroundColor", ""),
+        trackColor: self.config.get("trackColor", ""),
+        artistColor: self.config.get("artistColor", ""),
+        albumColor: self.config.get("albumColor", ""),
+        streamInfoColor: self.config.get("streamInfoColor", ""),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
@@ -649,46 +653,50 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       // Populate spectrum options (Index 5)
       uiconf.sections[2].content[5].value = self.config.get("spectrumOptions", "");
 
-      // Populate background color (Index 6)
-      uiconf.sections[2].content[6].value = self.config.get("backgroundColor", "");
+      // Populate colors section (index 3)
+      uiconf.sections[3].content[0].value = self.config.get("backgroundColor", "");
+      uiconf.sections[3].content[1].value = self.config.get("trackColor", "");
+      uiconf.sections[3].content[2].value = self.config.get("artistColor", "");
+      uiconf.sections[3].content[3].value = self.config.get("albumColor", "");
+      uiconf.sections[3].content[4].value = self.config.get("streamInfoColor", "");
 
-      // Populate location section (index 3)
-      uiconf.sections[3].content[0].value = self.config.get("latitude", "");
-      uiconf.sections[3].content[1].value = self.config.get("longitude", "");
+      // Populate location section (index 4)
+      uiconf.sections[4].content[0].value = self.config.get("latitude", "");
+      uiconf.sections[4].content[1].value = self.config.get("longitude", "");
 
-      // Populate weather section (index 4)
-      uiconf.sections[4].content[0].value = self.config.get("weatherApiKey", "");
+      // Populate weather section (index 5)
+      uiconf.sections[5].content[0].value = self.config.get("weatherApiKey", "");
       var unitSystem = self.config.get("unitSystem", "metric");
-      var unitSystemOptions = uiconf.sections[4].content[1].options;
+      var unitSystemOptions = uiconf.sections[5].content[1].options;
       var matchUnitSystem = unitSystemOptions.find(function (opt) {
         return opt.value === unitSystem;
       });
       if (matchUnitSystem) {
-        uiconf.sections[4].content[1].value = matchUnitSystem;
+        uiconf.sections[5].content[1].value = matchUnitSystem;
       }
 
-      // Populate idle screen section (index 5)
+      // Populate idle screen section (index 6)
       var idleScreen = self.config.get("idleScreen", "analogClock");
-      var idleScreenOptions = uiconf.sections[5].content[0].options;
+      var idleScreenOptions = uiconf.sections[6].content[0].options;
       var matchIdleScreen = idleScreenOptions.find(function (opt) {
         return opt.value === idleScreen;
       });
       if (matchIdleScreen) {
-        uiconf.sections[5].content[0].value = matchIdleScreen;
+        uiconf.sections[6].content[0].value = matchIdleScreen;
       }
-      uiconf.sections[5].content[1].value = self.config.get("externalUrl", "");
-      uiconf.sections[5].content[2].value = self.config.get("idleTimeout", 5);
-      uiconf.sections[5].content[3].value = self.config.get("showWeatherInClock", true);
-      uiconf.sections[5].content[4].value = self.config.get("analogClockShowDate", true);
-      uiconf.sections[5].content[5].value = self.config.get("unsplashApiKey", "");
-      uiconf.sections[5].content[6].value = self.config.get("wallpaperUrl", "");
-      uiconf.sections[5].content[7].value = self.config.get("wallpaperShowTime", true);
-      uiconf.sections[5].content[8].value = self.config.get("wallpaperShowSeconds", false);
-      uiconf.sections[5].content[9].value = self.config.get("wallpaperShowWeather", true);
-      uiconf.sections[5].content[10].value = self.config.get("slideshowInterval", 30);
-      uiconf.sections[5].content[11].value = self.config.get("use24Hour", false);
+      uiconf.sections[6].content[1].value = self.config.get("externalUrl", "");
+      uiconf.sections[6].content[2].value = self.config.get("idleTimeout", 5);
+      uiconf.sections[6].content[3].value = self.config.get("showWeatherInClock", true);
+      uiconf.sections[6].content[4].value = self.config.get("analogClockShowDate", true);
+      uiconf.sections[6].content[5].value = self.config.get("unsplashApiKey", "");
+      uiconf.sections[6].content[6].value = self.config.get("wallpaperUrl", "");
+      uiconf.sections[6].content[7].value = self.config.get("wallpaperShowTime", true);
+      uiconf.sections[6].content[8].value = self.config.get("wallpaperShowSeconds", false);
+      uiconf.sections[6].content[9].value = self.config.get("wallpaperShowWeather", true);
+      uiconf.sections[6].content[10].value = self.config.get("slideshowInterval", 30);
+      uiconf.sections[6].content[11].value = self.config.get("use24Hour", false);
 
-      // Populate kiosk section (index 6) — content is built dynamically based on current kiosk state
+      // Populate kiosk section (index 7) — content is built dynamically based on current kiosk state
       var kioskState = self.checkVolumioKiosk();
       var kioskDesc, kioskButton;
       if (!kioskState.exists) {
@@ -742,9 +750,9 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
           };
         }
       }
-      uiconf.sections[6].description = kioskDesc;
+      uiconf.sections[7].description = kioskDesc;
       if (kioskButton) {
-        uiconf.sections[6].content = [kioskButton];
+        uiconf.sections[7].content = [kioskButton];
       }
 
       defer.resolve(uiconf);
@@ -824,7 +832,6 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var albumArtMaxSpace = data["albumArtMaxSpace"] === true;
   var vizType = data["vizType"] ? data["vizType"].value : "spectrum";
   var spectrumOptions = (data["spectrumOptions"] || "").toString().trim();
-  var backgroundColor = (data["backgroundColor"] || "").toString().trim();
 
   // Validate JSON if a value is provided
   if (spectrumOptions) {
@@ -836,21 +843,32 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
     }
   }
 
-  // Validate backgroundColor hex format if provided
-  if (backgroundColor && !/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(backgroundColor)) {
-    self.commandRouter.pushToastMessage("error", "Stylish Player", "Background Color must be a valid hex code (e.g. #1a2b3c).");
-    return;
-  }
-
   self.config.set("theme", theme);
   self.config.set("playerType", playerType);
   self.config.set("showPlayerControls", showPlayerControls);
   self.config.set("albumArtMaxSpace", albumArtMaxSpace);
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);
-  self.config.set("backgroundColor", backgroundColor);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveColors = function (data) {
+  var self = this;
+  var hexPattern = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
+  var fields = ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor"];
+
+  for (var i = 0; i < fields.length; i++) {
+    var val = (data[fields[i]] || "").toString().trim();
+    if (val && !hexPattern.test(val)) {
+      self.commandRouter.pushToastMessage("error", "Stylish Player", fields[i] + " must be a valid hex code (e.g. #1a2b3c).");
+      return;
+    }
+    self.config.set(fields[i], val);
+  }
+
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Color settings saved.");
   self.broadcastConfig();
 };
 

@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "albumArtMaxSpace", "vizType", "spectrumOptions", "backgroundColor"]
+        "data": ["playerType", "theme", "showPlayerControls", "albumArtMaxSpace", "vizType", "spectrumOptions"]
       },
       "content": [
         {
@@ -153,13 +153,62 @@
             "field": "vizType",
             "value": "spectrum"
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "section_colors",
+      "element": "section",
+      "label": "TRANSLATE.COLORS",
+      "icon": "fa-paint-brush",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveColors"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor"]
+      },
+      "content": [
         {
           "id": "backgroundColor",
           "type": "text",
           "element": "input",
           "label": "TRANSLATE.BACKGROUND_COLOR",
           "doc": "TRANSLATE.BACKGROUND_COLOR_DESC",
+          "value": ""
+        },
+        {
+          "id": "trackColor",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.TRACK_COLOR",
+          "doc": "TRANSLATE.TRACK_COLOR_DESC",
+          "value": ""
+        },
+        {
+          "id": "artistColor",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.ARTIST_COLOR",
+          "doc": "TRANSLATE.ARTIST_COLOR_DESC",
+          "value": ""
+        },
+        {
+          "id": "albumColor",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.ALBUM_COLOR",
+          "doc": "TRANSLATE.ALBUM_COLOR_DESC",
+          "value": ""
+        },
+        {
+          "id": "streamInfoColor",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.STREAM_INFO_COLOR",
+          "doc": "TRANSLATE.STREAM_INFO_COLOR_DESC",
           "value": ""
         }
       ]

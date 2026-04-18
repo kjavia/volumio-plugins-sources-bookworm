@@ -83,6 +83,22 @@
     "type": "string",
     "value": ""
   },
+  "trackColor": {
+    "type": "string",
+    "value": ""
+  },
+  "artistColor": {
+    "type": "string",
+    "value": ""
+  },
+  "albumColor": {
+    "type": "string",
+    "value": ""
+  },
+  "streamInfoColor": {
+    "type": "string",
+    "value": ""
+  },
   "externalUrl": {
     "type": "string",
     "value": ""
