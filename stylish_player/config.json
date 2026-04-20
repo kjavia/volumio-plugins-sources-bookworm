@@ -99,6 +99,10 @@
     "type": "string",
     "value": ""
   },
+  "controlColor": {
+    "type": "string",
+    "value": ""
+  },
   "externalUrl": {
     "type": "string",
     "value": ""

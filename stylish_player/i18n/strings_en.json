@@ -86,6 +86,8 @@
   "ALBUM_COLOR_DESC": "Override the album name color. Enter a hex code (e.g. #aaaaaa). Leave empty to use the theme default.",
   "STREAM_INFO_COLOR": "Stream Info Color",
   "STREAM_INFO_COLOR_DESC": "Override the stream info text color (sample rate, bit depth, etc.). Enter a hex code (e.g. #cccccc). Leave empty to use the theme default.",
+  "CONTROL_COLOR": "Control Color",
+  "CONTROL_COLOR_DESC": "Override the color of player buttons, sliders, and labels next to sliders. Enter a hex code (e.g. #ff6600). Leave empty to use the theme default.",
   "SHOW_PLAYER_CONTROLS": "Show Player Controls",
   "SHOW_PLAYER_CONTROLS_DESC": "When disabled, player buttons are hidden and the seek bar becomes a read-only progress indicator.",
   "ALBUM_ART_MAX_SPACE": "Use Maximum Space",

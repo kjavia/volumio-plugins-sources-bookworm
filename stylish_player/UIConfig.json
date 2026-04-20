@@ -80,7 +80,8 @@
             { "value": "aqua", "label": "Aqua" },
             { "value": "flat", "label": "Flat" },
             { "value": "win95", "label": "Windows 95" },
-            { "value": "casio", "label": "Casio 80s" }
+            { "value": "casio", "label": "Casio 80s" },
+            { "value": "oled", "label": "OLED" }
           ]
         },
         {
@@ -168,7 +169,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor"]
+        "data": ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor", "controlColor"]
       },
       "content": [
         {
@@ -209,6 +210,14 @@
           "element": "input",
           "label": "TRANSLATE.STREAM_INFO_COLOR",
           "doc": "TRANSLATE.STREAM_INFO_COLOR_DESC",
+          "value": ""
+        },
+        {
+          "id": "controlColor",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.CONTROL_COLOR",
+          "doc": "TRANSLATE.CONTROL_COLOR_DESC",
           "value": ""
         }
       ]

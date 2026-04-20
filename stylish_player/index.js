@@ -415,6 +415,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
         artistColor: self.config.get("artistColor", ""),
         albumColor: self.config.get("albumColor", ""),
         streamInfoColor: self.config.get("streamInfoColor", ""),
+        controlColor: self.config.get("controlColor", ""),
         port: self.config.get("port", 3339),
         latitude: self.config.get("latitude", ""),
         longitude: self.config.get("longitude", ""),
@@ -566,6 +567,12 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     slideshowInterval: self.config.get("slideshowInterval", 30),
     externalUrl: self.config.get("externalUrl", ""),
     use24Hour: self.config.get("use24Hour", false),
+    backgroundColor: self.config.get("backgroundColor", ""),
+    trackColor: self.config.get("trackColor", ""),
+    artistColor: self.config.get("artistColor", ""),
+    albumColor: self.config.get("albumColor", ""),
+    streamInfoColor: self.config.get("streamInfoColor", ""),
+    controlColor: self.config.get("controlColor", ""),
     language: self.commandRouter.sharedVars.get("language_code") || 'en',
   };
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
@@ -659,6 +666,7 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       uiconf.sections[3].content[2].value = self.config.get("artistColor", "");
       uiconf.sections[3].content[3].value = self.config.get("albumColor", "");
       uiconf.sections[3].content[4].value = self.config.get("streamInfoColor", "");
+      uiconf.sections[3].content[5].value = self.config.get("controlColor", "");
 
       // Populate location section (index 4)
       uiconf.sections[4].content[0].value = self.config.get("latitude", "");
@@ -857,7 +865,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
 ControllerStylishPlayer.prototype.configSaveColors = function (data) {
   var self = this;
   var hexPattern = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
-  var fields = ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor"];
+  var fields = ["backgroundColor", "trackColor", "artistColor", "albumColor", "streamInfoColor", "controlColor"];
 
   for (var i = 0; i < fields.length; i++) {
     var val = (data[fields[i]] || "").toString().trim();
