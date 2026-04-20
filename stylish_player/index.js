@@ -410,6 +410,8 @@ ControllerStylishPlayer.prototype.startServer = function () {
         albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
         vizType: self.config.get("vizType", "spectrum"),
         spectrumOptions: self.config.get("spectrumOptions", ""),
+        peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
+        peppyMeterHeight: self.config.get("peppyMeterHeight", 320),
         backgroundColor: self.config.get("backgroundColor", ""),
         trackColor: self.config.get("trackColor", ""),
         artistColor: self.config.get("artistColor", ""),
@@ -550,6 +552,8 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
     vizType: self.config.get("vizType", "spectrum"),
     spectrumOptions: self.config.get("spectrumOptions", ""),
+    peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
+    peppyMeterHeight: self.config.get("peppyMeterHeight", 320),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -659,6 +663,12 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
 
       // Populate spectrum options (Index 5)
       uiconf.sections[2].content[5].value = self.config.get("spectrumOptions", "");
+
+      // Populate peppy meter width (Index 6)
+      uiconf.sections[2].content[6].value = self.config.get("peppyMeterWidth", 480);
+
+      // Populate peppy meter height (Index 7)
+      uiconf.sections[2].content[7].value = self.config.get("peppyMeterHeight", 320);
 
       // Populate colors section (index 3)
       uiconf.sections[3].content[0].value = self.config.get("backgroundColor", "");
@@ -857,6 +867,12 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("albumArtMaxSpace", albumArtMaxSpace);
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);
+
+  var peppyMeterWidth = parseInt(data["peppyMeterWidth"], 10) || 480;
+  var peppyMeterHeight = parseInt(data["peppyMeterHeight"], 10) || 320;
+  self.config.set("peppyMeterWidth", peppyMeterWidth);
+  self.config.set("peppyMeterHeight", peppyMeterHeight);
+
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
   self.broadcastConfig();

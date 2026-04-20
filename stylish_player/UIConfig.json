@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "albumArtMaxSpace", "vizType", "spectrumOptions"]
+        "data": ["playerType", "theme", "showPlayerControls", "albumArtMaxSpace", "vizType", "spectrumOptions", "peppyMeterWidth", "peppyMeterHeight"]
       },
       "content": [
         {
@@ -141,6 +141,7 @@
             { "value": "vuMeter2",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_2" },
             { "value": "vuMeter3",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_3" },
             { "value": "vuMeter4",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_4" },
+            { "value": "peppyMeter", "label": "TRANSLATE.VIZ_TYPE_PEPPY_METER" },
             { "value": "none",      "label": "TRANSLATE.NONE" }
           ]
         },
@@ -154,6 +155,30 @@
           "visibleIf": {
             "field": "vizType",
             "value": "spectrum"
+          }
+        },
+        {
+          "id": "peppyMeterWidth",
+          "type": "number",
+          "element": "input",
+          "label": "TRANSLATE.PEPPY_METER_WIDTH",
+          "doc": "TRANSLATE.PEPPY_METER_WIDTH_DESC",
+          "value": 480,
+          "visibleIf": {
+            "field": "vizType",
+            "value": "peppyMeter"
+          }
+        },
+        {
+          "id": "peppyMeterHeight",
+          "type": "number",
+          "element": "input",
+          "label": "TRANSLATE.PEPPY_METER_HEIGHT",
+          "doc": "TRANSLATE.PEPPY_METER_HEIGHT_DESC",
+          "value": 320,
+          "visibleIf": {
+            "field": "vizType",
+            "value": "peppyMeter"
           }
         }
       ]
