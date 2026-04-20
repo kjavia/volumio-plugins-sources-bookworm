@@ -870,10 +870,12 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
 
   var peppyMeterWidthRaw = data["peppyMeterWidth"];
   var peppyMeterHeightRaw = data["peppyMeterHeight"];
-  var peppyMeterWidth = parseInt(typeof peppyMeterWidthRaw === 'object' ? peppyMeterWidthRaw.value : peppyMeterWidthRaw, 10) || 480;
-  var peppyMeterHeight = parseInt(typeof peppyMeterHeightRaw === 'object' ? peppyMeterHeightRaw.value : peppyMeterHeightRaw, 10) || 320;
-  self.config.set("peppyMeterWidth", peppyMeterWidth);
-  self.config.set("peppyMeterHeight", peppyMeterHeight);
+  if (vizType === "peppyMeter") {
+    var peppyMeterWidth = parseInt(typeof peppyMeterWidthRaw === 'object' ? peppyMeterWidthRaw.value : peppyMeterWidthRaw, 10) || 480;
+    var peppyMeterHeight = parseInt(typeof peppyMeterHeightRaw === 'object' ? peppyMeterHeightRaw.value : peppyMeterHeightRaw, 10) || 320;
+    self.config.set("peppyMeterWidth", peppyMeterWidth);
+    self.config.set("peppyMeterHeight", peppyMeterHeight);
+  }
 
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
