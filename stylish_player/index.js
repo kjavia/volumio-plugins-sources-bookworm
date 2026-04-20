@@ -868,8 +868,10 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);
 
-  var peppyMeterWidth = parseInt(data["peppyMeterWidth"], 10) || 480;
-  var peppyMeterHeight = parseInt(data["peppyMeterHeight"], 10) || 320;
+  var peppyMeterWidthRaw = data["peppyMeterWidth"];
+  var peppyMeterHeightRaw = data["peppyMeterHeight"];
+  var peppyMeterWidth = parseInt(typeof peppyMeterWidthRaw === 'object' ? peppyMeterWidthRaw.value : peppyMeterWidthRaw, 10) || 480;
+  var peppyMeterHeight = parseInt(typeof peppyMeterHeightRaw === 'object' ? peppyMeterHeightRaw.value : peppyMeterHeightRaw, 10) || 320;
   self.config.set("peppyMeterWidth", peppyMeterWidth);
   self.config.set("peppyMeterHeight", peppyMeterHeight);
 
