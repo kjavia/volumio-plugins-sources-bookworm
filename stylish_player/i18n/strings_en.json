@@ -20,6 +20,7 @@
   "PLAYER_TYPE_MATCH_SOURCE": "Match Source",
   "PLAYER_TYPE_GLOBE": "Globe",
   "PLAYER_TYPE_RANDOM": "Random",
+  "PLAYER_TYPE_NONE": "None",
   "THEME": "Theme",
   "THEME_DESC": "Select the UI theme for different visual styles.",
   "LOCATION": "Location",

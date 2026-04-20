@@ -104,7 +104,8 @@
             { "value": "radio", "label": "TRANSLATE.PLAYER_TYPE_RADIO" },
             { "value": "globe", "label": "TRANSLATE.PLAYER_TYPE_GLOBE" },
             { "value": "matchSource", "label": "TRANSLATE.PLAYER_TYPE_MATCH_SOURCE" },
-            { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" }
+            { "value": "random", "label": "TRANSLATE.PLAYER_TYPE_RANDOM" },
+            { "value": "none", "label": "TRANSLATE.PLAYER_TYPE_NONE" }
           ]
         },
         {
