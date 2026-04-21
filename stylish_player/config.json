@@ -23,6 +23,10 @@
     "type": "boolean",
     "value": true
   },
+  "showRemainingTime": {
+    "type": "boolean",
+    "value": false
+  },
   "unitSystem": {
     "type": "string",
     "value": "metric"

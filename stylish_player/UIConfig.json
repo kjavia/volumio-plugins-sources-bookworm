@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "albumArtMaxSpace", "vizType", "spectrumOptions", "peppyMeterWidth", "peppyMeterHeight"]
+        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "vizType", "spectrumOptions", "peppyMeterWidth", "peppyMeterHeight"]
       },
       "content": [
         {
@@ -114,6 +114,13 @@
           "label": "TRANSLATE.SHOW_PLAYER_CONTROLS",
           "doc": "TRANSLATE.SHOW_PLAYER_CONTROLS_DESC",
           "value": true
+        },
+        {
+          "id": "showRemainingTime",
+          "element": "switch",
+          "label": "TRANSLATE.SHOW_REMAINING_TIME",
+          "doc": "TRANSLATE.SHOW_REMAINING_TIME_DESC",
+          "value": false
         },
         {
           "id": "albumArtMaxSpace",

@@ -407,6 +407,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
         playerType: self.config.get("playerType", "albumArt"),
         theme: self.config.get("theme", "skeuomorphic"),
         showPlayerControls: self.config.get("showPlayerControls", true),
+        showRemainingTime: self.config.get("showRemainingTime", false),
         albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
         vizType: self.config.get("vizType", "spectrum"),
         spectrumOptions: self.config.get("spectrumOptions", ""),
@@ -549,6 +550,7 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     playerType: self.config.get("playerType", "albumArt"),
     theme: self.config.get("theme", "skeuomorphic"),
     showPlayerControls: self.config.get("showPlayerControls", true),
+    showRemainingTime: self.config.get("showRemainingTime", false),
     albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
     vizType: self.config.get("vizType", "spectrum"),
     spectrumOptions: self.config.get("spectrumOptions", ""),
@@ -648,27 +650,30 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       // Populate show player controls (Index 2)
       uiconf.sections[2].content[2].value = self.config.get("showPlayerControls", true);
 
-      // Populate album art max space (Index 3)
-      uiconf.sections[2].content[3].value = self.config.get("albumArtMaxSpace", false);
+      // Populate show remaining time (Index 3)
+      uiconf.sections[2].content[3].value = self.config.get("showRemainingTime", false);
 
-      // Populate viz type select (Index 4)
+      // Populate album art max space (Index 4)
+      uiconf.sections[2].content[4].value = self.config.get("albumArtMaxSpace", false);
+
+      // Populate viz type select (Index 5)
       var vizType = self.config.get("vizType", "spectrum");
-      var vizTypeOptions = uiconf.sections[2].content[4].options;
+      var vizTypeOptions = uiconf.sections[2].content[5].options;
       var matchVizType = vizTypeOptions.find(function (opt) {
         return opt.value === vizType;
       });
       if (matchVizType) {
-        uiconf.sections[2].content[4].value = matchVizType;
+        uiconf.sections[2].content[5].value = matchVizType;
       }
 
-      // Populate spectrum options (Index 5)
-      uiconf.sections[2].content[5].value = self.config.get("spectrumOptions", "");
+      // Populate spectrum options (Index 6)
+      uiconf.sections[2].content[6].value = self.config.get("spectrumOptions", "");
 
-      // Populate peppy meter width (Index 6)
-      uiconf.sections[2].content[6].value = self.config.get("peppyMeterWidth", 480);
+      // Populate peppy meter width (Index 7)
+      uiconf.sections[2].content[7].value = self.config.get("peppyMeterWidth", 480);
 
-      // Populate peppy meter height (Index 7)
-      uiconf.sections[2].content[7].value = self.config.get("peppyMeterHeight", 320);
+      // Populate peppy meter height (Index 8)
+      uiconf.sections[2].content[8].value = self.config.get("peppyMeterHeight", 320);
 
       // Populate colors section (index 3)
       uiconf.sections[3].content[0].value = self.config.get("backgroundColor", "");
@@ -847,6 +852,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var theme = data["theme"] ? data["theme"].value : "skeuomorphic";
   var playerType = data["playerType"] ? data["playerType"].value : "albumArt";
   var showPlayerControls = data["showPlayerControls"] !== false;
+  var showRemainingTime = data["showRemainingTime"] === true;
   var albumArtMaxSpace = data["albumArtMaxSpace"] === true;
   var vizType = data["vizType"] ? data["vizType"].value : "spectrum";
   var spectrumOptions = (data["spectrumOptions"] || "").toString().trim();
@@ -864,6 +870,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("theme", theme);
   self.config.set("playerType", playerType);
   self.config.set("showPlayerControls", showPlayerControls);
+  self.config.set("showRemainingTime", showRemainingTime);
   self.config.set("albumArtMaxSpace", albumArtMaxSpace);
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);

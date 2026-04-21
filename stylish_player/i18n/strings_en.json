@@ -96,6 +96,8 @@
   "CONTROL_COLOR_DESC": "Override the color of player buttons, sliders, and labels next to sliders. Enter a hex code (e.g. #ff6600). Leave empty to use the theme default.",
   "SHOW_PLAYER_CONTROLS": "Show Player Controls",
   "SHOW_PLAYER_CONTROLS_DESC": "When disabled, player buttons are hidden and the seek bar becomes a read-only progress indicator.",
+  "SHOW_REMAINING_TIME": "Show Remaining Time",
+  "SHOW_REMAINING_TIME_DESC": "Show remaining time instead of total duration on the right side of the seek bar.",
   "ALBUM_ART_MAX_SPACE": "Use Maximum Space",
   "ALBUM_ART_MAX_SPACE_DESC": "When enabled, spans the album art across the full left panel and expands track info and controls to fill all available space.",
   "OPEN_APP": "Open App",
