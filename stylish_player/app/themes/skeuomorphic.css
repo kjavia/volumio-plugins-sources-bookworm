@@ -1263,6 +1263,38 @@ ol li {
   border-color: rgba(34, 197, 94, 0.3);
 }
 
+/* ── Mobile compact (≤ 768px) ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dialog-container {
+    padding: 0;
+  }
+  .dialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .dialog-header {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-body {
+    padding: 1rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  .dialog-footer {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-title {
+    font-size: 1rem;
+  }
+}
 /* ═══════════════════════════════════════════════════════════════════════
    PLAYER LAYOUT — Common structural layout for all themes
    ═══════════════════════════════════════════════════════════════════════
@@ -1353,6 +1385,78 @@ ol li {
 .volume-manager .small {
   min-width: 3.5ch;
   padding-left: 0.4rem;
+}
+
+/* ── Mobile compact (≤ 768px) ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .player-controls-container {
+    padding-top: 8px;
+  }
+  .track-info {
+    padding: 14px 16px;
+  }
+  .player-controls {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+  .volume-control {
+    padding: 10px 14px;
+  }
+  .track-info-group {
+    width: calc(100% - 1rem) !important;
+    margin: 0 0.5rem;
+  }
+}
+/* ── Mobile forms (≤ 600px) ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .form-group {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .settings-panel {
+    padding: 20px;
+  }
+}
+/* ── Context Drawer (mobile slide-in menu) ──────────────────────────── */
+.context-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transition: background 0.25s ease;
+}
+.context-drawer-backdrop.open {
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.context-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(280px, 75vw);
+  z-index: 2001;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Inherit context-menu styling from the active theme */
+  background: var(--drawer-bg, var(--panel-bg, #1a1a1a));
+  border-right: 1px solid var(--border-dark, rgba(255, 255, 255, 0.08));
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+}
+.context-drawer.open {
+  transform: translateX(0);
+}
+.context-drawer .context-menu-item {
+  width: 100%;
+  text-align: left;
 }
 
 :root {
@@ -2523,17 +2627,6 @@ input:checked + .slider:after {
   margin-bottom: 2px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-  .form-group {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    align-items: start;
-  }
-  .settings-panel {
-    padding: 20px;
-  }
-}
 /* ─── Select / Dropdown ─────────────────────────────────────────────────────── */
 .form-select {
   appearance: none;
@@ -3471,11 +3564,15 @@ h2 {
 }
 
 /* ── Track Panel — recessed inset display (enabled via setting) ───────── */
+.track-panel {
+  border-radius: 8px;
+}
+
 .track-panel .track-info {
   background-color: var(--color-gray-800, #222);
   border-radius: 8px;
   padding: clamp(10px, 2cqh, 20px) clamp(12px, 1.5cqw, 24px);
-  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.6), inset -1px -1px 2px rgba(255, 255, 255, 0.08), 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 -12px 20px -10px rgba(255, 140, 40, 0.245), inset 0 -4px 8px -4px rgba(255, 180, 80, 0.14), inset 2px 2px 6px rgba(0, 0, 0, 0.6), inset -1px -1px 2px rgba(255, 255, 255, 0.08), 0 1px 0 rgba(255, 255, 255, 0.08);
   border: 1px solid var(--color-gray-900, #111);
 }
 
@@ -5322,21 +5419,6 @@ h2 {
   line-height: 1.4;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .dialog {
-    max-width: calc(100vw - 1rem);
-    margin: 0.5rem;
-  }
-  .dialog-header,
-  .dialog-body,
-  .dialog-footer {
-    padding: 0.875rem 1rem;
-  }
-  .dialog-title {
-    font-size: 1rem;
-  }
-}
 /* ── Browse Tiles ── */
 .browse-tile .browse-tile__icon {
   font-size: clamp(18px, 3cqi, 30px) !important;

@@ -1161,6 +1161,38 @@ code, pre {
   border-color: rgba(34, 197, 94, 0.3);
 }
 
+/* ── Mobile compact (≤ 768px) ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dialog-container {
+    padding: 0;
+  }
+  .dialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .dialog-header {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-body {
+    padding: 1rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  .dialog-footer {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-title {
+    font-size: 1rem;
+  }
+}
 :root {
   /* ═══════════════════════════════════════════════════════════════════════
      COLOR PALETTE - Flat Dark Theme
@@ -3772,6 +3804,19 @@ input[type=range]::-moz-range-thumb:active {
 }
 
 /* ─── Track Info ───────────────────────────────────────────────────────── */
+/* ── Track Panel — flat inset display (enabled via setting) ─────────── */
+.track-panel {
+  border-radius: 8px;
+}
+
+.track-panel .track-info {
+  background-color: rgba(20, 20, 30, 0.85);
+  border-radius: 8px;
+  padding: clamp(10px, 2cqh, 20px) clamp(12px, 1.5cqw, 24px);
+  border: 1px solid rgba(69, 123, 157, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
 .track-info {
   font-family: var(--font-body);
   color: var(--text-primary);

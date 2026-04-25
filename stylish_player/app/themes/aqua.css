@@ -1263,6 +1263,38 @@ pre {
   border-color: rgba(34, 197, 94, 0.3);
 }
 
+/* ── Mobile compact (≤ 768px) ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dialog-container {
+    padding: 0;
+  }
+  .dialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .dialog-header {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-body {
+    padding: 1rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  .dialog-footer {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-title {
+    font-size: 1rem;
+  }
+}
 :root {
   /* ═══════════════════════════════════════════════════════════════════════
      COLOR PALETTE - Aqua Theme (macOS Classic)
@@ -4323,6 +4355,21 @@ input[type=range]::-moz-range-thumb:active {
   margin: 0 auto;
 }
 
+/* ── Track Panel — glossy Aqua inset display (enabled via setting) ─────── */
+.track-panel {
+  border-radius: 10px;
+}
+
+.track-panel .track-info {
+  background: linear-gradient(180deg, rgba(20, 122, 255, 0.12) 0%, rgba(10, 60, 140, 0.18) 100%);
+  border-radius: 10px;
+  padding: clamp(10px, 2cqh, 20px) clamp(12px, 1.5cqw, 24px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.15), inset 0 0 12px rgba(20, 122, 255, 0.08), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(20, 122, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 .track-info {
   font-family: var(--font-body);
   color: var(--color-gray-100);
@@ -6928,28 +6975,6 @@ input[type=range]::-moz-range-thumb:active {
   line-height: 1.4;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .dialog {
-    max-width: calc(100vw - 1rem);
-    margin: 0.5rem;
-    border-radius: 10px;
-  }
-  .dialog-header {
-    padding: 0.875rem 1rem;
-    border-radius: 10px 10px 0 0;
-  }
-  .dialog-body {
-    padding: 1rem;
-  }
-  .dialog-footer {
-    padding: 0.875rem 1rem;
-    border-radius: 0 0 10px 10px;
-  }
-  .dialog-title {
-    font-size: 1rem;
-  }
-}
 /* ── Browse Tiles ── */
 .browse-tile .browse-tile__icon {
   font-size: clamp(18px, 3cqi, 30px) !important;

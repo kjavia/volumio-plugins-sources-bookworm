@@ -926,6 +926,38 @@ p {
   border-color: rgba(34, 197, 94, 0.3);
 }
 
+/* ── Mobile compact (≤ 768px) ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .dialog-container {
+    padding: 0;
+  }
+  .dialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .dialog-header {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-body {
+    padding: 1rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  .dialog-footer {
+    padding: 0.875rem 1rem;
+    border-radius: 0;
+  }
+  .dialog-title {
+    font-size: 1rem;
+  }
+}
 :root {
   /* ═══════════════════════════════════════════════════════════════════════
      COLOR PALETTE — 80s Casio Theme
@@ -2994,7 +3026,6 @@ input[type=range]::-webkit-slider-thumb {
 /* Art displayed in a LCD panel-bordered frame — album art only */
 .album-art-image {
   border-radius: 2px;
-  border: 2px solid var(--casio-lcd-frame);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -3078,7 +3109,7 @@ input[type=range]::-webkit-slider-thumb {
 .track-title {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(1.2rem, 4.5vw, 2.2rem);
+  font-size: clamp(1.4rem, 4.5vw, 2.2rem);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -3091,7 +3122,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .artist-name,
 .album-name {
-  font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #3a5850;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -3102,11 +3133,11 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .responsive-title {
-  font-size: clamp(1.2rem, 5cqw, 3.2rem);
+  font-size: clamp(1.4rem, 5cqw, 3.2rem);
 }
 
 .responsive-artist {
-  font-size: clamp(0.9rem, 3cqw, 2rem);
+  font-size: clamp(1.05rem, 3cqw, 2rem);
   color: var(--casio-lcd-off);
 }
 
@@ -3224,12 +3255,9 @@ input[type=range]::-webkit-slider-thumb {
   color: var(--casio-lcd-off);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  /* Displayed inside the LCD panel if present */
-  background: var(--casio-lcd-panel);
   padding: 2px 6px;
   width: fit-content;
   margin: 10px auto 0;
-  border: 1px solid var(--casio-lcd-frame);
   border-radius: 1px;
 }
 
@@ -3293,15 +3321,6 @@ input[type=range]::-webkit-slider-thumb {
   padding-left: 0.4rem;
 }
 
-/* ─── Mobile compact (portrait ≤ 768px) ─────────────────────────────────── */
-/* .track-info-group has a multi-layer box-shadow that spreads 6px outward.
-   On mobile the controls container starts from the top edge of overflow:hidden
-   panel, clipping the top shadow. Add padding-top so the shadow has room. */
-@media (max-width: 768px) {
-  .player-controls-container {
-    padding-top: 8px;
-  }
-}
 /* ── Very short screens (800×480, 800×400 etc.): compact the Casio player ── */
 @media (max-height: 600px) {
   .track-info {
