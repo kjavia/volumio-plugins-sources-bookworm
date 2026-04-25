@@ -81,7 +81,8 @@
             { "value": "flat", "label": "Flat" },
             { "value": "win95", "label": "Windows 95" },
             { "value": "casio", "label": "Casio 80s" },
-            { "value": "oled", "label": "OLED" }
+            { "value": "oled", "label": "OLED" },
+            { "value": "brushed-metal", "label": "Brushed Metal" }
           ]
         },
         {
