@@ -134,26 +134,11 @@ ControllerStylishPlayer.prototype._fifoParams = function (samplerate, trackType)
   var type = (trackType || '').toLowerCase();
   var isDSD = (type === 'dsf' || type === 'dff');
 
-  if (isDSD) {
-    var srStr = String(samplerate || '');
-    var nativeRate = 0;
-    var mhzMatch = srStr.match(/^(\d+\.?\d*)\s*[Mm][Hh][Zz]/);
-    if (mhzMatch) {
-      nativeRate = Math.round(parseFloat(mhzMatch[1]) * 1000000);
-    } else {
-      nativeRate = parseInt(srStr, 10) || 0;
-    }
-    var dopRate;
-    if (nativeRate >= 10000000) dopRate = 705600;      // DSD256
-    else if (nativeRate >= 5000000) dopRate = 352800;  // DSD128
-    else dopRate = 176400;                             // DSD64 + fallback
-    return { fmt: 's32le', inputRate: dopRate, isDSD: true };
-  }
-
-  // PCM: the ALSA plug wrapper (sp_out_pipe_fixed) always resamples to 44100 Hz
-  // S16LE before writing to the FIFO, so FFmpeg always reads at this fixed rate
-  // regardless of the source track's sample rate or the hardware output rate.
-  return { fmt: 's16le', inputRate: 44100, isDSD: false };
+  // The ALSA plug wrapper (sp_out_pipe_fixed) always resamples ALL audio —
+  // including DSD/DoP — to 44100 Hz S16LE before writing to the FIFO.
+  // FFmpeg therefore always reads at this fixed rate regardless of the source
+  // format, sample rate, or whether the original track is PCM or DSD.
+  return { fmt: 's16le', inputRate: 44100, isDSD: isDSD };
 };
 
 ControllerStylishPlayer.prototype.streamOutViz = function () {
