@@ -409,6 +409,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
         showPlayerControls: self.config.get("showPlayerControls", true),
         showRemainingTime: self.config.get("showRemainingTime", false),
         albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
+        showTrackPanel: self.config.get("showTrackPanel", false),
         vizType: self.config.get("vizType", "spectrum"),
         spectrumOptions: self.config.get("spectrumOptions", ""),
         peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
@@ -552,6 +553,7 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     showPlayerControls: self.config.get("showPlayerControls", true),
     showRemainingTime: self.config.get("showRemainingTime", false),
     albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
+    showTrackPanel: self.config.get("showTrackPanel", false),
     vizType: self.config.get("vizType", "spectrum"),
     spectrumOptions: self.config.get("spectrumOptions", ""),
     peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
@@ -854,6 +856,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var showPlayerControls = data["showPlayerControls"] !== false;
   var showRemainingTime = data["showRemainingTime"] === true;
   var albumArtMaxSpace = data["albumArtMaxSpace"] === true;
+  var showTrackPanel = data["showTrackPanel"] === true;
   var vizType = data["vizType"] ? data["vizType"].value : "spectrum";
   var spectrumOptions = (data["spectrumOptions"] || "").toString().trim();
 
@@ -872,6 +875,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("showPlayerControls", showPlayerControls);
   self.config.set("showRemainingTime", showRemainingTime);
   self.config.set("albumArtMaxSpace", albumArtMaxSpace);
+  self.config.set("showTrackPanel", showTrackPanel);
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);
 

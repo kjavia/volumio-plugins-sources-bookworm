@@ -71,6 +71,10 @@
     "type": "boolean",
     "value": false
   },
+  "showTrackPanel": {
+    "type": "boolean",
+    "value": false
+  },
   "theme": {
     "type": "string",
     "value": "skeuomorphic"

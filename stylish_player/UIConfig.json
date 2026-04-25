@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "vizType", "spectrumOptions", "peppyMeterWidth", "peppyMeterHeight"]
+        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "showTrackPanel", "vizType", "spectrumOptions", "peppyMeterWidth", "peppyMeterHeight"]
       },
       "content": [
         {
@@ -132,6 +132,13 @@
             "field": "playerType",
             "value": "albumArt"
           }
+        },
+        {
+          "id": "showTrackPanel",
+          "element": "switch",
+          "label": "TRANSLATE.SHOW_TRACK_PANEL",
+          "doc": "TRANSLATE.SHOW_TRACK_PANEL_DESC",
+          "value": false
         },
         {
           "id": "vizType",
