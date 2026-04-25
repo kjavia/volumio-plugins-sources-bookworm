@@ -150,12 +150,10 @@ ControllerStylishPlayer.prototype._fifoParams = function (samplerate, trackType)
     return { fmt: 's32le', inputRate: dopRate, isDSD: true };
   }
 
-  // PCM: parse "44.1 kHz" / "96 kHz" / raw Hz integer
-  var rate = parseInt(String(samplerate || ''), 10) || 44100;
-  var khzMatch = String(samplerate || '').match(/^(\d+\.?\d*)\s*[Kk][Hh][Zz]/);
-  if (khzMatch) rate = Math.round(parseFloat(khzMatch[1]) * 1000);
-  rate = (rate > 0 && rate <= 768000) ? rate : 44100;
-  return { fmt: 's16le', inputRate: rate, isDSD: false };
+  // PCM: the ALSA plug wrapper (sp_out_pipe_fixed) always resamples to 44100 Hz
+  // S16LE before writing to the FIFO, so FFmpeg always reads at this fixed rate
+  // regardless of the source track's sample rate or the hardware output rate.
+  return { fmt: 's16le', inputRate: 44100, isDSD: false };
 };
 
 ControllerStylishPlayer.prototype.streamOutViz = function () {
