@@ -658,24 +658,27 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       // Populate album art max space (Index 4)
       uiconf.sections[2].content[4].value = self.config.get("albumArtMaxSpace", false);
 
-      // Populate viz type select (Index 5)
+      // Populate show track panel (Index 5)
+      uiconf.sections[2].content[5].value = self.config.get("showTrackPanel", false);
+
+      // Populate viz type select (Index 6)
       var vizType = self.config.get("vizType", "spectrum");
-      var vizTypeOptions = uiconf.sections[2].content[5].options;
+      var vizTypeOptions = uiconf.sections[2].content[6].options;
       var matchVizType = vizTypeOptions.find(function (opt) {
         return opt.value === vizType;
       });
       if (matchVizType) {
-        uiconf.sections[2].content[5].value = matchVizType;
+        uiconf.sections[2].content[6].value = matchVizType;
       }
 
-      // Populate spectrum options (Index 6)
-      uiconf.sections[2].content[6].value = self.config.get("spectrumOptions", "");
+      // Populate spectrum options (Index 7)
+      uiconf.sections[2].content[7].value = self.config.get("spectrumOptions", "");
 
-      // Populate peppy meter width (Index 7)
-      uiconf.sections[2].content[7].value = self.config.get("peppyMeterWidth", 480);
+      // Populate peppy meter width (Index 8)
+      uiconf.sections[2].content[8].value = self.config.get("peppyMeterWidth", 480);
 
-      // Populate peppy meter height (Index 8)
-      uiconf.sections[2].content[8].value = self.config.get("peppyMeterHeight", 320);
+      // Populate peppy meter height (Index 9)
+      uiconf.sections[2].content[9].value = self.config.get("peppyMeterHeight", 320);
 
       // Populate colors section (index 3)
       uiconf.sections[3].content[0].value = self.config.get("backgroundColor", "");
