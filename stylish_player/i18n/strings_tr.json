@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Kontrol rengi",
   "CONTROL_COLOR_DESC": "Oynatıcı düğmeleri, kaydırıcıları ve etiketlerin rengini geçersiz kıl. Bir hex kodu girin (ör. #ff6600). Tema varsayılanını kullanmak için boş bırakın.",
   "SHOW_REMAINING_TIME": "Kalan süreyi göster",
-  "SHOW_REMAINING_TIME_DESC": "Arama çubuğunun sağ tarafında toplam süre yerine kalan süreyi göster."
+  "SHOW_REMAINING_TIME_DESC": "Arama çubuğunun sağ tarafında toplam süre yerine kalan süreyi göster.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

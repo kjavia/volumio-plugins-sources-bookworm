@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Color de controles",
   "CONTROL_COLOR_DESC": "Anular el color de botones, deslizadores y etiquetas del reproductor. Ingrese un código hex (ej. #ff6600). Deje vacío para usar el predeterminado del tema.",
   "SHOW_REMAINING_TIME": "Mostrar tiempo restante",
-  "SHOW_REMAINING_TIME_DESC": "Mostrar el tiempo restante en lugar de la duración total en el lado derecho de la barra de búsqueda."
+  "SHOW_REMAINING_TIME_DESC": "Mostrar el tiempo restante en lugar de la duración total en el lado derecho de la barra de búsqueda.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

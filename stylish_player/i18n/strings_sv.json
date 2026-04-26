@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Kontrollfärg",
   "CONTROL_COLOR_DESC": "Åsidosätt färgen på spelarknappar, reglage och etiketter. Ange en hexkod (t.ex. #ff6600). Lämna tomt för temats standard.",
   "SHOW_REMAINING_TIME": "Visa återstående tid",
-  "SHOW_REMAINING_TIME_DESC": "Visa återstående tid istället för total längd till höger om sökfältet."
+  "SHOW_REMAINING_TIME_DESC": "Visa återstående tid istället för total längd till höger om sökfältet.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

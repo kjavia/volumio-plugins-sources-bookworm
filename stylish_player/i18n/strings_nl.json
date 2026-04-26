@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Kleur bediening",
   "CONTROL_COLOR_DESC": "Overschrijf de kleur van speler knoppen, schuifregelaars en labels. Voer een hexcode in (bijv. #ff6600). Laat leeg voor de standaardkleur van het thema.",
   "SHOW_REMAINING_TIME": "Resterende tijd tonen",
-  "SHOW_REMAINING_TIME_DESC": "Toon de resterende tijd in plaats van de totale duur aan de rechterkant van de zoekbalk."
+  "SHOW_REMAINING_TIME_DESC": "Toon de resterende tijd in plaats van de totale duur aan de rechterkant van de zoekbalk.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

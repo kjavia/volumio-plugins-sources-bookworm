@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Vezérlők színe",
   "CONTROL_COLOR_DESC": "A lejátszó gombok, csúszkák és címkék színének felülírása. Adjon meg hex kódot (pl. #ff6600). Hagyja üresen a téma alapértelmezéséhez.",
   "SHOW_REMAINING_TIME": "Hátralévő idő mutatása",
-  "SHOW_REMAINING_TIME_DESC": "A hátralévő idő megjelenítése a teljes időtartam helyett a kereső sáv jobb oldalán."
+  "SHOW_REMAINING_TIME_DESC": "A hátralévő idő megjelenítése a teljes időtartam helyett a kereső sáv jobb oldalán.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

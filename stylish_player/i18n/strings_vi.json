@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Màu điều khiển",
   "CONTROL_COLOR_DESC": "Ghi đè màu nút, thanh trượt và nhãn của trình phát. Nhập mã hex (ví dụ: #ff6600). Để trống để dùng mặc định của chủ đề.",
   "SHOW_REMAINING_TIME": "Hiển thị thời gian còn lại",
-  "SHOW_REMAINING_TIME_DESC": "Hiển thị thời gian còn lại thay vì tổng thời lượng ở bên phải thanh tìm kiếm."
+  "SHOW_REMAINING_TIME_DESC": "Hiển thị thời gian còn lại thay vì tổng thời lượng ở bên phải thanh tìm kiếm.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

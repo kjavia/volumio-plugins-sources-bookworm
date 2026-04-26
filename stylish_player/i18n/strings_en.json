@@ -36,6 +36,8 @@
   "UNIT_METRIC": "Metric (°C, km/h)",
   "UNIT_IMPERIAL": "Imperial (°F, mph)",
   "IDLE_SCREEN": "Idle Screen",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper",
   "IDLE_SCREEN_TYPE": "Idle Screen Type",
   "IDLE_SCREEN_TYPE_DESC": "Which screen to display when playback has been idle for the configured timeout.",
   "IDLE_SCREEN_ANALOG_CLOCK": "Analog Clock",

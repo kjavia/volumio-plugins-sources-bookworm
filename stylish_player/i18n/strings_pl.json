@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Kolor kontrolek",
   "CONTROL_COLOR_DESC": "Nadpisz kolor przycisków odtwarzacza, suwaków i etykiet. Wpisz kod hex (np. #ff6600). Pozostaw puste, aby użyć domyślnego koloru motywu.",
   "SHOW_REMAINING_TIME": "Pokaż pozostały czas",
-  "SHOW_REMAINING_TIME_DESC": "Pokaż pozostały czas zamiast całkowitego czasu trwania po prawej stronie paska wyszukiwania."
+  "SHOW_REMAINING_TIME_DESC": "Pokaż pozostały czas zamiast całkowitego czasu trwania po prawej stronie paska wyszukiwania.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

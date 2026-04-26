@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Steuerelementfarbe",
   "CONTROL_COLOR_DESC": "Farbe der Player-Tasten, Schieberegler und Beschriftungen überschreiben. Hex-Code eingeben (z.B. #ff6600). Leer lassen für Theme-Standard.",
   "SHOW_REMAINING_TIME": "Restzeit anzeigen",
-  "SHOW_REMAINING_TIME_DESC": "Restzeit statt Gesamtdauer auf der rechten Seite der Suchleiste anzeigen."
+  "SHOW_REMAINING_TIME_DESC": "Restzeit statt Gesamtdauer auf der rechten Seite der Suchleiste anzeigen.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

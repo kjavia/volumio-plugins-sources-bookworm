@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Kontrolfarve",
   "CONTROL_COLOR_DESC": "Tilsidesæt farven på afspillerknapper, skydere og etiketter. Indtast en hex-kode (f.eks. #ff6600). Lad stå tom for at bruge temaets standard.",
   "SHOW_REMAINING_TIME": "Vis resterende tid",
-  "SHOW_REMAINING_TIME_DESC": "Vis resterende tid i stedet for samlet varighed på højre side af søgebjælken."
+  "SHOW_REMAINING_TIME_DESC": "Vis resterende tid i stedet for samlet varighed på højre side af søgebjælken.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

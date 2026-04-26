@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Barva ovládacích prvků",
   "CONTROL_COLOR_DESC": "Přepsat barvu tlačítek přehrávače, posuvníků a popisků. Zadejte hex kód (např. #ff6600). Ponechte prázdné pro výchozí barvu motivu.",
   "SHOW_REMAINING_TIME": "Zobrazit zbývající čas",
-  "SHOW_REMAINING_TIME_DESC": "Zobrazit zbývající čas místo celkové doby na pravé straně ukazatele průběhu."
+  "SHOW_REMAINING_TIME_DESC": "Zobrazit zbývající čas místo celkové doby na pravé straně ukazatele průběhu.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

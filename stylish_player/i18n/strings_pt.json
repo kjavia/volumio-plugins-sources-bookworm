@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Cor dos controles",
   "CONTROL_COLOR_DESC": "Substituir a cor dos botões, controles deslizantes e rótulos do reprodutor. Insira um código hex (ex. #ff6600). Deixe vazio para usar o padrão do tema.",
   "SHOW_REMAINING_TIME": "Mostrar tempo restante",
-  "SHOW_REMAINING_TIME_DESC": "Mostrar o tempo restante em vez da duração total no lado direito da barra de busca."
+  "SHOW_REMAINING_TIME_DESC": "Mostrar o tempo restante em vez da duração total no lado direito da barra de busca.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

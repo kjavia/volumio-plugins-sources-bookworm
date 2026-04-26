@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "Colore controlli",
   "CONTROL_COLOR_DESC": "Sostituire il colore dei pulsanti, slider ed etichette del lettore. Inserire un codice hex (es. #ff6600). Lasciare vuoto per il colore predefinito del tema.",
   "SHOW_REMAINING_TIME": "Mostra tempo rimanente",
-  "SHOW_REMAINING_TIME_DESC": "Mostra il tempo rimanente invece della durata totale sul lato destro della barra di ricerca."
+  "SHOW_REMAINING_TIME_DESC": "Mostra il tempo rimanente invece della durata totale sul lato destro della barra di ricerca.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }

@@ -117,5 +117,7 @@
   "CONTROL_COLOR": "컨트롤 색상",
   "CONTROL_COLOR_DESC": "플레이어 버튼, 슬라이더 및 라벨 색상을 재정의합니다. 16진수 코드를 입력하세요 (예: #ff6600). 테마 기본값을 사용하려면 비워두세요.",
   "SHOW_REMAINING_TIME": "남은 시간 표시",
-  "SHOW_REMAINING_TIME_DESC": "탐색 바 오른쪽에 전체 길이 대신 남은 시간을 표시합니다."
+  "SHOW_REMAINING_TIME_DESC": "탐색 바 오른쪽에 전체 길이 대신 남은 시간을 표시합니다.",
+  "CLOCK": "Clock",
+  "WALLPAPER": "Wallpaper"
 }
