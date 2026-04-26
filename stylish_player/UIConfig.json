@@ -264,82 +264,10 @@
       ]
     },
     {
-      "id": "section_location",
-      "element": "section",
-      "label": "TRANSLATE.LOCATION",
-      "icon": "fa-map-marker",
-      "onSave": {
-        "type": "controller",
-        "endpoint": "user_interface/stylish_player",
-        "method": "configSaveLocation"
-      },
-      "saveButton": {
-        "label": "TRANSLATE.SAVE",
-        "data": ["latitude", "longitude"]
-      },
-      "content": [
-        {
-          "id": "latitude",
-          "type": "text",
-          "element": "input",
-          "label": "TRANSLATE.LATITUDE",
-          "doc": "TRANSLATE.LATITUDE_DESC",
-          "value": ""
-        },
-        {
-          "id": "longitude",
-          "type": "text",
-          "element": "input",
-          "label": "TRANSLATE.LONGITUDE",
-          "doc": "TRANSLATE.LONGITUDE_DESC",
-          "value": ""
-        }
-      ]
-    },
-    {
-      "id": "section_weather",
-      "element": "section",
-      "label": "TRANSLATE.WEATHER",
-      "icon": "fa-cloud",
-      "onSave": {
-        "type": "controller",
-        "endpoint": "user_interface/stylish_player",
-        "method": "configSaveWeather"
-      },
-      "saveButton": {
-        "label": "TRANSLATE.SAVE",
-        "data": ["weatherApiKey", "unitSystem"]
-      },
-      "content": [
-        {
-          "id": "weatherApiKey",
-          "type": "text",
-          "element": "input",
-          "label": "TRANSLATE.WEATHER_API_KEY",
-          "doc": "TRANSLATE.WEATHER_API_KEY_DESC",
-          "value": ""
-        },
-        {
-          "id": "unitSystem",
-          "element": "select",
-          "label": "TRANSLATE.UNIT_SYSTEM",
-          "doc": "TRANSLATE.UNIT_SYSTEM_DESC",
-          "value": {
-            "value": "metric",
-            "label": "TRANSLATE.UNIT_METRIC"
-          },
-          "options": [
-            { "value": "metric", "label": "TRANSLATE.UNIT_METRIC" },
-            { "value": "imperial", "label": "TRANSLATE.UNIT_IMPERIAL" }
-          ]
-        }
-      ]
-    },
-    {
       "id": "section_idle_screen",
       "element": "section",
       "label": "TRANSLATE.IDLE_SCREEN",
-      "icon": "fa-clock-o",
+      "icon": "fa-pause-circle",
       "onSave": {
         "type": "controller",
         "endpoint": "user_interface/stylish_player",
@@ -350,16 +278,7 @@
         "data": [
           "idleScreen",
           "idleTimeout",
-          "externalUrl",
-          "showWeatherInClock",
-          "analogClockShowDate",
-          "unsplashApiKey",
-          "wallpaperUrl",
-          "wallpaperShowTime",
-          "wallpaperShowSeconds",
-          "wallpaperShowWeather",
-          "slideshowInterval",
-          "use24Hour"
+          "externalUrl"
         ]
       },
       "content": [
@@ -403,6 +322,31 @@
           "label": "TRANSLATE.IDLE_TIMEOUT",
           "doc": "TRANSLATE.IDLE_TIMEOUT_DESC",
           "value": 5
+        }
+      ]
+    },
+    {
+      "id": "section_clock",
+      "element": "section",
+      "label": "TRANSLATE.CLOCK",
+      "icon": "fa-clock-o",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveClock"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["use24Hour", "showWeatherInClock", "analogClockShowDate"]
+      },
+      "content": [
+        {
+          "id": "use24Hour",
+          "type": "boolean",
+          "element": "switch",
+          "label": "TRANSLATE.USE_24_HOUR",
+          "doc": "TRANSLATE.USE_24_HOUR_DESC",
+          "value": false
         },
         {
           "id": "showWeatherInClock",
@@ -419,7 +363,79 @@
           "label": "TRANSLATE.ANALOG_CLOCK_SHOW_DATE",
           "doc": "TRANSLATE.ANALOG_CLOCK_SHOW_DATE_DESC",
           "value": true
+        }
+      ]
+    },
+    {
+      "id": "section_weather",
+      "element": "section",
+      "label": "TRANSLATE.WEATHER",
+      "icon": "fa-cloud",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveWeather"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["latitude", "longitude", "weatherApiKey", "unitSystem"]
+      },
+      "content": [
+        {
+          "id": "latitude",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.LATITUDE",
+          "doc": "TRANSLATE.LATITUDE_DESC",
+          "value": ""
         },
+        {
+          "id": "longitude",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.LONGITUDE",
+          "doc": "TRANSLATE.LONGITUDE_DESC",
+          "value": ""
+        },
+        {
+          "id": "weatherApiKey",
+          "type": "text",
+          "element": "input",
+          "label": "TRANSLATE.WEATHER_API_KEY",
+          "doc": "TRANSLATE.WEATHER_API_KEY_DESC",
+          "value": ""
+        },
+        {
+          "id": "unitSystem",
+          "element": "select",
+          "label": "TRANSLATE.UNIT_SYSTEM",
+          "doc": "TRANSLATE.UNIT_SYSTEM_DESC",
+          "value": {
+            "value": "metric",
+            "label": "TRANSLATE.UNIT_METRIC"
+          },
+          "options": [
+            { "value": "metric", "label": "TRANSLATE.UNIT_METRIC" },
+            { "value": "imperial", "label": "TRANSLATE.UNIT_IMPERIAL" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section_wallpaper",
+      "element": "section",
+      "label": "TRANSLATE.WALLPAPER",
+      "icon": "fa-picture-o",
+      "onSave": {
+        "type": "controller",
+        "endpoint": "user_interface/stylish_player",
+        "method": "configSaveWallpaper"
+      },
+      "saveButton": {
+        "label": "TRANSLATE.SAVE",
+        "data": ["unsplashApiKey", "wallpaperUrl", "wallpaperShowTime", "wallpaperShowSeconds", "wallpaperShowWeather", "slideshowInterval"]
+      },
+      "content": [
         {
           "id": "unsplashApiKey",
           "type": "text",
@@ -467,14 +483,6 @@
           "label": "TRANSLATE.SLIDESHOW_INTERVAL",
           "doc": "TRANSLATE.SLIDESHOW_INTERVAL_DESC",
           "value": 30
-        },
-        {
-          "id": "use24Hour",
-          "type": "boolean",
-          "element": "switch",
-          "label": "TRANSLATE.USE_24_HOUR",
-          "doc": "TRANSLATE.USE_24_HOUR_DESC",
-          "value": false
         }
       ]
     },

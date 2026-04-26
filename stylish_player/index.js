@@ -671,43 +671,45 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       uiconf.sections[3].content[4].value = self.config.get("streamInfoColor", "");
       uiconf.sections[3].content[5].value = self.config.get("controlColor", "");
 
-      // Populate location section (index 4)
-      uiconf.sections[4].content[0].value = self.config.get("latitude", "");
-      uiconf.sections[4].content[1].value = self.config.get("longitude", "");
-
-      // Populate weather section (index 5)
-      uiconf.sections[5].content[0].value = self.config.get("weatherApiKey", "");
-      var unitSystem = self.config.get("unitSystem", "metric");
-      var unitSystemOptions = uiconf.sections[5].content[1].options;
-      var matchUnitSystem = unitSystemOptions.find(function (opt) {
-        return opt.value === unitSystem;
-      });
-      if (matchUnitSystem) {
-        uiconf.sections[5].content[1].value = matchUnitSystem;
-      }
-
-      // Populate idle screen section (index 6)
+      // Populate idle screen section (index 4)
       var idleScreen = self.config.get("idleScreen", "analogClock");
-      var idleScreenOptions = uiconf.sections[6].content[0].options;
+      var idleScreenOptions = uiconf.sections[4].content[0].options;
       var matchIdleScreen = idleScreenOptions.find(function (opt) {
         return opt.value === idleScreen;
       });
       if (matchIdleScreen) {
-        uiconf.sections[6].content[0].value = matchIdleScreen;
+        uiconf.sections[4].content[0].value = matchIdleScreen;
       }
-      uiconf.sections[6].content[1].value = self.config.get("externalUrl", "");
-      uiconf.sections[6].content[2].value = self.config.get("idleTimeout", 5);
-      uiconf.sections[6].content[3].value = self.config.get("showWeatherInClock", true);
-      uiconf.sections[6].content[4].value = self.config.get("analogClockShowDate", true);
-      uiconf.sections[6].content[5].value = self.config.get("unsplashApiKey", "");
-      uiconf.sections[6].content[6].value = self.config.get("wallpaperUrl", "");
-      uiconf.sections[6].content[7].value = self.config.get("wallpaperShowTime", true);
-      uiconf.sections[6].content[8].value = self.config.get("wallpaperShowSeconds", false);
-      uiconf.sections[6].content[9].value = self.config.get("wallpaperShowWeather", true);
-      uiconf.sections[6].content[10].value = self.config.get("slideshowInterval", 30);
-      uiconf.sections[6].content[11].value = self.config.get("use24Hour", false);
+      uiconf.sections[4].content[1].value = self.config.get("externalUrl", "");
+      uiconf.sections[4].content[2].value = self.config.get("idleTimeout", 5);
 
-      // Populate kiosk section (index 7) — content is built dynamically based on current kiosk state
+      // Populate clock section (index 5)
+      uiconf.sections[5].content[0].value = self.config.get("use24Hour", false);
+      uiconf.sections[5].content[1].value = self.config.get("showWeatherInClock", true);
+      uiconf.sections[5].content[2].value = self.config.get("analogClockShowDate", true);
+
+      // Populate weather section (index 6)
+      uiconf.sections[6].content[0].value = self.config.get("latitude", "");
+      uiconf.sections[6].content[1].value = self.config.get("longitude", "");
+      uiconf.sections[6].content[2].value = self.config.get("weatherApiKey", "");
+      var unitSystem = self.config.get("unitSystem", "metric");
+      var unitSystemOptions = uiconf.sections[6].content[3].options;
+      var matchUnitSystem = unitSystemOptions.find(function (opt) {
+        return opt.value === unitSystem;
+      });
+      if (matchUnitSystem) {
+        uiconf.sections[6].content[3].value = matchUnitSystem;
+      }
+
+      // Populate wallpaper section (index 7)
+      uiconf.sections[7].content[0].value = self.config.get("unsplashApiKey", "");
+      uiconf.sections[7].content[1].value = self.config.get("wallpaperUrl", "");
+      uiconf.sections[7].content[2].value = self.config.get("wallpaperShowTime", true);
+      uiconf.sections[7].content[3].value = self.config.get("wallpaperShowSeconds", false);
+      uiconf.sections[7].content[4].value = self.config.get("wallpaperShowWeather", true);
+      uiconf.sections[7].content[5].value = self.config.get("slideshowInterval", 30);
+
+      // Populate kiosk section (index 8) — content is built dynamically based on current kiosk state
       var kioskState = self.checkVolumioKiosk();
       var kioskDesc, kioskButton;
       if (!kioskState.exists) {
@@ -761,9 +763,9 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
           };
         }
       }
-      uiconf.sections[7].description = kioskDesc;
+      uiconf.sections[8].description = kioskDesc;
       if (kioskButton) {
-        uiconf.sections[7].content = [kioskButton];
+        uiconf.sections[8].content = [kioskButton];
       }
 
       defer.resolve(uiconf);
