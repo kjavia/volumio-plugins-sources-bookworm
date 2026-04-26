@@ -55,6 +55,15 @@ ControllerStylishPlayer.prototype.getI18n = function (key) {
   return self.i18nStrings[key] || self.i18nDefaults[key] || key;
 };
 
+ControllerStylishPlayer.prototype.getTranslations = function () {
+  var self = this;
+  // Force reload to pick up any language change
+  self.i18nStrings = null;
+  self.getI18n('_'); // triggers lazy load
+  // Merge defaults with language-specific overrides
+  return Object.assign({}, self.i18nDefaults || {}, self.i18nStrings || {});
+};
+
 ControllerStylishPlayer.prototype.onVolumioStart = function () {
   var configFile = this.commandRouter.pluginManager.getConfigurationFile(this.context, "config.json");
   this.config = new (require("v-conf"))();
@@ -428,6 +437,17 @@ ControllerStylishPlayer.prototype.startServer = function () {
         "Cache-Control": "no-cache",
       });
       res.end(JSON.stringify(configData));
+      return;
+    }
+
+    // API endpoint: return i18n translations for current language
+    if (urlPath === "/api/translations") {
+      var translations = self.getTranslations();
+      res.writeHead(200, {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+      });
+      res.end(JSON.stringify(translations));
       return;
     }
 
