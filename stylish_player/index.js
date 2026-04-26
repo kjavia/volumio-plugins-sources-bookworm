@@ -922,9 +922,22 @@ ControllerStylishPlayer.prototype.configSaveLocation = function (data) {
 ControllerStylishPlayer.prototype.configSaveWeather = function (data) {
   var self = this;
 
+  var latitude = (data["latitude"] || "").toString().trim();
+  var longitude = (data["longitude"] || "").toString().trim();
   var apiKey = (data["weatherApiKey"] || "").toString().trim();
   var unitSystem = data["unitSystem"] ? data["unitSystem"].value : "metric";
 
+  if (latitude && (isNaN(parseFloat(latitude)) || parseFloat(latitude) < -90 || parseFloat(latitude) > 90)) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Latitude must be between -90 and 90.");
+    return;
+  }
+  if (longitude && (isNaN(parseFloat(longitude)) || parseFloat(longitude) < -180 || parseFloat(longitude) > 180)) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Longitude must be between -180 and 180.");
+    return;
+  }
+
+  self.config.set("latitude", latitude);
+  self.config.set("longitude", longitude);
   self.config.set("weatherApiKey", apiKey);
   self.config.set("unitSystem", unitSystem);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Weather settings saved.");
@@ -1042,25 +1055,41 @@ ControllerStylishPlayer.prototype.configSaveIdleScreen = function (data) {
   var idleScreen = data["idleScreen"] ? data["idleScreen"].value : "analogClock";
   var idleTimeout = parseInt(data["idleTimeout"], 10);
 
-  if (isNaN(idleTimeout) || idleTimeout < 0) {
-    self.commandRouter.pushToastMessage("error", "Stylish Player", "Idle timeout must be 0 or greater.");
+  if (isNaN(idleTimeout) || idleTimeout < 1) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Idle timeout must be at least 1 minute.");
     return;
   }
 
   self.config.set("idleScreen", idleScreen);
   self.config.set("idleTimeout", idleTimeout);
-  self.config.set("showWeatherInClock", data["showWeatherInClock"] !== false);
-  self.config.set("analogClockShowDate", data["analogClockShowDate"] !== false);
+  self.config.set("externalUrl", (data["externalUrl"] || "").toString().trim());
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Idle screen settings saved.");
+
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveWallpaper = function (data) {
+  var self = this;
+
   self.config.set("unsplashApiKey", (data["unsplashApiKey"] || "").toString().trim());
   self.config.set("wallpaperUrl", (data["wallpaperUrl"] || "").toString().trim());
   self.config.set("wallpaperShowTime", data["wallpaperShowTime"] !== false);
   self.config.set("wallpaperShowSeconds", data["wallpaperShowSeconds"] === true || data["wallpaperShowSeconds"] === "true");
   self.config.set("wallpaperShowWeather", data["wallpaperShowWeather"] !== false);
-  self.config.set("externalUrl", (data["externalUrl"] || "").toString().trim());
   var slideshowInterval = parseInt(data["slideshowInterval"], 10);
   self.config.set("slideshowInterval", isNaN(slideshowInterval) || slideshowInterval < 5 ? 30 : slideshowInterval);
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Wallpaper settings saved.");
+
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveClock = function (data) {
+  var self = this;
+
   self.config.set("use24Hour", data["use24Hour"] === true || data["use24Hour"] === "true");
-  self.commandRouter.pushToastMessage("success", "Stylish Player", "Idle screen settings saved.");
+  self.config.set("showWeatherInClock", data["showWeatherInClock"] !== false);
+  self.config.set("analogClockShowDate", data["analogClockShowDate"] !== false);
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Clock settings saved.");
 
   self.broadcastConfig();
 };
