@@ -87,14 +87,6 @@
     "type": "string",
     "value": ""
   },
-  "peppyMeterWidth": {
-    "type": "number",
-    "value": 480
-  },
-  "peppyMeterHeight": {
-    "type": "number",
-    "value": 320
-  },
   "peppyMeterFolder": {
     "type": "string",
     "value": ""

@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "showTrackPanel", "vizType", "spectrumOptions", "peppyMeterWidth", "peppyMeterHeight"]
+        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "showTrackPanel", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel"]
       },
       "content": [
         {
@@ -152,10 +152,6 @@
           },
           "options": [
             { "value": "spectrum",  "label": "TRANSLATE.VIZ_TYPE_SPECTRUM" },
-            { "value": "vuMeter1",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_1" },
-            { "value": "vuMeter2",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_2" },
-            { "value": "vuMeter3",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_3" },
-            { "value": "vuMeter4",  "label": "TRANSLATE.VIZ_TYPE_VU_METER_4" },
             { "value": "peppyMeter", "label": "TRANSLATE.VIZ_TYPE_PEPPY_METER" },
             { "value": "none",      "label": "TRANSLATE.NONE" }
           ]
@@ -173,24 +169,24 @@
           }
         },
         {
-          "id": "peppyMeterWidth",
-          "type": "number",
-          "element": "input",
-          "label": "TRANSLATE.PEPPY_METER_WIDTH",
-          "doc": "TRANSLATE.PEPPY_METER_WIDTH_DESC",
-          "value": 480,
+          "id": "peppyMeterFolder",
+          "element": "select",
+          "label": "TRANSLATE.PEPPY_METER_FOLDER",
+          "doc": "TRANSLATE.PEPPY_METER_FOLDER_DESC",
+          "value": { "value": "", "label": "" },
+          "options": [],
           "visibleIf": {
             "field": "vizType",
             "value": "peppyMeter"
           }
         },
         {
-          "id": "peppyMeterHeight",
-          "type": "number",
-          "element": "input",
-          "label": "TRANSLATE.PEPPY_METER_HEIGHT",
-          "doc": "TRANSLATE.PEPPY_METER_HEIGHT_DESC",
-          "value": 320,
+          "id": "peppyMeterModel",
+          "element": "select",
+          "label": "TRANSLATE.PEPPY_METER_MODEL",
+          "doc": "TRANSLATE.PEPPY_METER_MODEL_DESC",
+          "value": { "value": "random", "label": "Random" },
+          "options": [{ "value": "random", "label": "Random" }],
           "visibleIf": {
             "field": "vizType",
             "value": "peppyMeter"

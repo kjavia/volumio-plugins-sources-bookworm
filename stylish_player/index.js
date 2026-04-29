@@ -404,8 +404,6 @@ ControllerStylishPlayer.prototype.startServer = function () {
         showTrackPanel: self.config.get("showTrackPanel", false),
         vizType: self.config.get("vizType", "spectrum"),
         spectrumOptions: self.config.get("spectrumOptions", ""),
-        peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
-        peppyMeterHeight: self.config.get("peppyMeterHeight", 320),
         peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
         peppyMeterModel: self.config.get("peppyMeterModel", "random"),
         backgroundColor: self.config.get("backgroundColor", ""),
@@ -599,8 +597,6 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     showTrackPanel: self.config.get("showTrackPanel", false),
     vizType: self.config.get("vizType", "spectrum"),
     spectrumOptions: self.config.get("spectrumOptions", ""),
-    peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
-    peppyMeterHeight: self.config.get("peppyMeterHeight", 320),
     peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
     peppyMeterModel: self.config.get("peppyMeterModel", "random"),
     port: self.config.get("port", 3339),
@@ -719,11 +715,25 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       // Populate spectrum options (Index 7)
       uiconf.sections[2].content[7].value = self.config.get("spectrumOptions", "");
 
-      // Populate peppy meter width (Index 8)
-      uiconf.sections[2].content[8].value = self.config.get("peppyMeterWidth", 480);
+      // Populate peppy meter folder (Index 8)
+      var peppyMeterFolder = self.config.get("peppyMeterFolder", "");
+      var peppyMeterFolderOptions = uiconf.sections[2].content[8].options;
+      var matchPeppyFolder = peppyMeterFolderOptions.find(function (opt) {
+        return opt.value === peppyMeterFolder;
+      });
+      if (matchPeppyFolder) {
+        uiconf.sections[2].content[8].value = matchPeppyFolder;
+      }
 
-      // Populate peppy meter height (Index 9)
-      uiconf.sections[2].content[9].value = self.config.get("peppyMeterHeight", 320);
+      // Populate peppy meter model (Index 9)
+      var peppyMeterModel = self.config.get("peppyMeterModel", "random");
+      var peppyMeterModelOptions = uiconf.sections[2].content[9].options;
+      var matchPeppyModel = peppyMeterModelOptions.find(function (opt) {
+        return opt.value === peppyMeterModel;
+      });
+      if (matchPeppyModel) {
+        uiconf.sections[2].content[9].value = matchPeppyModel;
+      }
 
       // Populate colors section (index 3)
       uiconf.sections[3].content[0].value = self.config.get("backgroundColor", "");
