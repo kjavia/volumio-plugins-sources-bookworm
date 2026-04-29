@@ -95,6 +95,14 @@
     "type": "number",
     "value": 320
   },
+  "peppyMeterFolder": {
+    "type": "string",
+    "value": ""
+  },
+  "peppyMeterModel": {
+    "type": "string",
+    "value": "random"
+  },
   "backgroundColor": {
     "type": "string",
     "value": ""

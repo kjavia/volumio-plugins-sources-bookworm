@@ -406,6 +406,8 @@ ControllerStylishPlayer.prototype.startServer = function () {
         spectrumOptions: self.config.get("spectrumOptions", ""),
         peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
         peppyMeterHeight: self.config.get("peppyMeterHeight", 320),
+        peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
+        peppyMeterModel: self.config.get("peppyMeterModel", "random"),
         backgroundColor: self.config.get("backgroundColor", ""),
         trackColor: self.config.get("trackColor", ""),
         artistColor: self.config.get("artistColor", ""),
@@ -437,6 +439,44 @@ ControllerStylishPlayer.prototype.startServer = function () {
         "Cache-Control": "no-cache",
       });
       res.end(JSON.stringify(configData));
+      return;
+    }
+
+    // API endpoint: list peppy_meter asset folders and their meter models
+    if (urlPath === "/api/peppy-folders") {
+      var peppyDir = path.join(distPath, "peppy_meter");
+      var result = [];
+      try {
+        var entries = fs.readdirSync(peppyDir, { withFileTypes: true });
+        for (var i = 0; i < entries.length; i++) {
+          if (!entries[i].isDirectory()) continue;
+          var folderName = entries[i].name;
+          // Parse WxH-Name pattern
+          var match = folderName.match(/^(\d+)x(\d+)-(.+)$/);
+          if (!match) continue;
+          var w = parseInt(match[1], 10);
+          var h = parseInt(match[2], 10);
+          var name = match[3];
+          var models = [];
+          var metersPath = path.join(peppyDir, folderName, "meters.txt");
+          if (fs.existsSync(metersPath)) {
+            var content = fs.readFileSync(metersPath, "utf8");
+            var lines = content.split("\n");
+            for (var j = 0; j < lines.length; j++) {
+              var sectionMatch = lines[j].trim().match(/^\[(.+)\]$/);
+              if (sectionMatch) models.push(sectionMatch[1]);
+            }
+          }
+          result.push({ folder: folderName, width: w, height: h, name: name, models: models });
+        }
+      } catch (e) {
+        // peppy_meter dir may not exist yet
+      }
+      res.writeHead(200, {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+      });
+      res.end(JSON.stringify(result));
       return;
     }
 
@@ -561,6 +601,8 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     spectrumOptions: self.config.get("spectrumOptions", ""),
     peppyMeterWidth: self.config.get("peppyMeterWidth", 480),
     peppyMeterHeight: self.config.get("peppyMeterHeight", 320),
+    peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
+    peppyMeterModel: self.config.get("peppyMeterModel", "random"),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -887,13 +929,11 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);
 
-  var peppyMeterWidthRaw = data["peppyMeterWidth"];
-  var peppyMeterHeightRaw = data["peppyMeterHeight"];
   if (vizType === "peppyMeter") {
-    var peppyMeterWidth = parseInt(typeof peppyMeterWidthRaw === 'object' ? peppyMeterWidthRaw.value : peppyMeterWidthRaw, 10) || 480;
-    var peppyMeterHeight = parseInt(typeof peppyMeterHeightRaw === 'object' ? peppyMeterHeightRaw.value : peppyMeterHeightRaw, 10) || 320;
-    self.config.set("peppyMeterWidth", peppyMeterWidth);
-    self.config.set("peppyMeterHeight", peppyMeterHeight);
+    var peppyMeterFolder = data["peppyMeterFolder"] ? (typeof data["peppyMeterFolder"] === 'object' ? data["peppyMeterFolder"].value : data["peppyMeterFolder"]) : "";
+    var peppyMeterModel = data["peppyMeterModel"] ? (typeof data["peppyMeterModel"] === 'object' ? data["peppyMeterModel"].value : data["peppyMeterModel"]) : "random";
+    self.config.set("peppyMeterFolder", peppyMeterFolder);
+    self.config.set("peppyMeterModel", peppyMeterModel);
   }
 
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
