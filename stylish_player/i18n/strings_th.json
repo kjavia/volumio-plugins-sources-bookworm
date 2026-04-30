@@ -74,7 +74,6 @@
   "SHOW_PLAYER_CONTROLS_DESC": "เมื่อปิดใช้งาน ปุ่มเครื่องเล่นจะถูกซ่อนและแถบค้นหาจะกลายเป็นตัวบ่งชี้ความคืบหน้าแบบอ่านอย่างเดียว",
   "OPEN_APP": "เปิดแอป",
   "OPEN_APP_DESC": "เปิดอินเทอร์เฟซ Stylish Player ในแท็บใหม่",
-
   "SPECTRUM_OPTIONS": "ตัวเลือกเครื่องวิเคราะห์สเปกตรัม (JSON)",
   "SPECTRUM_OPTIONS_DESC": "แทนที่ตัวเลือก AudioMotion Analyzer ด้วยออบเจ็กต์ JSON ปล่อยว่างเพื่อใช้ค่าเริ่มต้น สร้างตัวเลือกโดยใช้ getOptions() ที่หน้านี้ https://audiomotion.dev/demo/fluid.html",
   "NONE": "ไม่มี",
@@ -116,5 +115,10 @@
   "SHOW_REMAINING_TIME": "แสดงเวลาที่เหลือ",
   "SHOW_REMAINING_TIME_DESC": "แสดงเวลาที่เหลือแทนระยะเวลาทั้งหมดทางด้านขวาของแถบค้นหา",
   "CLOCK": "Clock",
-  "WALLPAPER": "Wallpaper"
+  "WALLPAPER": "Wallpaper",
+  "VIZ_TYPE_PEPPY_SPECTRUM": "Peppy Spectrum",
+  "PEPPY_SPECTRUM_FOLDER": "Peppy Spectrum Pack",
+  "PEPPY_SPECTRUM_FOLDER_DESC": "Select the spectrum asset pack.",
+  "PEPPY_SPECTRUM_MODEL": "Peppy Spectrum Model",
+  "PEPPY_SPECTRUM_MODEL_DESC": "Select a specific spectrum design, or Random to cycle on each track change."
 }

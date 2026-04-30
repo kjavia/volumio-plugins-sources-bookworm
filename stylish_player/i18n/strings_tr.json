@@ -115,5 +115,10 @@
   "SHOW_REMAINING_TIME": "Kalan süreyi göster",
   "SHOW_REMAINING_TIME_DESC": "Arama çubuğunun sağ tarafında toplam süre yerine kalan süreyi göster.",
   "CLOCK": "Clock",
-  "WALLPAPER": "Wallpaper"
+  "WALLPAPER": "Wallpaper",
+  "VIZ_TYPE_PEPPY_SPECTRUM": "Peppy Spectrum",
+  "PEPPY_SPECTRUM_FOLDER": "Peppy Spectrum Pack",
+  "PEPPY_SPECTRUM_FOLDER_DESC": "Select the spectrum asset pack.",
+  "PEPPY_SPECTRUM_MODEL": "Peppy Spectrum Model",
+  "PEPPY_SPECTRUM_MODEL_DESC": "Select a specific spectrum design, or Random to cycle on each track change."
 }

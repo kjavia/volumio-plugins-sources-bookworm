@@ -70,7 +70,6 @@
   "VIZ_TYPE": "Vizualizáció",
   "VIZ_TYPE_DESC": "Válassza ki a lejátszó képernyő jobb alsó paneljén megjelenő vizualizációt.",
   "VIZ_TYPE_SPECTRUM": "Spektrumanalizátor",
-
   "SHOW_PLAYER_CONTROLS": "Lejátszóvezérlők megjelenítése",
   "SHOW_PLAYER_CONTROLS_DESC": "Ha letiltva, a lejátszó gombjai rejtve vannak, és a keresősáv csak olvasható haladásjelzővé válik.",
   "OPEN_APP": "Alkalmazás megnyitása",
@@ -116,5 +115,10 @@
   "SHOW_REMAINING_TIME": "Hátralévő idő mutatása",
   "SHOW_REMAINING_TIME_DESC": "A hátralévő idő megjelenítése a teljes időtartam helyett a kereső sáv jobb oldalán.",
   "CLOCK": "Clock",
-  "WALLPAPER": "Wallpaper"
+  "WALLPAPER": "Wallpaper",
+  "VIZ_TYPE_PEPPY_SPECTRUM": "Peppy Spectrum",
+  "PEPPY_SPECTRUM_FOLDER": "Peppy Spectrum Pack",
+  "PEPPY_SPECTRUM_FOLDER_DESC": "Select the spectrum asset pack.",
+  "PEPPY_SPECTRUM_MODEL": "Peppy Spectrum Model",
+  "PEPPY_SPECTRUM_MODEL_DESC": "Select a specific spectrum design, or Random to cycle on each track change."
 }

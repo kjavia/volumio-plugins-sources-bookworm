@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "showTrackPanel", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel"]
+        "data": ["playerType", "theme", "showPlayerControls", "showRemainingTime", "albumArtMaxSpace", "showTrackPanel", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel", "peppySpectrumFolder", "peppySpectrumModel"]
       },
       "content": [
         {
@@ -153,6 +153,7 @@
           "options": [
             { "value": "spectrum",  "label": "TRANSLATE.VIZ_TYPE_SPECTRUM" },
             { "value": "peppyMeter", "label": "TRANSLATE.VIZ_TYPE_PEPPY_METER" },
+            { "value": "peppySpectrum", "label": "TRANSLATE.VIZ_TYPE_PEPPY_SPECTRUM" },
             { "value": "none",      "label": "TRANSLATE.NONE" }
           ]
         },
@@ -190,6 +191,30 @@
           "visibleIf": {
             "field": "vizType",
             "value": "peppyMeter"
+          }
+        },
+        {
+          "id": "peppySpectrumFolder",
+          "element": "select",
+          "label": "TRANSLATE.PEPPY_SPECTRUM_FOLDER",
+          "doc": "TRANSLATE.PEPPY_SPECTRUM_FOLDER_DESC",
+          "value": { "value": "", "label": "" },
+          "options": [],
+          "visibleIf": {
+            "field": "vizType",
+            "value": "peppySpectrum"
+          }
+        },
+        {
+          "id": "peppySpectrumModel",
+          "element": "select",
+          "label": "TRANSLATE.PEPPY_SPECTRUM_MODEL",
+          "doc": "TRANSLATE.PEPPY_SPECTRUM_MODEL_DESC",
+          "value": { "value": "random", "label": "Random" },
+          "options": [{ "value": "random", "label": "Random" }],
+          "visibleIf": {
+            "field": "vizType",
+            "value": "peppySpectrum"
           }
         }
       ]

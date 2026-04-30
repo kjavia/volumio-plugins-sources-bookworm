@@ -95,6 +95,14 @@
     "type": "string",
     "value": "random"
   },
+  "peppySpectrumFolder": {
+    "type": "string",
+    "value": ""
+  },
+  "peppySpectrumModel": {
+    "type": "string",
+    "value": "random"
+  },
   "backgroundColor": {
     "type": "string",
     "value": ""

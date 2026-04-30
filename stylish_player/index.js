@@ -406,6 +406,8 @@ ControllerStylishPlayer.prototype.startServer = function () {
         spectrumOptions: self.config.get("spectrumOptions", ""),
         peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
         peppyMeterModel: self.config.get("peppyMeterModel", "random"),
+        peppySpectrumFolder: self.config.get("peppySpectrumFolder", ""),
+        peppySpectrumModel: self.config.get("peppySpectrumModel", "random"),
         backgroundColor: self.config.get("backgroundColor", ""),
         trackColor: self.config.get("trackColor", ""),
         artistColor: self.config.get("artistColor", ""),
@@ -475,6 +477,49 @@ ControllerStylishPlayer.prototype.startServer = function () {
         "Cache-Control": "no-cache",
       });
       res.end(JSON.stringify(result));
+      return;
+    }
+
+    // API endpoint: return peppy spectrum folder list with models
+    if (urlPath === "/api/peppy-spectrum-folders") {
+      var spectrumDir = path.join(distPath, "peppy_spectrum");
+      var spectrumResult = [];
+      try {
+        var specEntries = fs.readdirSync(spectrumDir, { withFileTypes: true });
+        for (var si = 0; si < specEntries.length; si++) {
+          if (!specEntries[si].isDirectory()) continue;
+          var specFolderName = specEntries[si].name;
+          // Parse WxH+N-Name pattern (N = number of bars)
+          var specMatch = specFolderName.match(/^(\d+)x(\d+)\+(\d+)-(.+)$/);
+          if (!specMatch) {
+            // Also try WxH-Name without bars
+            specMatch = specFolderName.match(/^(\d+)x(\d+)-(.+)$/);
+            if (!specMatch) continue;
+          }
+          var specW = parseInt(specMatch[1], 10);
+          var specH = parseInt(specMatch[2], 10);
+          var specBars = specMatch[3] && specMatch[4] ? parseInt(specMatch[3], 10) : 30;
+          var specName = specMatch[4] || specMatch[3];
+          var specModels = [];
+          var spectrumPath = path.join(spectrumDir, specFolderName, "spectrum.txt");
+          if (fs.existsSync(spectrumPath)) {
+            var specContent = fs.readFileSync(spectrumPath, "utf8");
+            var specLines = specContent.split("\n");
+            for (var sj = 0; sj < specLines.length; sj++) {
+              var specSectionMatch = specLines[sj].trim().match(/^\[(.+)\]$/);
+              if (specSectionMatch) specModels.push(specSectionMatch[1]);
+            }
+          }
+          spectrumResult.push({ folder: specFolderName, width: specW, height: specH, bars: specBars, name: specName, models: specModels });
+        }
+      } catch (e) {
+        // peppy_spectrum dir may not exist yet
+      }
+      res.writeHead(200, {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+      });
+      res.end(JSON.stringify(spectrumResult));
       return;
     }
 
@@ -599,6 +644,8 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     spectrumOptions: self.config.get("spectrumOptions", ""),
     peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
     peppyMeterModel: self.config.get("peppyMeterModel", "random"),
+    peppySpectrumFolder: self.config.get("peppySpectrumFolder", ""),
+    peppySpectrumModel: self.config.get("peppySpectrumModel", "random"),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -715,6 +762,18 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       // Populate spectrum options (Index 7)
       uiconf.sections[2].content[7].value = self.config.get("spectrumOptions", "");
 
+      // Dynamically populate peppy meter folder options from disk
+      var peppyMeterDir = path.join(distPath, "peppy_meter");
+      try {
+        var peppyMeterEntries = fs.readdirSync(peppyMeterDir, { withFileTypes: true });
+        for (var pi = 0; pi < peppyMeterEntries.length; pi++) {
+          if (!peppyMeterEntries[pi].isDirectory()) continue;
+          var pmFolder = peppyMeterEntries[pi].name;
+          if (!pmFolder.match(/^\d+x\d+-.+$/)) continue;
+          uiconf.sections[2].content[8].options.push({ value: pmFolder, label: pmFolder });
+        }
+      } catch (e) { /* peppy_meter dir may not exist */ }
+
       // Populate peppy meter folder (Index 8)
       var peppyMeterFolder = self.config.get("peppyMeterFolder", "");
       var peppyMeterFolderOptions = uiconf.sections[2].content[8].options;
@@ -726,13 +785,73 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       }
 
       // Populate peppy meter model (Index 9)
+      // Dynamically populate model options from meters.txt of the selected folder
       var peppyMeterModel = self.config.get("peppyMeterModel", "random");
+      if (peppyMeterFolder) {
+        var metersPath = path.join(distPath, "peppy_meter", peppyMeterFolder, "meters.txt");
+        if (fs.existsSync(metersPath)) {
+          var metersContent = fs.readFileSync(metersPath, "utf8");
+          var metersLines = metersContent.split("\n");
+          for (var mi = 0; mi < metersLines.length; mi++) {
+            var meterSection = metersLines[mi].trim().match(/^\[(.+)\]$/);
+            if (meterSection) {
+              uiconf.sections[2].content[9].options.push({ value: meterSection[1], label: meterSection[1] });
+            }
+          }
+        }
+      }
       var peppyMeterModelOptions = uiconf.sections[2].content[9].options;
       var matchPeppyModel = peppyMeterModelOptions.find(function (opt) {
         return opt.value === peppyMeterModel;
       });
       if (matchPeppyModel) {
         uiconf.sections[2].content[9].value = matchPeppyModel;
+      }
+
+      // Dynamically populate peppy spectrum folder options from disk
+      var peppySpectrumDir = path.join(distPath, "peppy_spectrum");
+      try {
+        var spectrumEntries = fs.readdirSync(peppySpectrumDir, { withFileTypes: true });
+        for (var sfi = 0; sfi < spectrumEntries.length; sfi++) {
+          if (!spectrumEntries[sfi].isDirectory()) continue;
+          var psFolder = spectrumEntries[sfi].name;
+          if (!psFolder.match(/^\d+x\d+(\+\d+)?-.+$/)) continue;
+          uiconf.sections[2].content[10].options.push({ value: psFolder, label: psFolder });
+        }
+      } catch (e) { /* peppy_spectrum dir may not exist */ }
+
+      // Populate peppy spectrum folder (Index 10)
+      var peppySpectrumFolder = self.config.get("peppySpectrumFolder", "");
+      var peppySpectrumFolderOptions = uiconf.sections[2].content[10].options;
+      var matchSpectrumFolder = peppySpectrumFolderOptions.find(function (opt) {
+        return opt.value === peppySpectrumFolder;
+      });
+      if (matchSpectrumFolder) {
+        uiconf.sections[2].content[10].value = matchSpectrumFolder;
+      }
+
+      // Populate peppy spectrum model (Index 11)
+      // Dynamically populate model options from spectrum.txt of the selected folder
+      var peppySpectrumModel = self.config.get("peppySpectrumModel", "random");
+      if (peppySpectrumFolder) {
+        var spectrumTxtPath = path.join(distPath, "peppy_spectrum", peppySpectrumFolder, "spectrum.txt");
+        if (fs.existsSync(spectrumTxtPath)) {
+          var specTxtContent = fs.readFileSync(spectrumTxtPath, "utf8");
+          var specTxtLines = specTxtContent.split("\n");
+          for (var smi = 0; smi < specTxtLines.length; smi++) {
+            var specSection = specTxtLines[smi].trim().match(/^\[(.+)\]$/);
+            if (specSection) {
+              uiconf.sections[2].content[11].options.push({ value: specSection[1], label: specSection[1] });
+            }
+          }
+        }
+      }
+      var peppySpectrumModelOptions = uiconf.sections[2].content[11].options;
+      var matchSpectrumModel = peppySpectrumModelOptions.find(function (opt) {
+        return opt.value === peppySpectrumModel;
+      });
+      if (matchSpectrumModel) {
+        uiconf.sections[2].content[11].value = matchSpectrumModel;
       }
 
       // Populate colors section (index 3)
@@ -944,6 +1063,13 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
     var peppyMeterModel = data["peppyMeterModel"] ? (typeof data["peppyMeterModel"] === 'object' ? data["peppyMeterModel"].value : data["peppyMeterModel"]) : "random";
     self.config.set("peppyMeterFolder", peppyMeterFolder);
     self.config.set("peppyMeterModel", peppyMeterModel);
+  }
+
+  if (vizType === "peppySpectrum") {
+    var peppySpectrumFolder = data["peppySpectrumFolder"] ? (typeof data["peppySpectrumFolder"] === 'object' ? data["peppySpectrumFolder"].value : data["peppySpectrumFolder"]) : "";
+    var peppySpectrumModel = data["peppySpectrumModel"] ? (typeof data["peppySpectrumModel"] === 'object' ? data["peppySpectrumModel"].value : data["peppySpectrumModel"]) : "random";
+    self.config.set("peppySpectrumFolder", peppySpectrumFolder);
+    self.config.set("peppySpectrumModel", peppySpectrumModel);
   }
 
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
