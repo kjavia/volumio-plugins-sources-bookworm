@@ -380,7 +380,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
   self.server = http.createServer(function (req, res) {
     // CORS headers
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
     // Handle preflight requests
@@ -392,6 +392,81 @@ ControllerStylishPlayer.prototype.startServer = function () {
 
     // Parse the URL and resolve to prevent directory traversal
     var urlPath = new URL(req.url, "http://localhost").pathname;
+
+    // ── Upload endpoint: accept zip files for peppy_meter or peppy_spectrum ──
+    if (urlPath === "/api/upload-peppy-pack" && req.method === "POST") {
+      var searchParams = new URL(req.url, "http://localhost").searchParams;
+      var packType = searchParams.get("type"); // "meter" or "spectrum"
+
+      if (packType !== "meter" && packType !== "spectrum") {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Invalid type parameter. Use 'meter' or 'spectrum'." }));
+        return;
+      }
+
+      var targetDir = packType === "meter"
+        ? path.join(distPath, "peppy_meter")
+        : path.join(distPath, "peppy_spectrum");
+
+      // Ensure target directory exists
+      fs.ensureDirSync(targetDir);
+
+      var chunks = [];
+      var totalSize = 0;
+      var MAX_UPLOAD_SIZE = 50 * 1024 * 1024; // 50MB limit
+
+      req.on("data", function (chunk) {
+        totalSize += chunk.length;
+        if (totalSize > MAX_UPLOAD_SIZE) {
+          req.destroy();
+          res.writeHead(413, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "File too large. Maximum 50MB." }));
+          return;
+        }
+        chunks.push(chunk);
+      });
+
+      req.on("end", function () {
+        if (totalSize > MAX_UPLOAD_SIZE) return;
+
+        var buffer = Buffer.concat(chunks);
+
+        // Validate zip magic bytes (PK\x03\x04)
+        if (buffer.length < 4 || buffer[0] !== 0x50 || buffer[1] !== 0x4B || buffer[2] !== 0x03 || buffer[3] !== 0x04) {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Invalid file. Only ZIP files are accepted." }));
+          return;
+        }
+
+        // Write temp file
+        var tmpFile = path.join(os.tmpdir(), "peppy_upload_" + Date.now() + ".zip");
+        fs.writeFileSync(tmpFile, buffer);
+
+        // Extract using unzip
+        exec('unzip -o "' + tmpFile + '" -d "' + targetDir + '"', function (err, stdout, stderr) {
+          // Clean up temp file
+          try { fs.unlinkSync(tmpFile); } catch (e) { /* ignore */ }
+
+          if (err) {
+            self.logger.error("Stylish Player: Failed to extract zip: " + stderr);
+            res.writeHead(500, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: "Failed to extract zip file." }));
+            return;
+          }
+
+          self.logger.info("Stylish Player: Uploaded and extracted peppy " + packType + " pack to " + targetDir);
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ success: true, message: "Pack uploaded and extracted successfully." }));
+        });
+      });
+
+      req.on("error", function () {
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Upload failed." }));
+      });
+
+      return;
+    }
 
     // API endpoint: return saved plugin config as JSON
     if (urlPath === "/api/config") {
