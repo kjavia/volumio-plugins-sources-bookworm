@@ -442,8 +442,9 @@ ControllerStylishPlayer.prototype.startServer = function () {
         var tmpFile = path.join(os.tmpdir(), "peppy_upload_" + Date.now() + ".zip");
         fs.writeFileSync(tmpFile, buffer);
 
-        // Extract using unzip
-        exec('unzip -o "' + tmpFile + '" -d "' + targetDir + '"', function (err, stdout, stderr) {
+        // Extract using Python's zipfile (always available on Volumio)
+        var pyCmd = 'python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])" "' + tmpFile + '" "' + targetDir + '"';
+        exec(pyCmd, function (err, stdout, stderr) {
           // Clean up temp file
           try { fs.unlinkSync(tmpFile); } catch (e) { /* ignore */ }
 
