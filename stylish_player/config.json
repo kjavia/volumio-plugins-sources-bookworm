@@ -75,6 +75,10 @@
     "type": "boolean",
     "value": false
   },
+  "albumArtAnimated": {
+    "type": "boolean",
+    "value": true
+  },
   "showTrackPanel": {
     "type": "boolean",
     "value": false
@@ -142,5 +146,13 @@
   "analogClockShowDate": {
     "type": "boolean",
     "value": true
+  },
+  "useCustomLayout": {
+    "type": "boolean",
+    "value": false
+  },
+  "layoutDesigner": {
+    "type": "string",
+    "value": ""
   }
 }
