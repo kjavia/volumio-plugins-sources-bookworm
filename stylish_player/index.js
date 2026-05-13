@@ -1013,6 +1013,12 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     albumColor: self.config.get("albumColor", ""),
     streamInfoColor: self.config.get("streamInfoColor", ""),
     controlColor: self.config.get("controlColor", ""),
+    useCustomLayout: self.config.get("useCustomLayout", false),
+    layoutDesigner: (() => {
+      var raw = self.config.get("layoutDesigner", "");
+      if (!raw) return { layouts: [] };
+      try { return JSON.parse(raw); } catch (e) { return { layouts: [] }; }
+    })(),
     language: self.commandRouter.sharedVars.get("language_code") || 'en',
   };
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
@@ -1410,6 +1416,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("albumArtMaxSpace", albumArtMaxSpace);
   self.config.set("albumArtAnimated", albumArtAnimated);
   self.config.set("showTrackPanel", showTrackPanel);
+  self.config.set("useCustomLayout", data["useCustomLayout"] === true);
   self.config.set("vizType", vizType);
   self.config.set("spectrumOptions", spectrumOptions);
 
@@ -1429,6 +1436,27 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
 
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Player configuration saved.");
 
+  self.broadcastConfig();
+};
+
+ControllerStylishPlayer.prototype.configSaveLayoutDesigner = function (data) {
+  var self = this;
+  var raw = data["layoutDesigner"];
+  var value = typeof raw === 'object' ? JSON.stringify(raw) : (raw || '').toString().trim();
+  if (value) {
+    try {
+      var parsed = JSON.parse(value);
+      if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.layouts)) {
+        throw new Error('Expected layoutDesigner to include a layouts array.');
+      }
+    } catch (e) {
+      self.commandRouter.pushToastMessage("error", "Stylish Player", "Layout Designer data is not valid JSON: " + e.message);
+      return;
+    }
+  }
+
+  self.config.set("layoutDesigner", value);
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Layout Designer saved.");
   self.broadcastConfig();
 };
 
