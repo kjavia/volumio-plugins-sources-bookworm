@@ -668,6 +668,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
         albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
         albumArtAnimated: self.config.get("albumArtAnimated", true),
         showTrackPanel: self.config.get("showTrackPanel", false),
+        useCustomLayout: self.config.get("useCustomLayout", false),
         vizType: self.config.get("vizType", "spectrum"),
         spectrumOptions: self.config.get("spectrumOptions", ""),
         peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
@@ -698,6 +699,11 @@ ControllerStylishPlayer.prototype.startServer = function () {
         slideshowInterval: self.config.get("slideshowInterval", 30),
         externalUrl: self.config.get("externalUrl", ""),
         use24Hour: self.config.get("use24Hour", false),
+        layoutDesigner: (() => {
+          var raw = self.config.get("layoutDesigner", "");
+          if (!raw) return { layouts: [] };
+          try { return JSON.parse(raw); } catch (e) { return { layouts: [] }; }
+        })(),
         language: self.commandRouter.sharedVars.get("language_code") || 'en',
       };
       res.writeHead(200, {
