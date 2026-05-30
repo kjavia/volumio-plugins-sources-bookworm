@@ -659,60 +659,7 @@ ControllerStylishPlayer.prototype.startServer = function () {
 
     // API endpoint: return saved plugin config as JSON
     if (urlPath === "/api/config") {
-      var configData = {
-        playerType: self.config.get("playerType", "albumArt"),
-        theme: self.config.get("theme", "skeuomorphic"),
-        showPlayerControls: self.config.get("showPlayerControls", true),
-        hideSeekHandle: self.config.get("hideSeekHandle", false),
-        showRemainingTime: self.config.get("showRemainingTime", false),
-        albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
-        albumArtAnimated: self.config.get("albumArtAnimated", true),
-        showTrackPanel: self.config.get("showTrackPanel", false),
-        useCustomLayout: self.config.get("useCustomLayout", false),
-        vizType: self.config.get("vizType", "spectrum"),
-        spectrumOptions: self.config.get("spectrumOptions", ""),
-        peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
-        peppyMeterModel: self.config.get("peppyMeterModel", "random"),
-        peppySpectrumFolder: self.config.get("peppySpectrumFolder", ""),
-        peppySpectrumModel: self.config.get("peppySpectrumModel", "random"),
-        backgroundColor: self.config.get("backgroundColor", ""),
-        trackColor: self.config.get("trackColor", ""),
-        artistColor: self.config.get("artistColor", ""),
-        albumColor: self.config.get("albumColor", ""),
-        streamInfoColor: self.config.get("streamInfoColor", ""),
-        controlColor: self.config.get("controlColor", ""),
-        port: self.config.get("port", 3339),
-        latitude: self.config.get("latitude", ""),
-        longitude: self.config.get("longitude", ""),
-
-        weatherApiKey: self.config.get("weatherApiKey", ""),
-        unitSystem: self.config.get("unitSystem", "metric"),
-        idleScreen: self.config.get("idleScreen", "analogClock"),
-        idleTimeout: self.config.get("idleTimeout", 5),
-        showWeatherInClock: self.config.get("showWeatherInClock", true),
-        analogClockShowDate: self.config.get("analogClockShowDate", true),
-        unsplashApiKey: self.config.get("unsplashApiKey", ""),
-        wallpaperUrl: self.config.get("wallpaperUrl", ""),
-        wallpaperShowTime: self.config.get("wallpaperShowTime", true),
-        wallpaperShowSeconds: self.config.get("wallpaperShowSeconds", false),
-        wallpaperShowWeather: self.config.get("wallpaperShowWeather", true),
-        slideshowInterval: self.config.get("slideshowInterval", 30),
-        externalUrl: self.config.get("externalUrl", ""),
-        use24Hour: self.config.get("use24Hour", false),
-        layoutDesigner: (() => {
-          var raw = self.config.get("layoutDesigner", "");
-          if (!raw) return { layouts: [] };
-          try { return JSON.parse(raw); } catch (e) { return { layouts: [] }; }
-        })(),
-        titleFontSize: self.config.get("titleFontSize", ""),
-        albumFontSize: self.config.get("albumFontSize", ""),
-        artistFontSize: self.config.get("artistFontSize", ""),
-        bitrateFontSize: self.config.get("bitrateFontSize", ""),
-        progressFontSize: self.config.get("progressFontSize", ""),
-        volumeFontSize: self.config.get("volumeFontSize", ""),
-        weatherBackgroundColor: self.config.get("weatherBackgroundColor", ""),
-        language: self.commandRouter.sharedVars.get("language_code") || 'en',
-      };
+      var configData = self._buildConfigData();
       res.writeHead(200, {
         "Content-Type": "application/json",
         "Cache-Control": "no-cache",
@@ -984,11 +931,10 @@ ControllerStylishPlayer.prototype.stopAudioServer = function () {
   }
 };
 
-// Broadcast config to connected clients ----------------------------------------------------
-
-ControllerStylishPlayer.prototype.broadcastConfig = function () {
+// Build a canonical config object used by the API and broadcasts
+ControllerStylishPlayer.prototype._buildConfigData = function () {
   var self = this;
-  var configData = {
+  return {
     playerType: self.config.get("playerType", "albumArt"),
     theme: self.config.get("theme", "skeuomorphic"),
     showPlayerControls: self.config.get("showPlayerControls", true),
@@ -997,12 +943,19 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     albumArtMaxSpace: self.config.get("albumArtMaxSpace", false),
     albumArtAnimated: self.config.get("albumArtAnimated", true),
     showTrackPanel: self.config.get("showTrackPanel", false),
+    useCustomLayout: self.config.get("useCustomLayout", false),
     vizType: self.config.get("vizType", "spectrum"),
     spectrumOptions: self.config.get("spectrumOptions", ""),
     peppyMeterFolder: self.config.get("peppyMeterFolder", ""),
     peppyMeterModel: self.config.get("peppyMeterModel", "random"),
     peppySpectrumFolder: self.config.get("peppySpectrumFolder", ""),
     peppySpectrumModel: self.config.get("peppySpectrumModel", "random"),
+    backgroundColor: self.config.get("backgroundColor", ""),
+    trackColor: self.config.get("trackColor", ""),
+    artistColor: self.config.get("artistColor", ""),
+    albumColor: self.config.get("albumColor", ""),
+    streamInfoColor: self.config.get("streamInfoColor", ""),
+    controlColor: self.config.get("controlColor", ""),
     port: self.config.get("port", 3339),
     latitude: self.config.get("latitude", ""),
     longitude: self.config.get("longitude", ""),
@@ -1021,13 +974,6 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     slideshowInterval: self.config.get("slideshowInterval", 30),
     externalUrl: self.config.get("externalUrl", ""),
     use24Hour: self.config.get("use24Hour", false),
-    backgroundColor: self.config.get("backgroundColor", ""),
-    trackColor: self.config.get("trackColor", ""),
-    artistColor: self.config.get("artistColor", ""),
-    albumColor: self.config.get("albumColor", ""),
-    streamInfoColor: self.config.get("streamInfoColor", ""),
-    controlColor: self.config.get("controlColor", ""),
-    useCustomLayout: self.config.get("useCustomLayout", false),
     layoutDesigner: (() => {
       var raw = self.config.get("layoutDesigner", "");
       if (!raw) return { layouts: [] };
@@ -1041,6 +987,13 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     volumeFontSize: self.config.get("volumeFontSize", ""),
     language: self.commandRouter.sharedVars.get("language_code") || 'en',
   };
+};
+
+// Broadcast config to connected clients ----------------------------------------------------
+
+ControllerStylishPlayer.prototype.broadcastConfig = function () {
+  var self = this;
+  var configData = self._buildConfigData();
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
   self.logger.info("Stylish Player: Broadcasted config update: " + JSON.stringify(configData));
 };
