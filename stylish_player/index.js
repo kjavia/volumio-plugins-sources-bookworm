@@ -704,6 +704,13 @@ ControllerStylishPlayer.prototype.startServer = function () {
           if (!raw) return { layouts: [] };
           try { return JSON.parse(raw); } catch (e) { return { layouts: [] }; }
         })(),
+        titleFontSize: self.config.get("titleFontSize", ""),
+        albumFontSize: self.config.get("albumFontSize", ""),
+        artistFontSize: self.config.get("artistFontSize", ""),
+        bitrateFontSize: self.config.get("bitrateFontSize", ""),
+        progressFontSize: self.config.get("progressFontSize", ""),
+        volumeFontSize: self.config.get("volumeFontSize", ""),
+        weatherBackgroundColor: self.config.get("weatherBackgroundColor", ""),
         language: self.commandRouter.sharedVars.get("language_code") || 'en',
       };
       res.writeHead(200, {
@@ -1005,6 +1012,7 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
     idleTimeout: self.config.get("idleTimeout", 5),
     showWeatherInClock: self.config.get("showWeatherInClock", true),
     analogClockShowDate: self.config.get("analogClockShowDate", true),
+    weatherBackgroundColor: self.config.get("weatherBackgroundColor", ""),
     unsplashApiKey: self.config.get("unsplashApiKey", ""),
     wallpaperUrl: self.config.get("wallpaperUrl", ""),
     wallpaperShowTime: self.config.get("wallpaperShowTime", true),
@@ -1025,6 +1033,12 @@ ControllerStylishPlayer.prototype.broadcastConfig = function () {
       if (!raw) return { layouts: [] };
       try { return JSON.parse(raw); } catch (e) { return { layouts: [] }; }
     })(),
+    titleFontSize: self.config.get("titleFontSize", ""),
+    albumFontSize: self.config.get("albumFontSize", ""),
+    artistFontSize: self.config.get("artistFontSize", ""),
+    bitrateFontSize: self.config.get("bitrateFontSize", ""),
+    progressFontSize: self.config.get("progressFontSize", ""),
+    volumeFontSize: self.config.get("volumeFontSize", ""),
     language: self.commandRouter.sharedVars.get("language_code") || 'en',
   };
   self.commandRouter.broadcastMessage("pushStylishPlayerConfig", configData);
@@ -1227,43 +1241,52 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
 
       // Populate idle screen section (index 4)
       var idleScreen = self.config.get("idleScreen", "analogClock");
-      var idleScreenOptions = uiconf.sections[4].content[0].options;
+      var idleScreenOptions = uiconf.sections[5].content[0].options;
       var matchIdleScreen = idleScreenOptions.find(function (opt) {
         return opt.value === idleScreen;
       });
       if (matchIdleScreen) {
-        uiconf.sections[4].content[0].value = matchIdleScreen;
+        uiconf.sections[5].content[0].value = matchIdleScreen;
       }
-      uiconf.sections[4].content[1].value = self.config.get("externalUrl", "");
-      uiconf.sections[4].content[2].value = self.config.get("idleTimeout", 5);
+      uiconf.sections[5].content[1].value = self.config.get("externalUrl", "");
+      uiconf.sections[5].content[2].value = self.config.get("idleTimeout", 5);
 
       // Populate clock section (index 5)
-      uiconf.sections[5].content[0].value = self.config.get("use24Hour", false);
-      uiconf.sections[5].content[1].value = self.config.get("wallpaperShowSeconds", false);
-      uiconf.sections[5].content[2].value = self.config.get("showWeatherInClock", true);
-      uiconf.sections[5].content[3].value = self.config.get("analogClockShowDate", true);
+      uiconf.sections[6].content[0].value = self.config.get("use24Hour", false);
+      uiconf.sections[6].content[1].value = self.config.get("wallpaperShowSeconds", false);
+      uiconf.sections[6].content[2].value = self.config.get("showWeatherInClock", true);
+      uiconf.sections[6].content[3].value = self.config.get("analogClockShowDate", true);
 
       // Populate weather section (index 6)
-      uiconf.sections[6].content[0].value = self.config.get("latitude", "");
-      uiconf.sections[6].content[1].value = self.config.get("longitude", "");
-      uiconf.sections[6].content[2].value = self.config.get("weatherApiKey", "");
-      var unitSystem = self.config.get("unitSystem", "metric");
-      var unitSystemOptions = uiconf.sections[6].content[3].options;
-      var matchUnitSystem = unitSystemOptions.find(function (opt) {
-        return opt.value === unitSystem;
-      });
-      if (matchUnitSystem) {
-        uiconf.sections[6].content[3].value = matchUnitSystem;
-      }
+      try {
+        var weatherSection = uiconf.sections.find(function (s) { return s.id === 'section_weather'; });
+        if (weatherSection && weatherSection.content) {
+          var latField = weatherSection.content.find(function (c) { return c.id === 'latitude'; });
+          if (latField) latField.value = self.config.get("latitude", "");
+          var lonField = weatherSection.content.find(function (c) { return c.id === 'longitude'; });
+          if (lonField) lonField.value = self.config.get("longitude", "");
+          var apiField = weatherSection.content.find(function (c) { return c.id === 'weatherApiKey'; });
+          if (apiField) apiField.value = self.config.get("weatherApiKey", "");
+          var bgField = weatherSection.content.find(function (c) { return c.id === 'weatherBackgroundColor'; });
+          if (bgField) bgField.value = self.config.get("weatherBackgroundColor", "");
 
-      // Populate wallpaper section (index 7)
-      uiconf.sections[7].content[0].value = self.config.get("unsplashApiKey", "");
-      uiconf.sections[7].content[1].value = self.config.get("wallpaperUrl", "");
-      uiconf.sections[7].content[2].value = self.config.get("wallpaperShowTime", true);
-      uiconf.sections[7].content[3].value = self.config.get("wallpaperShowWeather", true);
-      uiconf.sections[7].content[4].value = self.config.get("slideshowInterval", 30);
+          var unitField = weatherSection.content.find(function (c) { return c.id === 'unitSystem'; });
+          var unitSystem = self.config.get("unitSystem", "metric");
+          if (unitField && unitField.options) {
+            var matchUnitSystem = unitField.options.find(function (opt) { return opt.value === unitSystem; });
+            if (matchUnitSystem) unitField.value = matchUnitSystem;
+          }
+        }
+      } catch (e) { /* ignore */ }
 
-      // Populate kiosk section (index 8) — content is built dynamically based on current kiosk state
+      // Populate wallpaper section (index 8)
+      uiconf.sections[8].content[0].value = self.config.get("unsplashApiKey", "");
+      uiconf.sections[8].content[1].value = self.config.get("wallpaperUrl", "");
+      uiconf.sections[8].content[2].value = self.config.get("wallpaperShowTime", true);
+      uiconf.sections[8].content[3].value = self.config.get("wallpaperShowWeather", true);
+      uiconf.sections[8].content[4].value = self.config.get("slideshowInterval", 30);
+
+      // Populate kiosk section — find by id so section ordering is not fragile
       var kioskState = self.checkVolumioKiosk();
       var kioskDesc, kioskButton;
       if (!kioskState.exists) {
@@ -1317,10 +1340,24 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
           };
         }
       }
-      uiconf.sections[8].description = kioskDesc;
-      if (kioskButton) {
-        uiconf.sections[8].content = [kioskButton];
+      var kioskSection = uiconf.sections.find(function (s) { return s.id === 'section_kiosk'; });
+      if (kioskSection) {
+        kioskSection.description = kioskDesc;
+        if (kioskButton) kioskSection.content = [kioskButton];
       }
+
+      // Populate fonts section (last section)
+      try {
+        var fontsSection = uiconf.sections.find(function (s) { return s.id === 'section_fonts'; });
+        if (fontsSection && fontsSection.content) {
+          fontsSection.content[0].value = self.config.get("titleFontSize", "");
+          fontsSection.content[1].value = self.config.get("albumFontSize", "");
+          fontsSection.content[2].value = self.config.get("artistFontSize", "");
+          fontsSection.content[3].value = self.config.get("bitrateFontSize", "");
+          fontsSection.content[4].value = self.config.get("progressFontSize", "");
+          fontsSection.content[5].value = self.config.get("volumeFontSize", "");
+        }
+      } catch (e) { /* ignore if fonts section not present */ }
 
       defer.resolve(uiconf);
     })
@@ -1484,6 +1521,26 @@ ControllerStylishPlayer.prototype.configSaveColors = function (data) {
   self.broadcastConfig();
 };
 
+ControllerStylishPlayer.prototype.configSaveFonts = function (data) {
+  var self = this;
+  var fields = ["titleFontSize", "albumFontSize", "artistFontSize", "bitrateFontSize", "progressFontSize", "volumeFontSize"];
+  //self.logger.info("Stylish Player: configSaveFonts called with data: " + JSON.stringify(data));
+
+  for (var i = 0; i < fields.length; i++) {
+    var val = (data[fields[i]] || "").toString().trim();
+    self.config.set(fields[i], val);
+  }
+
+  self.commandRouter.pushToastMessage("success", "Stylish Player", "Font settings saved.");
+  self.broadcastConfig();
+  // // Refresh UI so Volumio core settings page re-reads UIConfig and shows saved values
+  // try {
+  //   self.refreshUI();
+  // } catch (e) {
+  //   self.logger.error("Stylish Player: Failed to refresh UI after saving fonts: " + e.message);
+  // }
+};
+
 ControllerStylishPlayer.prototype.configSaveLocation = function (data) {
   var self = this;
 
@@ -1527,6 +1584,13 @@ ControllerStylishPlayer.prototype.configSaveWeather = function (data) {
   self.config.set("longitude", longitude);
   self.config.set("weatherApiKey", apiKey);
   self.config.set("unitSystem", unitSystem);
+  var bgColor = (data["weatherBackgroundColor"] || "").toString().trim();
+  var hexPattern = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
+  if (bgColor && !hexPattern.test(bgColor)) {
+    self.commandRouter.pushToastMessage("error", "Stylish Player", "Weather background color must be a valid hex code (e.g. #1a2b3c).");
+    return;
+  }
+  self.config.set("weatherBackgroundColor", bgColor);
   self.commandRouter.pushToastMessage("success", "Stylish Player", "Weather settings saved.");
 
   self.broadcastConfig();

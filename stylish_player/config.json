@@ -19,6 +19,10 @@
     "type": "string",
     "value": ""
   },
+  "weatherBackgroundColor": {
+    "type": "string",
+    "value": ""
+  },
   "showPlayerControls": {
     "type": "boolean",
     "value": true
@@ -132,6 +136,30 @@
     "value": ""
   },
   "controlColor": {
+    "type": "string",
+    "value": ""
+  },
+  "titleFontSize": {
+    "type": "string",
+    "value": ""
+  },
+  "albumFontSize": {
+    "type": "string",
+    "value": ""
+  },
+  "artistFontSize": {
+    "type": "string",
+    "value": ""
+  },
+  "bitrateFontSize": {
+    "type": "string",
+    "value": ""
+  },
+  "progressFontSize": {
+    "type": "string",
+    "value": ""
+  },
+  "volumeFontSize": {
     "type": "string",
     "value": ""
   },
