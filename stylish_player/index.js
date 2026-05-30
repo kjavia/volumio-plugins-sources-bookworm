@@ -1126,6 +1126,14 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       // Populate show track panel (Index 7)
       uiconf.sections[2].content[7].value = self.config.get("showTrackPanel", false);
 
+      // Populate useCustomLayout (if present) by id instead of relying on fragile indices
+      try {
+        var useCustomField = uiconf.sections[2].content.find(function (c) { return c.id === 'useCustomLayout'; });
+        if (useCustomField) {
+          useCustomField.value = self.config.get("useCustomLayout", false);
+        }
+      } catch (e) { /* ignore if section/content not present */ }
+
       // Populate viz type select (Index 8)
       var vizType = self.config.get("vizType", "spectrum");
       var vizTypeOptions = uiconf.sections[2].content[8].options;
@@ -1257,7 +1265,7 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       uiconf.sections[6].content[2].value = self.config.get("showWeatherInClock", true);
       uiconf.sections[6].content[3].value = self.config.get("analogClockShowDate", true);
 
-      // Populate weather section (index 6)
+      // Populate weather section (index 7)
       try {
         var weatherSection = uiconf.sections.find(function (s) { return s.id === 'section_weather'; });
         if (weatherSection && weatherSection.content) {
