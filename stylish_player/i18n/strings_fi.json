@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Näytä faniart taustalla",
   "DISPLAY_FANART_BACKGROUND_DESC": "Kun käytössä, soittimen taustalla vaihtuvat fanart.tv:stä haetut fanikuvat nykyiselle esittäjälle.",
   "FANART_BACKGROUND_GRAYSCALE": "Fanart harmaasävyinä",
+  "FANART_BACKGROUND_OPACITY": "Faniartin taustan läpinäkyvyys",
+  "FANART_BACKGROUND_OPACITY_DESC": "Hallitsee faniartin taustakuvan läpinäkyvyyttä.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Kun käytössä, taustan fanart-kuva näytetään harmaasävyisenä.",
   "WALLPAPER_URL": "Taustakuvan URL",
   "WALLPAPER_URL_DESC": "Taustakuvan URL tai Unsplash API URL, joka palauttaa valokuvia. Useita kuvia näytetään diaesityksenä.",

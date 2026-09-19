@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Vis fankunst i baggrunden",
   "DISPLAY_FANART_BACKGROUND_DESC": "Når det er aktiveret, roterer afspillerens baggrund gennem fankunst-billeder hentet fra fanart.tv for den aktuelt afspillede kunstner.",
   "FANART_BACKGROUND_GRAYSCALE": "Fankunst i gråtoner",
+  "FANART_BACKGROUND_OPACITY": "Gennemsigtighed for fankunst-baggrund",
+  "FANART_BACKGROUND_OPACITY_DESC": "Styrer gennemsigtigheden af fankunst-baggrundsbilledet.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Når det er aktiveret, vises fankunst-baggrundsbilledet i gråtoner.",
   "WALLPAPER_URL": "Baggrundsbillede-URL",
   "WALLPAPER_URL_DESC": "URL til et baggrundsbillede eller en Unsplash API-URL, der returnerer fotos. Flere billeder vil skifte som et slideshow.",

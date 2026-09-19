@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Afficher Fan Art en arrière-plan",
   "DISPLAY_FANART_BACKGROUND_DESC": "Lorsque activé, l'arrière-plan du lecteur affiche en rotation les images de fan art récupérées depuis fanart.tv pour l'artiste en cours de lecture.",
   "FANART_BACKGROUND_GRAYSCALE": "Fan Art en niveaux de gris",
+  "FANART_BACKGROUND_OPACITY": "Opacité de l'arrière-plan Fan Art",
+  "FANART_BACKGROUND_OPACITY_DESC": "Contrôle l'opacité de l'image d'arrière-plan fan art.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Lorsque activé, l'image de fond fan art est affichée en niveaux de gris.",
   "WALLPAPER_URL": "URL du Fond d'Écran",
   "WALLPAPER_URL_DESC": "URL d'une image de fond d'écran, ou une URL API Unsplash qui renvoie des photos. Plusieurs images défileront en diaporama.",

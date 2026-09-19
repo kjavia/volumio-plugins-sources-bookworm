@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "在背景中显示同人画",
   "DISPLAY_FANART_BACKGROUND_DESC": "启用后,播放器背景会在从 fanart.tv 获取的当前播放艺人的同人画图像之间轮播。",
   "FANART_BACKGROUND_GRAYSCALE": "灰度显示同人画背景",
+  "FANART_BACKGROUND_OPACITY": "粉丝艺术背景不透明度",
+  "FANART_BACKGROUND_OPACITY_DESC": "控制粉丝艺术背景图片的不透明度。",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "启用后,同人画背景图像将以灰度显示。",
   "WALLPAPER_URL": "壁纸 URL",
   "WALLPAPER_URL_DESC": "壁纸图像的 URL，或返回照片的 Unsplash API URL。多张图片将作为幻灯片循环播放。",

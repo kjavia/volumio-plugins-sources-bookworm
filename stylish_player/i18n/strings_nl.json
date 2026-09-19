@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Fan-art op de achtergrond weergeven",
   "DISPLAY_FANART_BACKGROUND_DESC": "Wanneer ingeschakeld, wisselt de achtergrond van de speler tussen fan-art-afbeeldingen opgehaald van fanart.tv voor de artiest die momenteel wordt afgespeeld.",
   "FANART_BACKGROUND_GRAYSCALE": "Fan-art in grijstinten",
+  "FANART_BACKGROUND_OPACITY": "Dekking fan art-achtergrond",
+  "FANART_BACKGROUND_OPACITY_DESC": "Regelt de dekking van de fan art-achtergrondafbeelding.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Wanneer ingeschakeld, wordt de fan-art-achtergrondafbeelding in grijstinten weergegeven.",
   "WALLPAPER_URL": "Achtergrond-URL",
   "WALLPAPER_URL_DESC": "URL van een achtergrondafbeelding of een Unsplash API-URL die foto's retourneert. Meerdere afbeeldingen worden als diavoorstelling weergegeven.",

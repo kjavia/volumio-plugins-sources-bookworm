@@ -75,6 +75,8 @@
   "DISPLAY_FANART_BACKGROUND_DESC": "When enabled, the player background rotates through fan art images fetched from fanart.tv for the currently playing artist.",
   "FANART_BACKGROUND_GRAYSCALE": "Grayscale Fan Art Background",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "When enabled, the fan art background image is displayed in grayscale.",
+  "FANART_BACKGROUND_OPACITY": "Fan Art Background Opacity",
+  "FANART_BACKGROUND_OPACITY_DESC": "Controls the opacity of the fan art background image.",
   "WALLPAPER_URL": "Wallpaper URL",
   "WALLPAPER_URL_DESC": "URL of a wallpaper image, or an Unsplash API URL that returns photos. Multiple images will cycle as a slideshow.",
   "WALLPAPER_SHOW_TIME": "Show Time on Wallpaper",

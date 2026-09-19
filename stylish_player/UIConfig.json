@@ -62,7 +62,7 @@
       },
       "saveButton": {
         "label": "TRANSLATE.SAVE",
-        "data": ["playerType", "theme", "showPlayerControls", "hideTrackTimes", "showRemainingTime", "albumArtMaxSpace", "albumArtAnimated", "showTrackPanel", "useCustomLayout", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel", "peppySpectrumFolder", "peppySpectrumModel", "fanartTvApiKey", "displayFanartBackground", "fanartBackgroundGrayscale"]
+        "data": ["playerType", "theme", "showPlayerControls", "hideTrackTimes", "showRemainingTime", "albumArtMaxSpace", "albumArtAnimated", "showTrackPanel", "useCustomLayout", "vizType", "spectrumOptions", "peppyMeterFolder", "peppyMeterModel", "peppySpectrumFolder", "peppySpectrumModel", "fanartTvApiKey", "displayFanartBackground", "fanartBackgroundGrayscale", "fanartBackgroundOpacity"]
       },
       "content": [
         {
@@ -273,6 +273,18 @@
           "label": "TRANSLATE.FANART_BACKGROUND_GRAYSCALE",
           "doc": "TRANSLATE.FANART_BACKGROUND_GRAYSCALE_DESC",
           "value": false,
+          "visibleIf": {
+            "field": "displayFanartBackground",
+            "value": true
+          }
+        },
+        {
+          "id": "fanartBackgroundOpacity",
+          "type": "number",
+          "element": "input",
+          "label": "TRANSLATE.FANART_BACKGROUND_OPACITY",
+          "doc": "TRANSLATE.FANART_BACKGROUND_OPACITY_DESC",
+          "value": 100,
           "visibleIf": {
             "field": "displayFanartBackground",
             "value": true

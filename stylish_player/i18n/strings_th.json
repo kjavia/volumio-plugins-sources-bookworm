@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "แสดง Fan Art ในพื้นหลัง",
   "DISPLAY_FANART_BACKGROUND_DESC": "เมื่อเปิดใช้งาน พื้นหลังของเครื่องเล่นจะสลับภาพ Fan Art ที่ดึงมาจาก fanart.tv สำหรับศิลปินที่กำลังเล่นอยู่",
   "FANART_BACKGROUND_GRAYSCALE": "Fan Art แบบสีเทา",
+  "FANART_BACKGROUND_OPACITY": "ความทึบของพื้นหลังแฟนอาร์ต",
+  "FANART_BACKGROUND_OPACITY_DESC": "ควบคุมความทึบของภาพพื้นหลังแฟนอาร์ต",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "เมื่อเปิดใช้งาน ภาพพื้นหลัง Fan Art จะแสดงเป็นสีเทา",
   "WALLPAPER_URL": "URL วอลล์เปเปอร์",
   "WALLPAPER_URL_DESC": "URL ของภาพวอลล์เปเปอร์ หรือ URL API Unsplash ที่ส่งคืนภาพถ่าย ภาพหลายภาพจะหมุนเวียนเป็นสลайด์โชว์",

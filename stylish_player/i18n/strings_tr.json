@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Arka planda Fan Sanatı göster",
   "DISPLAY_FANART_BACKGROUND_DESC": "Etkinleştirildiğinde, oynatıcı arka planı, şu anda çalan sanatçı için fanart.tv'den alınan fan sanatı görüntüleri arasında geçiş yapar.",
   "FANART_BACKGROUND_GRAYSCALE": "Fan Sanatı Gri Tonlamalı",
+  "FANART_BACKGROUND_OPACITY": "Fan Art Arka Plan Opaklığı",
+  "FANART_BACKGROUND_OPACITY_DESC": "Fan art arka plan görselinin opaklığını kontrol eder.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Etkinleştirildiğinde, fan sanatı arka plan görüntüsü gri tonlamalı olarak gösterilir.",
   "WALLPAPER_URL": "Duvar Kağıdı URL'si",
   "WALLPAPER_URL_DESC": "Duvar kağıdı görüntüsünün URL'si veya fotoğraflar döndüren bir Unsplash API URL'si. Birden fazla görüntü slayt gösterisi olarak döngüye girecektir.",

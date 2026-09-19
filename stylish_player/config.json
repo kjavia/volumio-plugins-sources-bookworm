@@ -71,6 +71,10 @@
     "type": "boolean",
     "value": false
   },
+  "fanartBackgroundOpacity": {
+    "type": "number",
+    "value": 100
+  },
   "wallpaperUrl": {
     "type": "string",
     "value": ""

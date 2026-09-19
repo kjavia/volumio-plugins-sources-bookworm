@@ -1287,6 +1287,7 @@ ControllerStylishPlayer.prototype._buildConfigData = function () {
     fanartTvApiKey: self.config.get("fanartTvApiKey", ""),
     displayFanartBackground: self.config.get("displayFanartBackground", false),
     fanartBackgroundGrayscale: self.config.get("fanartBackgroundGrayscale", false),
+    fanartBackgroundOpacity: self.config.get("fanartBackgroundOpacity", 100),
     wallpaperUrl: self.config.get("wallpaperUrl", ""),
     wallpaperShowTime: self.config.get("wallpaperShowTime", true),
     wallpaperShowSeconds: self.config.get("wallpaperShowSeconds", false),
@@ -1405,6 +1406,7 @@ ControllerStylishPlayer.prototype.getUIConfig = function () {
       field('section_player_config', 'fanartTvApiKey').value    = self.config.get("fanartTvApiKey", "");
       field('section_player_config', 'displayFanartBackground').value = self.config.get("displayFanartBackground", false);
       field('section_player_config', 'fanartBackgroundGrayscale').value = self.config.get("fanartBackgroundGrayscale", false);
+      field('section_player_config', 'fanartBackgroundOpacity').value = self.config.get("fanartBackgroundOpacity", 100);
 
       // Dynamically populate peppy meter folder options from disk
       var peppyMeterFolderField = field('section_player_config', 'peppyMeterFolder');
@@ -1686,6 +1688,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   var fanartTvApiKey = (data["fanartTvApiKey"] || "").toString().trim();
   var displayFanartBackground = data["displayFanartBackground"] === true;
   var fanartBackgroundGrayscale = data["fanartBackgroundGrayscale"] === true;
+  var fanartBackgroundOpacity = Math.min(100, Math.max(0, parseInt(data["fanartBackgroundOpacity"], 10) || 0));
 
   // Validate JSON if a value is provided
   if (spectrumOptions) {
@@ -1712,6 +1715,7 @@ ControllerStylishPlayer.prototype.configSavePlayerConfig = function (data) {
   self.config.set("fanartTvApiKey", fanartTvApiKey);
   self.config.set("displayFanartBackground", displayFanartBackground);
   self.config.set("fanartBackgroundGrayscale", fanartBackgroundGrayscale);
+  self.config.set("fanartBackgroundOpacity", fanartBackgroundOpacity);
 
   if (vizType === "peppyMeter") {
     var peppyMeterFolder = data["peppyMeterFolder"] ? (typeof data["peppyMeterFolder"] === 'object' ? data["peppyMeterFolder"].value : data["peppyMeterFolder"]) : "";

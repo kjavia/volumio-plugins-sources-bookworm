@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "배경에 팬 아트 표시",
   "DISPLAY_FANART_BACKGROUND_DESC": "활성화되면 플레이어 배경이 현재 재생 중인 아티스트에 대해 fanart.tv에서 가져온 팬 아트 이미지 사이를 회전합니다.",
   "FANART_BACKGROUND_GRAYSCALE": "팬 아트 배경 그레이스케일",
+  "FANART_BACKGROUND_OPACITY": "팬 아트 배경 불투명도",
+  "FANART_BACKGROUND_OPACITY_DESC": "팬 아트 배경 이미지의 불투명도를 조절합니다.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "활성화되면 팬 아트 배경 이미지가 그레이스케일로 표시됩니다.",
   "WALLPAPER_URL": "배경화면 URL",
   "WALLPAPER_URL_DESC": "배경화면 이미지의 URL 또는 사진을 반환하는 Unsplash API URL입니다. 여러 이미지는 슬라이드쇼로 순환됩니다.",

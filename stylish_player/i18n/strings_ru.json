@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Показывать фан-арт на фоне",
   "DISPLAY_FANART_BACKGROUND_DESC": "Когда включено, фон плеера меняется между изображениями фан-арта, полученными с fanart.tv для текущего исполнителя.",
   "FANART_BACKGROUND_GRAYSCALE": "Фан-арт в оттенках серого",
+  "FANART_BACKGROUND_OPACITY": "Непрозрачность фона Fan Art",
+  "FANART_BACKGROUND_OPACITY_DESC": "Управляет непрозрачностью фонового изображения fan art.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Когда включено, фоновое изображение фан-арта отображается в оттенках серого.",
   "WALLPAPER_URL": "URL Обоев",
   "WALLPAPER_URL_DESC": "URL изображения обоев или URL API Unsplash, возвращающий фотографии. Несколько изображений будут циклически показываться как слайд-шоу.",

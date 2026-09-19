@@ -70,6 +70,8 @@
   "DISPLAY_FANART_BACKGROUND": "Fan-Art im Hintergrund anzeigen",
   "DISPLAY_FANART_BACKGROUND_DESC": "Wenn aktiviert, wechselt der Player-Hintergrund zwischen Fan-Art-Bildern von fanart.tv für den aktuell wiedergegebenen Künstler.",
   "FANART_BACKGROUND_GRAYSCALE": "Fan-Art in Graustufen",
+  "FANART_BACKGROUND_OPACITY": "Deckkraft des Fan-Art-Hintergrunds",
+  "FANART_BACKGROUND_OPACITY_DESC": "Steuert die Deckkraft des Fan-Art-Hintergrundbilds.",
   "FANART_BACKGROUND_GRAYSCALE_DESC": "Wenn aktiviert, wird das Fan-Art-Hintergrundbild in Graustufen angezeigt.",
   "WALLPAPER_URL": "Hintergrundbild-URL",
   "WALLPAPER_URL_DESC": "URL eines Hintergrundbildes oder eine Unsplash API-URL, die Fotos zurückgibt. Mehrere Bilder werden als Diashow angezeigt.",
