@@ -98,6 +98,8 @@ ControllerStylishPlayer.prototype._migrateConfig = function () {
     { key: 'iconBtnColor',  defaultVal: '' },
     // v2.x: added useCustomLayout
     { key: 'useCustomLayout', defaultVal: false },
+    // v2.x: added fanartBackgroundOpacity
+    { key: 'fanartBackgroundOpacity', defaultVal: 100 },
   ];
   for (var i = 0; i < migrations.length; i++) {
     var m = migrations[i];
