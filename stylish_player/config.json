@@ -127,6 +127,14 @@
     "type": "string",
     "value": "random"
   },
+  "peppyNeedleSensitivity": {
+    "type": "number",
+    "value": 0.5
+  },
+  "peppySmoothness": {
+    "type": "number",
+    "value": 6
+  },
   "peppySpectrumFolder": {
     "type": "string",
     "value": ""

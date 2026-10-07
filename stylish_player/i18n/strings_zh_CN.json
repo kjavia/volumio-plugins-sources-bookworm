@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "指针灵敏度",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "仪表增益倍数（0.1–5.0）。数值越高，指针摆动越大。默认值：0.5。",
+  "PEPPY_SMOOTHNESS": "平滑度",
+  "PEPPY_SMOOTHNESS_DESC": "对1–30帧取平均值。数值越高，运动越平滑，但响应越慢。默认值：6。",
+  "PEPPY_SETTINGS_SAVED": "Peppy设置已保存。",
+  "PEPPY_INVALID_SETTINGS": "指针灵敏度必须是0.1到5.0之间的数字。平滑度必须是1到30之间的整数。",
   "PLUGIN_CONFIGURATION": "Stylish Player 配置",
   "DAEMON_SETTINGS": "服务器设置",
   "SAVE": "保存",

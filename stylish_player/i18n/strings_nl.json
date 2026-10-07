@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Naaldgevoeligheid",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Versterkingsfactor van de meter (0,1–5,0). Hogere waarden vergroten de naaldbeweging. Standaard: 0,5.",
+  "PEPPY_SMOOTHNESS": "Afvlakking",
+  "PEPPY_SMOOTHNESS_DESC": "Gemiddelde over 1–30 frames. Hogere waarden geven een vloeiendere, tragere beweging. Standaard: 6.",
+  "PEPPY_SETTINGS_SAVED": "Peppy-instellingen opgeslagen.",
+  "PEPPY_INVALID_SETTINGS": "Naaldgevoeligheid moet een getal van 0,1 tot 5,0 zijn. Afvlakking moet een geheel getal van 1 tot 30 zijn.",
   "PLUGIN_CONFIGURATION": "Stylish Player Configuratie",
   "DAEMON_SETTINGS": "Serverinstellingen",
   "SAVE": "Opslaan",

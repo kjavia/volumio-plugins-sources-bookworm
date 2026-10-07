@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Sensibilidad de la aguja",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Multiplicador de ganancia del medidor (0,1–5,0). Los valores más altos aumentan el movimiento de la aguja. Predeterminado: 0,5.",
+  "PEPPY_SMOOTHNESS": "Suavizado",
+  "PEPPY_SMOOTHNESS_DESC": "Promedio de 1–30 fotogramas. Los valores más altos producen un movimiento más suave y lento. Predeterminado: 6.",
+  "PEPPY_SETTINGS_SAVED": "Ajustes de Peppy guardados.",
+  "PEPPY_INVALID_SETTINGS": "La sensibilidad de la aguja debe ser un número entre 0,1 y 5,0. El suavizado debe ser un número entero entre 1 y 30.",
   "PLUGIN_CONFIGURATION": "Configuración de Stylish Player",
   "DAEMON_SETTINGS": "Configuración del Servidor",
   "SAVE": "Guardar",

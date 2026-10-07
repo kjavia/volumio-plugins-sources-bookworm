@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Needle Sensitivity",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Meter gain multiplier (0.1–5.0). Higher values increase needle movement. Default: 0.5.",
+  "PEPPY_SMOOTHNESS": "Smoothness",
+  "PEPPY_SMOOTHNESS_DESC": "Average over 1–30 frames. Higher values give smoother, slower movement. Default: 6.",
+  "PEPPY_SETTINGS_SAVED": "Peppy settings saved.",
+  "PEPPY_INVALID_SETTINGS": "Needle Sensitivity must be a number from 0.1 to 5.0. Smoothness must be a whole number from 1 to 30.",
   "PLUGIN_CONFIGURATION": "Stylish Player Configuration",
   "DAEMON_SETTINGS": "Server Settings",
   "SAVE": "Save",

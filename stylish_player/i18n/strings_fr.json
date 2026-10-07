@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Sensibilité de l'aiguille",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Multiplicateur de gain du vumètre (0,1–5,0). Les valeurs élevées augmentent le mouvement de l'aiguille. Par défaut : 0,5.",
+  "PEPPY_SMOOTHNESS": "Lissage",
+  "PEPPY_SMOOTHNESS_DESC": "Moyenne sur 1–30 images. Les valeurs élevées donnent un mouvement plus fluide et plus lent. Par défaut : 6.",
+  "PEPPY_SETTINGS_SAVED": "Paramètres Peppy enregistrés.",
+  "PEPPY_INVALID_SETTINGS": "La sensibilité de l'aiguille doit être un nombre de 0,1 à 5,0. Le lissage doit être un entier de 1 à 30.",
   "PLUGIN_CONFIGURATION": "Configuration de Stylish Player",
   "DAEMON_SETTINGS": "Paramètres du Serveur",
   "SAVE": "Enregistrer",

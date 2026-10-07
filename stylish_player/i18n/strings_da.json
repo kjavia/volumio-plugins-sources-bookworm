@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Nålefølsomhed",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Forstærkningsfaktor for måleren (0,1–5,0). Højere værdier øger nålens bevægelse. Standard: 0,5.",
+  "PEPPY_SMOOTHNESS": "Udjævning",
+  "PEPPY_SMOOTHNESS_DESC": "Gennemsnit over 1–30 billeder. Højere værdier giver jævnere, langsommere bevægelse. Standard: 6.",
+  "PEPPY_SETTINGS_SAVED": "Peppy-indstillinger gemt.",
+  "PEPPY_INVALID_SETTINGS": "Nålefølsomhed skal være et tal fra 0,1 til 5,0. Udjævning skal være et heltal fra 1 til 30.",
   "PLUGIN_CONFIGURATION": "Stylish Player Konfiguration",
   "DAEMON_SETTINGS": "Serverindstillinger",
   "SAVE": "Gem",

@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Viisarin herkkyys",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Mittarin vahvistuskerroin (0,1–5,0). Suuremmat arvot lisäävät viisarin liikettä. Oletus: 0,5.",
+  "PEPPY_SMOOTHNESS": "Tasoitus",
+  "PEPPY_SMOOTHNESS_DESC": "Keskiarvo 1–30 ruudusta. Suuremmat arvot tuottavat tasaisemman, hitaamman liikkeen. Oletus: 6.",
+  "PEPPY_SETTINGS_SAVED": "Peppy-asetukset tallennettu.",
+  "PEPPY_INVALID_SETTINGS": "Viisarin herkkyyden on oltava luku väliltä 0,1–5,0. Tasoituksen on oltava kokonaisluku väliltä 1–30.",
   "PLUGIN_CONFIGURATION": "Stylish Player -asetukset",
   "DAEMON_SETTINGS": "Palvelinasetukset",
   "SAVE": "Tallenna",

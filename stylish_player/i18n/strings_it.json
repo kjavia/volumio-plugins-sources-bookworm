@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Sensibilità della lancetta",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Moltiplicatore di guadagno del misuratore (0,1–5,0). Valori più alti aumentano il movimento della lancetta. Predefinito: 0,5.",
+  "PEPPY_SMOOTHNESS": "Smussamento",
+  "PEPPY_SMOOTHNESS_DESC": "Media su 1–30 fotogrammi. Valori più alti producono un movimento più fluido e lento. Predefinito: 6.",
+  "PEPPY_SETTINGS_SAVED": "Impostazioni Peppy salvate.",
+  "PEPPY_INVALID_SETTINGS": "La sensibilità della lancetta deve essere un numero da 0,1 a 5,0. Lo smussamento deve essere un numero intero da 1 a 30.",
   "PLUGIN_CONFIGURATION": "Configurazione Stylish Player",
   "DAEMON_SETTINGS": "Impostazioni Server",
   "SAVE": "Salva",

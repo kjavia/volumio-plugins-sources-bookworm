@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Zeigerempfindlichkeit",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Verstärkungsfaktor des Messgeräts (0,1–5,0). Höhere Werte erhöhen den Zeigerausschlag. Standard: 0,5.",
+  "PEPPY_SMOOTHNESS": "Glättung",
+  "PEPPY_SMOOTHNESS_DESC": "Mittelwert über 1–30 Bilder. Höhere Werte erzeugen eine ruhigere, langsamere Bewegung. Standard: 6.",
+  "PEPPY_SETTINGS_SAVED": "Peppy-Einstellungen gespeichert.",
+  "PEPPY_INVALID_SETTINGS": "Die Zeigerempfindlichkeit muss eine Zahl von 0,1 bis 5,0 sein. Die Glättung muss eine ganze Zahl von 1 bis 30 sein.",
   "PLUGIN_CONFIGURATION": "Stylish Player Konfiguration",
   "DAEMON_SETTINGS": "Servereinstellungen",
   "SAVE": "Speichern",

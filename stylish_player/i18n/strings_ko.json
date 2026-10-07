@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "바늘 감도",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "미터 게인 배율(0.1–5.0). 값이 높을수록 바늘 움직임이 커집니다. 기본값: 0.5.",
+  "PEPPY_SMOOTHNESS": "부드러움",
+  "PEPPY_SMOOTHNESS_DESC": "1–30프레임의 평균을 사용합니다. 값이 높을수록 움직임이 부드러워지지만 반응이 느려집니다. 기본값: 6.",
+  "PEPPY_SETTINGS_SAVED": "Peppy 설정이 저장되었습니다.",
+  "PEPPY_INVALID_SETTINGS": "바늘 감도는 0.1에서 5.0 사이의 숫자여야 합니다. 부드러움은 1에서 30 사이의 정수여야 합니다.",
   "PLUGIN_CONFIGURATION": "Stylish Player 구성",
   "DAEMON_SETTINGS": "서버 설정",
   "SAVE": "저장",

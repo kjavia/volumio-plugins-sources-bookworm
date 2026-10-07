@@ -13,3 +13,17 @@ Requires a screen attached ot device, or external device with screen capable of 
 <https://community.volumio.com/t/plugin-stylish-player-ui/75996>
 
 Above repository contains instructions on how to develop the plugin.
+
+### Peppy settings
+
+The **Peppy** section in Stylish Player settings contains meter and spectrum pack
+uploads and pack/model selection. Choose the active visualization separately in
+**Player Configuration**.
+
+- **Needle Sensitivity** sets the meter gain multiplier from 0.1 to 5.0 (default
+  0.5). Higher values increase needle movement; the output is capped at full scale.
+- **Smoothness** sets the averaging window from 1 to 30 frames (default 6).
+  Higher values produce smoother but slower movement. A value of 1 disables averaging.
+
+Both controls apply to all Peppy Meter views and are saved on the server. They do
+not change Peppy Spectrum behavior.

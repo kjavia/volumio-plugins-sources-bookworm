@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "針の感度",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "メーターのゲイン倍率（0.1～5.0）。値を大きくすると針の動きが大きくなります。既定値：0.5。",
+  "PEPPY_SMOOTHNESS": "滑らかさ",
+  "PEPPY_SMOOTHNESS_DESC": "1～30フレームの平均を取ります。値を大きくすると動きが滑らかになりますが、応答が遅くなります。既定値：6。",
+  "PEPPY_SETTINGS_SAVED": "Peppyの設定を保存しました。",
+  "PEPPY_INVALID_SETTINGS": "針の感度は0.1～5.0の数値、滑らかさは1～30の整数で指定してください。",
   "PLUGIN_CONFIGURATION": "Stylish Player 設定",
   "DAEMON_SETTINGS": "サーバー設定",
   "SAVE": "保存",

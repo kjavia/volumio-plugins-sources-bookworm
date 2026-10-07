@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Độ nhạy kim",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Hệ số khuếch đại của đồng hồ (0,1–5,0). Giá trị cao hơn làm kim chuyển động nhiều hơn. Mặc định: 0,5.",
+  "PEPPY_SMOOTHNESS": "Độ mượt",
+  "PEPPY_SMOOTHNESS_DESC": "Lấy trung bình trên 1–30 khung hình. Giá trị cao hơn tạo chuyển động mượt hơn nhưng chậm hơn. Mặc định: 6.",
+  "PEPPY_SETTINGS_SAVED": "Đã lưu cài đặt Peppy.",
+  "PEPPY_INVALID_SETTINGS": "Độ nhạy kim phải là số từ 0,1 đến 5,0. Độ mượt phải là số nguyên từ 1 đến 30.",
   "PLUGIN_CONFIGURATION": "Cấu hình Stylish Player",
   "DAEMON_SETTINGS": "Cài đặt Máy chủ",
   "SAVE": "Lưu",

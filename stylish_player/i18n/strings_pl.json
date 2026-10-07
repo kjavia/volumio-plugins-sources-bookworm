@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Czułość wskazówki",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Mnożnik wzmocnienia miernika (0,1–5,0). Wyższe wartości zwiększają ruch wskazówki. Domyślnie: 0,5.",
+  "PEPPY_SMOOTHNESS": "Wygładzanie",
+  "PEPPY_SMOOTHNESS_DESC": "Średnia z 1–30 klatek. Wyższe wartości dają płynniejszy, wolniejszy ruch. Domyślnie: 6.",
+  "PEPPY_SETTINGS_SAVED": "Ustawienia Peppy zapisane.",
+  "PEPPY_INVALID_SETTINGS": "Czułość wskazówki musi być liczbą od 0,1 do 5,0. Wygładzanie musi być liczbą całkowitą od 1 do 30.",
   "PLUGIN_CONFIGURATION": "Konfiguracja Stylish Player",
   "DAEMON_SETTINGS": "Ustawienia Serwera",
   "SAVE": "Zapisz",

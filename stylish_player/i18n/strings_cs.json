@@ -1,4 +1,11 @@
 {
+  "PEPPY": "Peppy",
+  "PEPPY_NEEDLE_SENSITIVITY": "Citlivost ručičky",
+  "PEPPY_NEEDLE_SENSITIVITY_DESC": "Násobitel zesílení měřidla (0,1–5,0). Vyšší hodnoty zvětšují pohyb ručičky. Výchozí: 0,5.",
+  "PEPPY_SMOOTHNESS": "Vyhlazení",
+  "PEPPY_SMOOTHNESS_DESC": "Průměrování přes 1–30 snímků. Vyšší hodnoty znamenají plynulejší, pomalejší pohyb. Výchozí: 6.",
+  "PEPPY_SETTINGS_SAVED": "Nastavení Peppy uloženo.",
+  "PEPPY_INVALID_SETTINGS": "Citlivost ručičky musí být číslo od 0,1 do 5,0. Vyhlazení musí být celé číslo od 1 do 30.",
   "PLUGIN_CONFIGURATION": "Konfigurace Stylish Player",
   "DAEMON_SETTINGS": "Nastavení serveru",
   "SAVE": "Uložit",
