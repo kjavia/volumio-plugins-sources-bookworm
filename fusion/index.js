@@ -1,5 +1,5 @@
 /*--------------------
-// FusionDsp plugin for volumio 4. By balbuze August 2026
+// FusionDsp plugin for volumio 4. By balbuze September 2026
 Camilladsp v4.1.3
 contribution : Nerd, Paolo Sabatino, squadgazzz
 Multi Dsp features
@@ -121,7 +121,9 @@ FusionDsp.prototype.onStart = function () {
     self.hwinfo();
     self.purecamillagui();
     self.getIP();
-    self.startPeqGraphServer();
+    if ((self.config.get('selectedsp') === 'PEQ') || (self.config.get('selectedsp') === 'EQ15') || (self.config.get('selectedsp') === '2XEQ15')) {
+      self.startPeqGraphServer();
+    }
     self.volumioState();
     self.reportFusionEnabled();
     self.checksamplerate();
@@ -782,7 +784,7 @@ function configureConvfirSection(self, uiconf) {
     id: 'leftfilter',
     element: 'select',
     label: self.commandRouter.getI18nString('LEFT_FILTER') || 'Left Filter',
-    doc: self.commandRouter.getI18nString('DOC_LEFT_FILTER') || 'Select left channel convolution filter',
+    doc: self.commandRouter.getI18nString('DOC_LFILTER') || 'Select left channel convolution filter',
     value: { value: leftFilterValue, label: leftFilterLabel },
     options: []
   });
@@ -805,7 +807,7 @@ function configureConvfirSection(self, uiconf) {
     id: 'rightfilter',
     element: 'select',
     label: self.commandRouter.getI18nString('RIGHT_FILTER') || 'Right Filter',
-    doc: self.commandRouter.getI18nString('DOC_RIGHT_FILTER') || 'Select right channel convolution filter',
+    doc: self.commandRouter.getI18nString('DOC_RFILTER') || 'Select right channel convolution filter',
     value: { value: rightFilterValue, label: rightFilterLabel },
     options: []
   });
@@ -1001,7 +1003,7 @@ function configureDelaySettings(self, uiconf) {
   const delayControls = manualdelay ? [
     { id: 'speakerdistance', element: 'button', label: self.commandRouter.getI18nString('DELAY_AUTO'), doc: self.commandRouter.getI18nString('DELAY_AUTO_DOC'), onClick: { type: 'plugin', endpoint: 'audio_interface/fusiondsp', method: 'speakerdistance', data: [] }, visibleIf: { field: 'showeq', value: true } },
     { id: 'delayscope', element: 'select', doc: self.commandRouter.getI18nString('DELAY_SCOPE_DOC'), label: self.commandRouter.getI18nString('DELAY_SCOPE'), value: { value: self.config.get('delayscope'), label: self.config.get('delayscope') }, options: [{ value: 'None', label: 'None' }, { value: 'L', label: 'L' }, { value: 'R', label: 'R' }, { value: 'L+R', label: 'L+R' }], visibleIf: { field: 'showeq', value: true } },
-    { id: 'delay', element: 'input', type: 'number', label: self.commandRouter.getI18nString('DELAY_VALUE'), doc: self.commandRouter.getI18nString('DELAY_VALUE_DOC'), attributes: [{ placeholder: '0ms' }, { maxlength: 4 }, { min: 0 }, { max: 1000.1 }, { step: 0.1 }], value: self.config.get('delay'), visibleIf: { field: 'showeq', value: true } }
+    { id: 'delay', element: 'input', type: 'number', label: self.commandRouter.getI18nString('DELAY_VALUE'), doc: self.commandRouter.getI18nString('DELAY_VALUE_DOC'), attributes: [{ placeholder: '0ms' }, { maxlength: 4 }, { min: 0 }, { max: 1000.1 }, { step: 1 }], value: self.config.get('delay'), visibleIf: { field: 'showeq', value: true } }
   ] : [
     { id: 'manualdelay', element: 'button', label: self.commandRouter.getI18nString('DELAY_MANUAL'), doc: self.commandRouter.getI18nString('DELAY_MANUAL_DOC'), onClick: { type: 'plugin', endpoint: 'audio_interface/fusiondsp', method: 'manualdelay', data: [] }, visibleIf: { field: 'showeq', value: true } },
     { id: 'ldistance', element: 'input', type: 'number', label: self.commandRouter.getI18nString('DELAY_LEFT_SPEAKER_DIST'), doc: self.commandRouter.getI18nString('DELAY_LEFT_SPEAKER_DIST_DOC'), attributes: [{ placeholder: '0 centimeter' }, { maxlength: 5 }, { min: 0 }, { step: 1 }], value: self.config.get('ldistance'), visibleIf: { field: 'showeq', value: true } },
@@ -1053,7 +1055,7 @@ function configureFinalSettings(self, uiconf) {
     value: self.config.get('showeq')
   });
 
-  const saveData = ['autoatt', 'leftlevel', 'rightlevel', 'crossfeed','crosstalkstrength', 'monooutput', 'muteleft', 'muteright', 'permutchannel', 'showeq'];
+  const saveData = ['autoatt', 'leftlevel', 'rightlevel', 'crossfeed', 'crosstalkstrength', 'monooutput', 'muteleft', 'muteright', 'permutchannel', 'showeq'];
   if (self.config.get('showloudness')) saveData.push('loudness', 'loudnessthreshold', 'loudnessstrength');
   uiconf.sections[1].saveButton.data.push(...saveData);
 }
@@ -1209,9 +1211,10 @@ function configureTools(self, uiconf) {
 
 
 function configureVeryAdvSet(self, uiconf) {
-  self.configManager.setUIConfigParam(uiconf, 'sections[12].content[0].value.value', self.config.get('chunksize'));
-  self.configManager.setUIConfigParam(uiconf, 'sections[12].content[0].value.label', self.config.get('chunksize'));
-  ['128','256','512','1024', '2048', '3200','4096','4800', '9600'].forEach(item => {
+  const chunksizeValue = self.config.get('chunksizeauto') ? 'AUTO' : self.config.get('chunksize');
+  self.configManager.setUIConfigParam(uiconf, 'sections[12].content[0].value.value', chunksizeValue);
+  self.configManager.setUIConfigParam(uiconf, 'sections[12].content[0].value.label', chunksizeValue);
+  ['AUTO', '128', '256', '512', '1024', '2048', '3200', '4096', '4800', '9600'].forEach(item => {
     self.configManager.pushUIConfigParam(uiconf, 'sections[12].content[0].options', { value: item, label: item });
   });
 }
@@ -1293,14 +1296,22 @@ FusionDsp.prototype.choosedsp = function (data) {
     self.purecamillagui()
   }
 
+  if (selectedsp == 'PEQ' || selectedsp == 'EQ15' || selectedsp == '2XEQ15') {
+    self.startPeqGraphServer();
+    self.logger.info(logPrefix + ' Starting PEQ Graph server for PEQ or EQ15 or 2XEQ15');
+  } else {
+    self.stopPeqGraphServer();
+    self.logger.info(logPrefix + ' Stoping PEQ Graph server for PEQ or EQ15 or 2XEQ15');
+  }
   self.config.set('effect', true)
   self.config.set('selectedsp', selectedsp)
   // Clear bypass state when switching modes to prevent stale bypass in the new mode
   self.config.set('eqbypass', false)
-
   setTimeout(function () {
+    self.configureVeryAdvSet()
     self.createCamilladspfile()
-  }, 100);
+  }, 500);
+
   self.logger.info(logPrefix + ' Selected DSP type is : ' + selectedsp);
 
   self.refreshUI();
@@ -1340,14 +1351,27 @@ FusionDsp.prototype.purecamillagui = function () {
 
 FusionDsp.prototype.configureVeryAdvSet = function (data) {
   const self = this;
-  var chunksize = data['chunksize'].value
+  var selectedsp = self.config.get('selectedsp');
+  var chunksizeC = data && data['chunksize'] ? data['chunksize'].value : (self.config.get('chunksizeauto') ? 'AUTO' : self.config.get('chunksize'));
+  var chunksize;
+  if (chunksizeC == 'AUTO') {
+    if (selectedsp !== 'convfir') {
+      chunksize = 256;
+    }
+    else {
+      chunksize = 4800;
+    }
+  }
+  else {
+    chunksize = chunksizeC;
+  }
   self.config.set('chunksize', chunksize);
-
+  self.config.set('chunksizeauto', chunksizeC == 'AUTO');
   setTimeout(function () {
     self.createCamilladspfile()
   }, 100);
   self.logger.info(logPrefix + ' Chunksise set to ' + chunksize);
-  self.commandRouter.pushToastMessage('success', 'Chunksise set to ' + chunksize);
+  self.commandRouter.pushToastMessage('success', 'Chunksise set to ' + chunksizeC);
 
   self.refreshUI();
 };
@@ -2428,21 +2452,45 @@ FusionDsp.prototype.getAdditionalConf = function (type, controller, data) {
 }
 // Plugin methods -----------------------------------------------------------------------------
 //------------Here we define a function to send a command to CamillaDsp through websocket---------------------
-FusionDsp.prototype.sendCommandToCamilla = function () {
+FusionDsp.prototype.sendCommandToCamilla = function (callback) {
   const self = this;
-  // const url = 'ws://localhost:9876';
   const commands = {
     reload: '"Reload"'
   };
 
-  // Close existing connection if not open before creating a new one
-  if (this.reloadConnection) {
-    if (this.reloadConnection.readyState === WebSocket.OPEN) {
-      // Connection is open, just send the reload command
-      this.reloadConnection.send(commands.reload);
-      return;
-    } else {
-      // Connection exists but is not open (closing, closed, or connecting) - clean up
+  return new Promise((resolve) => {
+    let finished = false;
+
+    const finish = (error) => {
+      if (finished) return;
+      finished = true;
+
+      if (callback) {
+        callback(error || null);
+      }
+
+      if (error) {
+        self.logger.warn(logPrefix + ' CamillaDSP reload failed; continuing without rejecting the Promise to avoid an unhandled rejection: ' + (error && error.message ? error.message : String(error)));
+      }
+
+      resolve();
+    };
+
+    if (this.reloadConnection) {
+      if (this.reloadConnection.readyState === WebSocket.OPEN) {
+        this.reloadConnection.send(commands.reload);
+        this.reloadConnection.onmessage = (event) => {
+          self.logger.info(logPrefix + ' Reload response: ' + Buffer.from(event.data).toString());
+          finish();
+        };
+        this.reloadConnection.onerror = (error) => {
+          self.logger.error(logPrefix + ` Reload WebSocket error: ${error}`);
+          self.reloadConnection = null;
+          finish(error);
+        };
+        return;
+      }
+
       try {
         this.reloadConnection.close();
       } catch (e) {
@@ -2450,47 +2498,38 @@ FusionDsp.prototype.sendCommandToCamilla = function () {
       }
       this.reloadConnection = null;
     }
-  }
 
-  // Create a new connection
-  this.reloadConnection = new WebSocket(url);
-  setupReloadConnection(this.reloadConnection);
+    this.reloadConnection = new WebSocket(url);
+    setupReloadConnection(this.reloadConnection);
 
-  function setupReloadConnection(connection) {
-    connection.onopen = () => {
-      //   self.logger.info(logPrefix + 'Reload WebSocket connection opened');
-      connection.send(commands.reload);
-    };
+    function setupReloadConnection(connection) {
+      let reloadIssued = false;
 
-    connection.onerror = (error) => {
-      self.logger.error(logPrefix + ` Reload WebSocket error: ${error}`);
-      // Clean up on error
-      self.reloadConnection = null;
-    };
+      connection.onopen = () => {
+        reloadIssued = true;
+        connection.send(commands.reload);
+        self.logger.debug(logPrefix + ' Reload command sent to CamillaDSP');
+      };
 
-    connection.onmessage = (event) => {
-      //self.logger.info(logPrefix + 'Reload response: ' + Buffer.from(event.data).toString());
-    };
+      connection.onerror = (error) => {
+        self.logger.error(logPrefix + ` Reload WebSocket error: ${error}`);
+        self.reloadConnection = null;
+        finish(error);
+      };
 
-    connection.onclose = () => {
-      //   self.logger.info(logPrefix + 'Reload WebSocket connection closed');
-      // Clean up on close
-      self.reloadConnection = null;
-    };
-  }
+      connection.onmessage = (event) => {
+        self.logger.debug(logPrefix + ' Reload response: ' + Buffer.from(event.data).toString());
+        finish();
+      };
 
-  // Cleanup method (optional)
-  this.stopReloadConnection = () => {
-    if (this.reloadConnection) {
-      try {
-        this.reloadConnection.close();
-      } catch (e) {
-        // ignore
-      }
-      this.reloadConnection = null;
+      connection.onclose = () => {
+        self.reloadConnection = null;
+        if (!reloadIssued) {
+          finish();
+        }
+      };
     }
-    self.logger.info(logPrefix + ' Reload connection stopped');
-  };
+  });
 };
 
 FusionDsp.prototype.resetClippedSamples = function () {
@@ -2766,19 +2805,52 @@ FusionDsp.prototype.testclipping = function () {
 
   const cmd = '/usr/bin/aplay -c2 --device=volumio ' + track;
 
-  setTimeout(function () {
-    self.socket.emit('pause');
+  const setState = function () {
+    return new Promise((resolve, reject) => {
+      self.socket.emit('pause');
 
-    self.config.set('loudness', false);
-    self.config.set('monooutput', false);
-    self.config.set('crossfeed', 'None');
-    self.config.set('attenuationl', 0);
-    self.config.set('attenuationr', 0);
-    self.config.set('muteleft', false);
-    self.config.set('muteright', false);
-    self.config.set('testclipping', true)
+      self.config.set('loudness', false);
+      self.config.set('monooutput', false);
+      self.config.set('crossfeed', 'None');
+      self.config.set('attenuationl', 0);
+      self.config.set('attenuationr', 0);
+      self.config.set('muteleft', false);
+      self.config.set('muteright', false);
+      self.config.set('leftlevel', 0);
+      self.config.set('rightlevel', 0);
+      self.config.set('testclipping', true);
 
-    self.createCamilladspfile(() => {
+
+
+      try {
+      
+        new Promise((delayResolve) => setTimeout(delayResolve, 4000))
+          .then(() => self._doCreateCamilladspfile(null))
+          .then(() => resolve())
+          .catch((error) => {
+            self.logger.error(logPrefix + ' Failed to prepare CamillaDSP before clipping test: ' + error.message);
+            reject(error);
+          });
+      } catch (error) {
+        self.logger.error(logPrefix + ' Failed to prepare CamillaDSP before clipping test: ' + error.message);
+        reject(error);
+      }
+    });
+  };
+
+  // Ignore clipping entries left by a previous test run.
+  const clearClippingLog = function () {
+    try {
+      fs.truncateSync('/tmp/camilladsp.log', 0);
+    } catch (error) {
+      self.logger.warn(logPrefix + ' Could not clear clipping log: ' + error.message);
+    }
+  };
+  const launchAplay = function () {
+    self.commandRouter.pushToastMessage('info', '⏳⌛⏳⌛');
+
+    return new Promise((resolve, reject) => {
+      self.logger.info(logPrefix + ' Waiting 2s before starting clipping test tone via aplay on device=volumio');
       setTimeout(() => {
         try {
           exec(cmd, (error, stdout, stderr) => {
@@ -2791,86 +2863,117 @@ FusionDsp.prototype.testclipping = function () {
             }
             self.logger.info(logPrefix + ' aplay stdout: ' + stdout);
           });
+          self.logger.info(logPrefix + ' aplay is playing test file');
+          resolve();
         } catch (error) {
           self.logger.error(logPrefix + ' Error in clipping detection: ' + error.message);
+          reject(error);
         }
-      }, 4000);
+      }, 2000);
     });
-  }, 300);
+  };
 
-  setTimeout(function () {
-
-    let rawlog
-    try {
-      rawlog = fs.readFileSync("/tmp/camilladsp.log", "utf8");
-      var o = 0;
-      var result = (rawlog.split("\n"));
-      for (o; o < result.length; o++) {
-        if (result[o].indexOf("Clipping detected") != -1) {
-
-          let filteredMessage = result[o].replace(" dB", ",").replace("peak +", "").split(",");
-
-          let attcalculated = filteredMessage[2]
-          messageDisplayed = Number(attcalculated);
-          self.logger.info(logPrefix + ' clipping detection gives values in line ' + o + " " + messageDisplayed)
-          arr.push(messageDisplayed);
+  const getAttenuation = function () {
+    return new Promise((resolve) => {
+      let rawlog;
+      try {
+        rawlog = fs.readFileSync('/tmp/camilladsp.log', 'utf8');
+        var o = 0;
+        var result = (rawlog.split('\n'));
+        for (o; o < result.length; o++) {
+          if (result[o].indexOf('Clipping detected') != -1) {
+            let filteredMessage = result[o].replace(' dB', ',').replace('peak +', '').split(',');
+            let attcalculated = filteredMessage[2];
+            messageDisplayed = Number(attcalculated);
+            self.logger.info(logPrefix + ' clipping detection gives values in line ' + o + ' ' + messageDisplayed);
+            arr.push(messageDisplayed);
+          }
         }
+      } catch (err) {
+        self.logger.error(logPrefix + ' An error occurs while reading file');
       }
 
-    } catch (err) {
-      self.logger.error(logPrefix + ' An error occurs while reading file');
-    }
+      arr.sort((a, b) => {
+        if (a > b) return 1;
+        if (a < b) return -1;
+        return 0;
+      });
+      /*
+            if (arr.length === 0) {
+              self.logger.warn(logPrefix + ' No clipping result found in the current test log');
+              self.config.set('testclipping', false);
+              resolve();
+              return;
+            }
+      */
+      let offset = 1; // 3.8;
+      let arrreducedr = ((arr.toString().split(',')).pop());
+      arrreduced = (+arrreducedr + offset).toFixed(2);
 
-    arr.sort((a, b) => {
-      if (a > b) return 1;
-      if (a < b) return -1;
-      return 0;
+      self.config.set('attenuationl', arrreduced);
+      self.config.set('attenuationr', arrreduced);
+      self.config.set('testclipping', false);
+      self.commandRouter.pushToastMessage('success', self.commandRouter.getI18nString('AUTO_ATTENUATION_SET') + arrreduced + ' dB', self.commandRouter.getI18nString('FILTER_LENGTH') + filelength);
+      resolve();
     });
+  };
 
-    let offset = 1// 3.8;
-    let arrreducedr = ((arr.toString().split(',')).pop());
-    arrreduced = (+arrreducedr + offset).toFixed(2);
+  const restoreState = function () {
+    let ltest, rtest, cleftfilter, crightfilter, test;
 
-    self.config.set('attenuationl', arrreduced);
-    self.config.set('attenuationr', arrreduced);
-    self.config.set('testclipping', false)
-    self.commandRouter.pushToastMessage('info', self.commandRouter.getI18nString('FILTER_LENGTH') + filelength, self.commandRouter.getI18nString('AUTO_ATTENUATION_SET') + arrreduced + ' dB');
-
-    let ltest, rtest, cleftfilter, crightfilter, test
-
-    cleftfilter = filterfolder + self.config.get('leftfilter')
-    crightfilter = filterfolder + self.config.get('rightfilter')
+    cleftfilter = filterfolder + self.config.get('leftfilter');
+    crightfilter = filterfolder + self.config.get('rightfilter');
 
     ltest = ('Eq1' + '|' + 'Conv' + '|L' + cleftfilter + '|' + arrreduced + '|');
     rtest = ('Eq2' + '|' + 'Conv' + '|R' + crightfilter + '|' + arrreduced + '|');
-    test = ltest + rtest
+    test = ltest + rtest;
     self.config.set('mergedeq', test);
-    self.config.set('savedmergedeqfir', test)
-    // Read the saved state4Clipping object
-    let restoreState4Clipping = self.config.get("state4Clipping");
+    self.config.set('savedmergedeqfir', test);
 
-    const state = restoreState4Clipping
+    let restoreState4Clipping = self.config.get('state4Clipping');
+    const state = restoreState4Clipping;
 
-    self.config.set('crossfeed', state.crossfeed || "None");
+    self.config.set('crossfeed', state.crossfeed || 'None');
     self.config.set('monooutput', state.monooutput || false);
     self.config.set('loudness', state.loudness || false);
     self.config.set('leftlevel', state.leftlevel || 0);
     self.config.set('rightlevel', state.rightlevel || 0);
     self.config.set('delay', state.delay || 0);
-    self.config.set('delayscope', state.delayscope || "None");
+    self.config.set('delayscope', state.delayscope || 'None');
     self.config.set('muteleft', state.muteleft || false);
     self.config.set('muteright', state.muteright || false);
     self.config.set('ldistance', state.ldistance || 0);
     self.config.set('rdistance', state.rdistance || 0);
     self.config.set('permutchannel', state.permutchannel || false);
+
+    self.config.set('muteleft', false);
+    self.config.set('muteright', false);
+    self.config.set('leftlevel', state.leftlevel || 0);
+    self.config.set('rightlevel', state.rightlevel || 0);
     self.logger.info(logPrefix + ' Restored State4Clipping: ' + JSON.stringify(restoreState4Clipping, null, 2));
 
-    self.refreshUI();
-    self.createCamilladspfile();
+    // self.refreshUI();
+    //  self.createCamilladspfile();
+    defer.resolve();
+  };
 
-  }, 9110);
+  setState()
+    .then(() => launchAplay())
+    .then(() => new Promise((resolve) => setTimeout(resolve, 2000)))
+    .then(() => getAttenuation())
+    .then(() => restoreState())
+    .then(() => clearClippingLog())
+
+    .then(() => {
+      self.createCamilladspfile();
+      self.refreshUI();
+
+    })
+    .catch((error) => {
+      self.logger.error(logPrefix + ' Clipping test failed: ' + error.message);
+      defer.reject(error);
+    });
   return defer.promise;
-
 };
 
 FusionDsp.prototype.dfiltertype = function (data) {
@@ -3045,9 +3148,8 @@ FusionDsp.prototype.checksamplerate = function () {
 
 };
 
-let getCamillaFiltersConfig = function (plugin, selectedsp, chunksize, hcurrentsamplerate) {
-
-  let self = plugin;
+FusionDsp.prototype.getCamillaFiltersConfig = function (selectedsp, chunksize, hcurrentsamplerate) {
+  const self = this;
 
   var pipeliner, pipelines, pipelinelr, pipelinerr = '';
   var eqo, eqc, eqv, eqa
@@ -3098,6 +3200,8 @@ let getCamillaFiltersConfig = function (plugin, selectedsp, chunksize, hcurrents
 
   //----compose output----
   if (testclipping) {
+    self.logger.info(logPrefix + ' Clipping test mode enabled, output will be sent to /dev/null in camilla');
+
     var composeout = ''
     composeout += '  playback:' + '\n';
     composeout += '    type: File' + '\n';
@@ -3106,6 +3210,8 @@ let getCamillaFiltersConfig = function (plugin, selectedsp, chunksize, hcurrents
     composeout += '    format: S32_LE' + '\n';
 
   } else if (testclipping == false) {
+  //  self.logger.info(logPrefix + ' Clipping test mode disabled, output will be sent to postDsp in camilla');
+
     var composeout = ''
     composeout += '  playback:' + '\n';
     composeout += '    type: Alsa' + '\n';
@@ -4030,8 +4136,8 @@ let getCamillaFiltersConfig = function (plugin, selectedsp, chunksize, hcurrents
     let cattenuation = 3.1;
     let cdelay = 0.075;
     if (width === 1) {
-      cattenuation = 3;
-      cdelay = 0.08;
+      cattenuation = 3.05;
+      cdelay = 0.082;
     } else if (width === 2) {
       cattenuation = 3;
       cdelay = 0.095;
@@ -4309,12 +4415,12 @@ let getCamillaFiltersConfig = function (plugin, selectedsp, chunksize, hcurrents
     ;
 
   self.logger.debug(logPrefix + result);
-
   return strConfig;
 
 }
 
-let getCamillaPureGuiConfig = function (plugin, chunksize, samplerate) {
+FusionDsp.prototype.getCamillaPureGuiConfig = function (chunksize, samplerate) {
+  const self = this;
 
   let strConfig;
 
@@ -4356,7 +4462,7 @@ let getCamillaPureGuiConfig = function (plugin, chunksize, samplerate) {
 
   } catch (err) {
 
-    plugin.logging.warning("camilladsp.yml configuration does not exist, providing bare default from camilladsp-pure.conf.yml");
+    self.logger.warning("camilladsp.yml configuration does not exist, providing bare default from camilladsp-pure.conf.yml");
     strConfig = fs.readFileSync(__dirname + "/camilladsp-pure.conf.yml", 'utf8');
 
     strConfig = strConfig.replace("${chunksize}", chunksize)
@@ -4398,24 +4504,27 @@ FusionDsp.prototype._doCreateCamilladspfile = function (callback) {
 
     if (selectedsp === "purecgui") {
 
-      strCamillaConf = getCamillaPureGuiConfig(self, chunksize, hcurrentsamplerate);
+      strCamillaConf = self.getCamillaPureGuiConfig(chunksize, hcurrentsamplerate);
 
     } else {
 
-      strCamillaConf = getCamillaFiltersConfig(self, selectedsp, chunksize, hcurrentsamplerate);
+      strCamillaConf = self.getCamillaFiltersConfig(selectedsp, chunksize, hcurrentsamplerate);
 
     }
 
     fs.writeFileSync("/data/configuration/audio_interface/fusiondsp/camilladsp.yml", strCamillaConf, 'utf8');
 
-    if (callback)
-      callback();
-    else
-      self.sendCommandToCamilla();
+    if (callback) {
+      callback(strCamillaConf);
+      return Promise.resolve(strCamillaConf);
+    }
+
+    return self.sendCommandToCamilla().then(() => strCamillaConf);
 
   } catch (err) {
 
     self.logger.error(err);
+    return Promise.reject(err);
 
   }
 };
@@ -4448,8 +4557,7 @@ FusionDsp.prototype.saveparameq = function (data, obj) {
   const self = this;
   let defer = libQ.defer();
   let test = '';
-  let selectedsp = self.config.get('selectedsp')
-
+  const selectedsp = self.config.get('selectedsp');
 
   if (selectedsp == 'PEQ') {
     var nbreq = self.config.get('nbreq')
@@ -4797,14 +4905,16 @@ FusionDsp.prototype.saveparameq = function (data, obj) {
         self.config.set("state4Clipping", state4Clipping)
         self.logger.info(logPrefix + ' State4Clipping saved: ' + JSON.stringify(state4Clipping, null, 2));
         self.commandRouter.pushToastMessage('info', 'Clipping detection in progress. Please wait!');
+        setTimeout(function () {
+          self.testclipping();
 
-        self.testclipping()
+        }, 10);
 
       }
       setTimeout(function () {
 
         self.areSampleswitch();
-      }, 1500);
+      }, 3500);
 
       let ltest, rtest, cleftfilter, crightfilter
 
@@ -4839,7 +4949,8 @@ FusionDsp.prototype.saveparameq = function (data, obj) {
     if (delaymode == true) {
 
       var value = data['delay']
-      if ((Number.parseFloat(value)) && (value >= 0 && value < 1000)) {
+      const num = Number.parseFloat(value);
+      if (!Number.isNaN(num) && num >= 0 && num < 1000) {
         self.config.set('delay', data["delay"]);
         self.config.set('delayscope', (data["delayscope"].value));
 
@@ -4948,6 +5059,7 @@ FusionDsp.prototype.saveparameq = function (data, obj) {
   self.config.set('importeq', self.commandRouter.getI18nString('CHOOSE_HEADPHONE'));
   self.commandRouter.pushToastMessage('info', self.commandRouter.getI18nString('VALUE_SAVED_APPLIED'))
 
+  // self.testclipping();
   setTimeout(function () {
     self.refreshUI();
     self.createCamilladspfile();
